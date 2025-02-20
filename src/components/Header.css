@@ -243,12 +243,12 @@ body.scroll .header {
   gap: 10px;
 }
 
-@media (max-width: 390px) {
+@media (max-width: 768px) {
   /* Header principal en dispositivos móviles */
   .header {
     padding-top: 5px; /* Reduce el espacio superior para ajustarse a la pantalla */
     flex-direction: column; /* Cambia a columna para apilar elementos */
-    align-items: flex-start; /* Alinea los elementos hacia la izquierda */
+    align-items: center; /* Alinea los elementos hacia la izquierda */
     padding: 10px; /* Agrega espacio interno */
   }
 
