@@ -14,7 +14,7 @@ Bienvenido a **Tienda de Móviles Blayne**! 🏢📱 Una tienda online simple pe
 
 ## 🌐 Demo
 
-🔗 [Ver la tienda online en Vercel ](https://tu-enlace-vercel.com)
+🔗 [Ver la tienda online en Vercel ](https://tienda-moviles-react.vercel.app/)
 
 ---
 
@@ -53,7 +53,6 @@ La aplicación se abrirá en `http://localhost:3000/` en tu navegador.
 - 🔄 **Filtrado por marcas** (Samsung, iPhone, Xiaomi, OnePlus...)
 - 🌎 **Diseño responsivo**
 - 🎯 **Rápida y sencilla**
-
 
 ---
 
