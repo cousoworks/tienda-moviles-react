@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './Header.css';
 import logoGif from '../assets/logo.gif';  // Importa el GIF del logo
+import separadorImg from '../assets/separador.png';
 
 const Header = ({ setSelectedBrand, setSortedProducts }) => {
   const [priceOrder, setPriceOrder] = useState('desc'); // Orden de precio
   const [sizeOrder, setSizeOrder] = useState('desc'); // Orden de tamaño
   const [screenOrder, setScreenOrder] = useState('desc'); // Orden de pantalla
+  const [menuOpen, setMenuOpen] = useState(false); // Estado para abrir/cerrar el menú desplegable
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,29 +64,46 @@ const Header = ({ setSelectedBrand, setSortedProducts }) => {
     );
   };
 
+  // Función para manejar la apertura y cierre del menú
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <>
       <header className="header">
-  <div className="logo">
-    <img src={logoGif} alt="Logo" /> {/* Muestra el logo GIF */}
-  </div>
-  <nav className="navbar">
-    <button onClick={() => setSelectedBrand('')} className="nav-link">TODOS</button>
-    <button onClick={() => setSelectedBrand('Samsung')} className="nav-link">SAMSUNG</button>
-    <button onClick={() => setSelectedBrand('Apple')} className="nav-link">IPHONE</button>
-    <button onClick={() => setSelectedBrand('Xiaomi')} className="nav-link">XIAOMI</button>
-    <button onClick={() => setSelectedBrand('OnePlus')} className="nav-link">ONEPLUS</button>
+        <div className="logo">
+          <img src={logoGif} alt="Logo" /> {/* Muestra el logo GIF */}
+        </div>
+        <nav className="navbar">
+          {/* Botón "MARCAS" con menú desplegable */}
+          <div className="nav-link dropdown" onClick={toggleMenu}>
+            MARCAS
+            {menuOpen && (
+              <ul className="dropdown-menu">
+                <li onClick={() => setSelectedBrand('')}>TODOS</li>
+                <li onClick={() => setSelectedBrand('Samsung')}>SAMSUNG</li>
+                <li onClick={() => setSelectedBrand('Apple')}>IPHONE</li>
+                <li onClick={() => setSelectedBrand('Xiaomi')}>XIAOMI</li>
+                <li onClick={() => setSelectedBrand('OnePlus')}>ONEPLUS</li>
+              </ul>
+            )}
+          </div>
 
-  </nav>
-</header>
+          {/* Botones fuera del menú desplegable */}
+          <button className="nav-link">NOSOTROS</button>
+          <button className="nav-link">ENVIOS</button>
+          <button className="nav-link">CARRITO</button>
+        </nav>
+      </header>
 
-<div className="sidebar">
-  <h3>Filtrar por:</h3>
-  <button onClick={sortByPrice}>Precio</button>
-  <button onClick={sortBySize}>Tamaño</button>
-  <button onClick={sortByScreenSize}>Pantalla</button>
-</div>
-
+      <div className="sidebar">
+        <img src={separadorImg} alt="Separador" className="sidebar-separator" />
+        <h3>Filtrar por:</h3>
+        <button onClick={sortByPrice}>Precio</button>
+        <button onClick={sortBySize}>Tamaño</button>
+        <button onClick={sortByScreenSize}>Pantalla</button>
+      </div>
     </>
   );
 };

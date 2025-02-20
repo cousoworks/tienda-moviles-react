@@ -36,8 +36,6 @@ body.scroll .header {
   transform: scale(1.1); /* Aumenta el tamaño del logo al pasar el ratón */
 }
 
-
-
 /* Barra lateral */
 
 .sidebar {
@@ -59,7 +57,6 @@ body.scroll .header {
   transition: transform 0.3s ease;
   opacity: 0.95;
 }
-
 
 
 /* Agranda la barra lateral al pasar el cursor */
@@ -99,6 +96,23 @@ body.scroll .header {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Menos sombra al hacer clic */
 }
 
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; } /* Reduce opacidad en el medio */
+  100% { opacity: 1; }
+}
+
+.sidebar-separator {
+  position: absolute;
+  top: 20px;
+  right: -45px;
+  width: 70px;
+  height: auto;
+  z-index: 0;
+  clip-path: inset(0 0 0 25px); /* Recorta 15px desde la izquierda */
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.5); /* Sombra en el lado derecho */
+  animation: blink 2.0s infinite ease-in-out; /* Aplica la animación */
+}
 
 
 
@@ -113,10 +127,11 @@ body.scroll .header {
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s ease;
+
 }
 
 .navbar button:hover {
-  background-color: #55555536;
+  background-color: #7dc6d367;
   transform: translateY(-3px);
 }
 
@@ -162,5 +177,56 @@ body.scroll .header {
   
 }
 
+/* Asegúrate de que los botones tengan el mismo estilo */
+.navbar .nav-link {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative; /* Necesario para el posicionamiento del menú desplegable */
+}
 
+/* Estilo del contenedor de la lista desplegable (sólo para el botón TODOS) */
+.navbar .nav-link.dropdown {
+  position: relative;
+}
+
+/* Menú desplegable */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #333;
+  color: white;
+  list-style-type: none;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  width: 200px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10; /* Asegura que el menú se muestre encima de otros elementos */
+}
+
+.dropdown-menu li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+  background-color: #444;
+}
+
+/* Asegúrate de que todos los botones en la barra de navegación estén alineados */
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+}
 
