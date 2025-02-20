@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# 📺 Tienda de Móviles Blayne
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Bienvenido a **Tienda de Móviles Blayne**! 🏢📱 Una tienda online simple pero funcional donde puedes filtrar y visualizar diferentes modelos de smartphones por marca.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🛠️ Tecnologías utilizadas
 
-### `npm start`
+- ⚡ **React.js** - Para la interfaz interactiva.
+- 📁 **JSON** - Para el almacenamiento de datos de los móviles.
+- 💡 **CSS** - Para los estilos y diseño visual.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🌐 Demo
 
-### `npm test`
+🔗 [Ver la tienda online en Vercel ](https://tu-enlace-vercel.com)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🔄 Instalación y ejecución
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 1. Clona el repositorio:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+  git clone https://github.com/tu-usuario/tienda-moviles-react.git
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 2. Entra en la carpeta del proyecto:
 
-### `npm run eject`
+```bash
+  cd tienda-moviles-react
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 3. Instala las dependencias:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+  npm install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 4. Ejecuta la aplicación en modo desarrollo:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+  npm start
+```
 
-## Learn More
+La aplicación se abrirá en `http://localhost:3000/` en tu navegador.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📖 Características
 
-### Code Splitting
+- 🔄 **Filtrado por marcas** (Samsung, iPhone, Xiaomi, OnePlus...)
+- 🌎 **Diseño responsivo**
+- 🎯 **Rápida y sencilla**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🛠️ Contribuir
 
-### Making a Progressive Web App
+Si quieres mejorar esta aplicación, siéntete libre de hacer un **fork** y enviar un **pull request**. 💪
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 💌 Contacto
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Si tienes alguna pregunta o sugerencia, puedes encontrarme en:
 
-### Deployment
+- 💻 **GitHub:** [github.com/Blayneraptor](https://github.com/Blayneraptor)
+- 📧 **Email:** [cousoworks@gmail.com](mailto:cousoworks@gmail.com)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+🌟 **Gracias por visitar la Tienda de Móviles Blayne!** 🏢📱
