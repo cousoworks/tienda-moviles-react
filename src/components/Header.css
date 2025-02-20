@@ -45,7 +45,8 @@ body.scroll .header {
 .sidebar {
   z-index: 1000;
   background-size: cover;
-  background-position: left top;
+  background-position: 100px 100px;
+
   position: fixed;
   top: 87px; /* Mueve la barra lateral hacia abajo desde la parte superior */
   left: -270px; /* Barra lateral inicialmente escondida */
@@ -73,7 +74,7 @@ body.scroll .header {
 
 /* Botones y estilo dentro de la barra lateral */
 .sidebar h3 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin-bottom: 10px;
   text-align: right; /* Alinea el texto de los títulos hacia la derecha */
 }
@@ -84,16 +85,25 @@ body.scroll .header {
   color: white;
   font-size: 1rem;
   font-weight: 500;
-  padding: 8px;
-  border-radius: 5px;
+  padding: 6px; /* Mayor tamaño para un efecto más estilizado */
+  border-radius: 8px; /* Bordes más redondeados */
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  text-align: right; /* Alinea el texto de los botones hacia la derecha */
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Añadimos transformaciones y sombras */
+  text-align: center; /* Centra el texto */
+  display: inline-block;
 }
 
 .sidebar button:hover {
-  background-color: #55555536;
+  background-color: rgba(85, 85, 85, 0.22); /* Color de fondo más sutil al hacer hover */
+  transform: scale(1.1); /* Efecto de zoom */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil al hacer hover */
 }
+
+.sidebar button:active {
+  transform: scale(1); /* Al hacer clic, el zoom se reduce */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Menos sombra al hacer clic */
+}
+
 
 
 
@@ -138,3 +148,13 @@ body.scroll .header {
   width: 100%;
   left: 0;
 }
+
+.logo img {
+  width: 250px; /* Ajusta el tamaño del logo */
+  height: auto; /* Mantiene la relación de aspecto */
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
+
+

@@ -5,7 +5,9 @@
     "brand": "Samsung",
     "image": "galaxyS24Ultra.png",
     "description": "El modelo más avanzado de Samsung con cámara de 200 MP y pantalla Dynamic AMOLED 2X.",
-    "price": 1099
+    "price": 1099,
+    "size": "163.3 x 77.9 x 8.9 mm",
+    "screenSize": 6.8
   },
   {
     "id": 2,
@@ -13,7 +15,9 @@
     "brand": "Samsung",
     "image": "galaxyS24Plus.png",
     "description": "Versión más compacta del S24 Ultra, con características premium y cámara avanzada.",
-    "price": 999
+    "price": 999,
+    "size": "157.8 x 75.9 x 7.6 mm",
+    "screenSize": 6.6
   },
   {
     "id": 3,
@@ -21,7 +25,9 @@
     "brand": "Samsung",
     "image": "galaxyS24.png",
     "description": "El modelo base de la serie S24, con rendimiento premium y una pantalla excelente.",
-    "price": 899
+    "price": 899,
+    "size": "151.5 x 69.6 x 7.6 mm",
+    "screenSize": 6.1
   },
   {
     "id": 4,
@@ -29,7 +35,9 @@
     "brand": "Samsung",
     "image": "galaxyS23Ultra.png",
     "description": "Con una cámara de 200 MP y pantalla Dynamic AMOLED 2X, sigue siendo uno de los mejores modelos de Samsung.",
-    "price": 999
+    "price": 999,
+    "size": "163.4 x 78.1 x 8.9 mm",
+    "screenSize": 6.8
   },
   {
     "id": 5,
@@ -37,7 +45,9 @@
     "brand": "Samsung",
     "image": "galaxyS23Plus.png",
     "description": "Con una pantalla de 6.6 pulgadas y grandes características, es una excelente opción dentro de la gama S23.",
-    "price": 899
+    "price": 899,
+    "size": "157.8 x 75.6 x 7.6 mm",
+    "screenSize": 6.6
   },
   {
     "id": 6,
@@ -45,7 +55,9 @@
     "brand": "Apple",
     "image": "iphone16ProMax.png",
     "description": "El modelo más avanzado de iPhone con chip A18 Pro y cámara mejorada.",
-    "price": 1199
+    "price": 1199,
+    "size": "160.8 x 78.1 x 7.5 mm",
+    "screenSize": 6.7
   },
   {
     "id": 7,
@@ -53,7 +65,9 @@
     "brand": "Apple",
     "image": "iphone16Pro.png",
     "description": "Versión más compacta del Pro Max, con el mismo rendimiento y cámara avanzada.",
-    "price": 1099
+    "price": 1099,
+    "size": "147.5 x 71.5 x 7.4 mm",
+    "screenSize": 6.1
   },
   {
     "id": 8,
@@ -61,7 +75,9 @@
     "brand": "Apple",
     "image": "iphone15ProMax.png",
     "description": "Con el chip A17 Pro, cámara avanzada y pantalla Super Retina, sigue siendo una opción top.",
-    "price": 1099
+    "price": 1099,
+    "size": "159.8 x 76.7 x 8.25 mm",
+    "screenSize": 6.7
   },
   {
     "id": 9,
@@ -69,16 +85,19 @@
     "brand": "Apple",
     "image": "iphone15Pro.png",
     "description": "El modelo más compacto de la serie 15, con el rendimiento del A17 Pro.",
-    "price": 999
+    "price": 999,
+    "size": "146.6 x 70.6 x 8.25 mm",
+    "screenSize": 6.1
   },
-
   {
     "id": 10,
     "name": "Xiaomi 14 Ultra",
     "brand": "Xiaomi",
     "image": "xiaomi14Ultra.png",
     "description": "Con características premium y una cámara de gran calidad.",
-    "price": 899
+    "price": 899,
+    "size": "163.7 x 74.6 x 8.8 mm",
+    "screenSize": 6.73
   },
   {
     "id": 11,
@@ -86,7 +105,9 @@
     "brand": "Xiaomi",
     "image": "xiaomi14Pro.png",
     "description": "Un modelo con características avanzadas y gran rendimiento.",
-    "price": 799
+    "price": 799,
+    "size": "161.6 x 74.9 x 8.7 mm",
+    "screenSize": 6.73
   },
   {
     "id": 12,
@@ -94,7 +115,9 @@
     "brand": "Xiaomi",
     "image": "xiaomi13.png",
     "description": "Con cámara Leica y rendimiento superior, uno de los mejores modelos de Xiaomi.",
-    "price": 849
+    "price": 849,
+    "size": "152.8 x 71.5 x 8.8 mm",
+    "screenSize": 6.36
   },
   {
     "id": 13,
@@ -102,7 +125,9 @@
     "brand": "Xiaomi",
     "image": "xiaomi13Pro.png",
     "description": "Un modelo de gama alta con cámara avanzada y gran rendimiento.",
-    "price": 799
+    "price": 799,
+    "size": "162.9 x 74.6 x 8.8 mm",
+    "screenSize": 6.73
   },
   {
     "id": 14,
@@ -110,7 +135,9 @@
     "brand": "OnePlus",
     "image": "oneplus12.png",
     "description": "Con Snapdragon 8 Gen 3 y carga rápida de 80 W, es el modelo más avanzado de OnePlus.",
-    "price": 999
+    "price": 999,
+    "size": "163.2 x 74.1 x 8.9 mm",
+    "screenSize": 6.7
   },
   {
     "id": 15,
@@ -118,7 +145,9 @@
     "brand": "OnePlus",
     "image": "oneplus12Pro.png",
     "description": "Mejorado con sistema de cámaras avanzado y pantalla de calidad superior.",
-    "price": 949
+    "price": 949,
+    "size": "163.3 x 74.8 x 8.7 mm",
+    "screenSize": 6.7
   },
   {
     "id": 16,
@@ -126,7 +155,9 @@
     "brand": "OnePlus",
     "image": "oneplus11.png",
     "description": "Con Snapdragon 8 Gen 2, carga rápida de 100 W y pantalla AMOLED de 120 Hz.",
-    "price": 899
+    "price": 899,
+    "size": "163.1 x 74.1 x 8.5 mm",
+    "screenSize": 6.7
   },
   {
     "id": 17,
@@ -134,6 +165,8 @@
     "brand": "OnePlus",
     "image": "oneplus11R.png",
     "description": "Una opción premium con características excepcionales a un precio más asequible.",
-    "price": 799
+    "price": 799,
+    "size": "164.8 x 75.9 x 8.7 mm",
+    "screenSize": 6.74
   }
 ]

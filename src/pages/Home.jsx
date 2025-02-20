@@ -1,24 +1,25 @@
 import React from 'react';
 import './Home.css';
-import mobilesData from '../mobiles.json'; 
 
-
-const Home = ({ selectedBrand }) => {
+const Home = ({ selectedBrand, products }) => {
   // Filtrar los productos según la marca seleccionada
   const filteredProducts = selectedBrand
-    ? mobilesData.filter((product) => product.brand === selectedBrand)
-    : mobilesData;
+    ? products.filter((product) => product.brand === selectedBrand)
+    : products;
 
   return (
-    
-      <div className="product-grid">
-        {filteredProducts.length === 0 ? (
-          <p>No se encontraron productos para esta marca.</p>
-        ) : (
-          filteredProducts.map((product) => (
+    <div className="product-grid">
+      {filteredProducts.length === 0 ? (
+        <p>No se encontraron productos para esta marca.</p>
+      ) : (
+        filteredProducts.map((product) => {
+          // Si las imágenes se importan de manera estática, usa el nombre de la imagen
+          const imageSrc = require(`../assets/${product.image}`);
+
+          return (
             <div key={product.id} className="product-card">
               <img
-                src={require(`../assets/${product.image}`)}
+                src={imageSrc}
                 alt={product.name}
               />
               <h2>{product.name}</h2>
@@ -26,9 +27,10 @@ const Home = ({ selectedBrand }) => {
               <p>{product.description}</p>
               <p><strong>${product.price}</strong></p>
             </div>
-          ))
-        )}
-      </div>
+          );
+        })
+      )}
+    </div>
   );
 };
 
