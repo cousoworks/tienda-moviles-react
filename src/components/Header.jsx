@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './Header.css';
-import background from '../assets/background.png';
 import logoGif from '../assets/logo.gif';  // Importa el GIF del logo
 
 const Header = ({ setSelectedBrand, setSortedProducts }) => {
@@ -65,25 +64,27 @@ const Header = ({ setSelectedBrand, setSortedProducts }) => {
 
   return (
     <>
-      <header className="header" style={{ backgroundImage: `url(${background})` }}>
-        <div className="logo">
-          <img src={logoGif} alt="Logo" /> {/* Coloca el GIF aquí */}
-        </div>
-        <nav className="navbar">
-          <button onClick={() => setSelectedBrand('Samsung')} className="nav-link">SAMSUNG</button>
-          <button onClick={() => setSelectedBrand('Apple')} className="nav-link">IPHONE</button>
-          <button onClick={() => setSelectedBrand('Xiaomi')} className="nav-link">XIAOMI</button>
-          <button onClick={() => setSelectedBrand('OnePlus')} className="nav-link">ONEPLUS</button>
-          <button onClick={() => setSelectedBrand('')} className="nav-link">TODOS</button>
-        </nav>
-      </header>
+      <header className="header">
+  <div className="logo">
+    <img src={logoGif} alt="Logo" /> {/* Muestra el logo GIF */}
+  </div>
+  <nav className="navbar">
+    <button onClick={() => setSelectedBrand('')} className="nav-link">TODOS</button>
+    <button onClick={() => setSelectedBrand('Samsung')} className="nav-link">SAMSUNG</button>
+    <button onClick={() => setSelectedBrand('Apple')} className="nav-link">IPHONE</button>
+    <button onClick={() => setSelectedBrand('Xiaomi')} className="nav-link">XIAOMI</button>
+    <button onClick={() => setSelectedBrand('OnePlus')} className="nav-link">ONEPLUS</button>
 
-      <div className="sidebar" style={{ backgroundImage: `url(${background})` }}>
-        <h3>Filtrar por:</h3>
-        <button onClick={sortByPrice}>Precio</button>
-        <button onClick={sortBySize}>Tamaño</button>
-        <button onClick={sortByScreenSize}>Pantalla</button>
-      </div>
+  </nav>
+</header>
+
+<div className="sidebar">
+  <h3>Filtrar por:</h3>
+  <button onClick={sortByPrice}>Precio</button>
+  <button onClick={sortBySize}>Tamaño</button>
+  <button onClick={sortByScreenSize}>Pantalla</button>
+</div>
+
     </>
   );
 };

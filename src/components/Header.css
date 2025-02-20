@@ -3,21 +3,19 @@
   position: -webkit-sticky; /* Para compatibilidad con navegadores webkit */
   position: sticky;
   top: 0; /* Fija el header en la parte superior */
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-color: #333;
+  width: 100%;
+  background: linear-gradient(to right, #000000, #0c0b18, #279ead); /* Negro → Morado → Azul */
   color: white;
-  padding: 25px 30px;
+  padding-top: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
-  transition: background-color 0.3s ease-in-out, opacity 0.5s ease; /* Transición de opacidad */
-  z-index: 1000; /* Asegura que el header quede encima de otros elementos */
+  transition: background 0.3s ease-in-out, opacity 0.5s ease; /* Transición suave */
+  z-index: 1000; /* Mantiene el header sobre otros elementos */
   opacity: 1; /* Inicialmente visible */
-  
 }
+
 
 /* Efecto de desvanecimiento cuando se hace scroll */
 body.scroll .header {
@@ -44,15 +42,12 @@ body.scroll .header {
 
 .sidebar {
   z-index: 1000;
-  background-size: cover;
-  background-position: 100px 100px;
-
   position: fixed;
-  top: 87px; /* Mueve la barra lateral hacia abajo desde la parte superior */
+  top: 99px; /* Mueve la barra lateral hacia abajo desde la parte superior */
   left: -270px; /* Barra lateral inicialmente escondida */
   width: 250px;
   height: calc(100% - 0px); /* Ajusta la altura para que se reduzca desde arriba */
-  background-color: #333;
+  background: linear-gradient(to bottom, #000000, #0c0b18, #279ead); /* Negro → Morado → Azul */
   color: white;
   padding: 20px;
   display: flex;
@@ -150,11 +145,22 @@ body.scroll .header {
 }
 
 .logo img {
-  width: 250px; /* Ajusta el tamaño del logo */
+  width: 300px; /* Ajusta el tamaño del logo */
   height: auto; /* Mantiene la relación de aspecto */
   position: fixed;
   top: 0px;
   left: 0px;
+  transition: opacity 0.5s ease-in-out, box-shadow 0.3s ease-in-out; /* Transición suave */
+  position: -webkit-sticky; /* Para compatibilidad con navegadores webkit */
+  position: sticky;
 }
+
+/* Efecto de desvanecimiento cuando se hace scroll */
+.logo.scroll img {
+  opacity: 0.8; /* Reduce la opacidad */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.9); /* Sombra más suave */
+  
+}
+
 
 
