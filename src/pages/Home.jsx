@@ -37,7 +37,7 @@ const Home = ({ selectedBrand, products }) => {
               <h2>{product.name}</h2>
               <p><strong>{product.brand}</strong></p>
               <p>{product.description}</p>
-              <p><strong>${product.price}</strong></p>
+              <p><strong>{product.price}€</strong></p>
             </div>
           );
         })
