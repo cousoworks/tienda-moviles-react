@@ -117,20 +117,12 @@
 
 
 /* Asegurarse de que el diseño responda correctamente en pantallas más pequeñas */
-@media screen and (max-width: 1200px) {
+@media (max-width: 768px){
   .product-grid {
       grid-template-columns: repeat(3, 1fr);
   }
-}
-
-@media screen and (max-width: 900px) {
-  .product-grid {
-      grid-template-columns: repeat(2, 1fr);
+  .main-content {
+    padding: 0 10px;
   }
-}
-
-@media screen and (max-width: 600px) {
-  .product-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  
 }
