@@ -1,0 +1,139 @@
+[
+  {
+    "id": 1,
+    "name": "Samsung Galaxy S24 Ultra",
+    "brand": "Samsung",
+    "image": "galaxyS24Ultra.png",
+    "description": "El modelo más avanzado de Samsung con cámara de 200 MP y pantalla Dynamic AMOLED 2X.",
+    "price": 1099
+  },
+  {
+    "id": 2,
+    "name": "Samsung Galaxy S24+",
+    "brand": "Samsung",
+    "image": "galaxyS24Plus.png",
+    "description": "Versión más compacta del S24 Ultra, con características premium y cámara avanzada.",
+    "price": 999
+  },
+  {
+    "id": 3,
+    "name": "Samsung Galaxy S24",
+    "brand": "Samsung",
+    "image": "galaxyS24.png",
+    "description": "El modelo base de la serie S24, con rendimiento premium y una pantalla excelente.",
+    "price": 899
+  },
+  {
+    "id": 4,
+    "name": "Samsung Galaxy S23 Ultra",
+    "brand": "Samsung",
+    "image": "galaxyS23Ultra.png",
+    "description": "Con una cámara de 200 MP y pantalla Dynamic AMOLED 2X, sigue siendo uno de los mejores modelos de Samsung.",
+    "price": 999
+  },
+  {
+    "id": 5,
+    "name": "Samsung Galaxy S23+",
+    "brand": "Samsung",
+    "image": "galaxyS23Plus.png",
+    "description": "Con una pantalla de 6.6 pulgadas y grandes características, es una excelente opción dentro de la gama S23.",
+    "price": 899
+  },
+  {
+    "id": 6,
+    "name": "iPhone 16 Pro Max",
+    "brand": "Apple",
+    "image": "iphone16ProMax.png",
+    "description": "El modelo más avanzado de iPhone con chip A18 Pro y cámara mejorada.",
+    "price": 1199
+  },
+  {
+    "id": 7,
+    "name": "iPhone 16 Pro",
+    "brand": "Apple",
+    "image": "iphone16Pro.png",
+    "description": "Versión más compacta del Pro Max, con el mismo rendimiento y cámara avanzada.",
+    "price": 1099
+  },
+  {
+    "id": 8,
+    "name": "iPhone 15 Pro Max",
+    "brand": "Apple",
+    "image": "iphone15ProMax.png",
+    "description": "Con el chip A17 Pro, cámara avanzada y pantalla Super Retina, sigue siendo una opción top.",
+    "price": 1099
+  },
+  {
+    "id": 9,
+    "name": "iPhone 15 Pro",
+    "brand": "Apple",
+    "image": "iphone15Pro.png",
+    "description": "El modelo más compacto de la serie 15, con el rendimiento del A17 Pro.",
+    "price": 999
+  },
+
+  {
+    "id": 10,
+    "name": "Xiaomi 14 Ultra",
+    "brand": "Xiaomi",
+    "image": "xiaomi14Ultra.png",
+    "description": "Con características premium y una cámara de gran calidad.",
+    "price": 899
+  },
+  {
+    "id": 11,
+    "name": "Xiaomi 14 Pro",
+    "brand": "Xiaomi",
+    "image": "xiaomi14Pro.png",
+    "description": "Un modelo con características avanzadas y gran rendimiento.",
+    "price": 799
+  },
+  {
+    "id": 12,
+    "name": "Xiaomi 13",
+    "brand": "Xiaomi",
+    "image": "xiaomi13.png",
+    "description": "Con cámara Leica y rendimiento superior, uno de los mejores modelos de Xiaomi.",
+    "price": 849
+  },
+  {
+    "id": 13,
+    "name": "Xiaomi 13 Pro",
+    "brand": "Xiaomi",
+    "image": "xiaomi13Pro.png",
+    "description": "Un modelo de gama alta con cámara avanzada y gran rendimiento.",
+    "price": 799
+  },
+  {
+    "id": 14,
+    "name": "OnePlus 12",
+    "brand": "OnePlus",
+    "image": "oneplus12.png",
+    "description": "Con Snapdragon 8 Gen 3 y carga rápida de 80 W, es el modelo más avanzado de OnePlus.",
+    "price": 999
+  },
+  {
+    "id": 15,
+    "name": "OnePlus 12 Pro",
+    "brand": "OnePlus",
+    "image": "oneplus12Pro.png",
+    "description": "Mejorado con sistema de cámaras avanzado y pantalla de calidad superior.",
+    "price": 949
+  },
+  {
+    "id": 16,
+    "name": "OnePlus 11 5G",
+    "brand": "OnePlus",
+    "image": "oneplus11.png",
+    "description": "Con Snapdragon 8 Gen 2, carga rápida de 100 W y pantalla AMOLED de 120 Hz.",
+    "price": 899
+  },
+  {
+    "id": 17,
+    "name": "OnePlus 11R",
+    "brand": "OnePlus",
+    "image": "oneplus11R.png",
+    "description": "Una opción premium con características excepcionales a un precio más asequible.",
+    "price": 799
+  }
+]

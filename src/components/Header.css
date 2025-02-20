@@ -1,0 +1,140 @@
+/* Header principal */
+.header {
+  position: -webkit-sticky; /* Para compatibilidad con navegadores webkit */
+  position: sticky;
+  top: 0; /* Fija el header en la parte superior */
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-color: #333;
+  color: white;
+  padding: 25px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+  transition: background-color 0.3s ease-in-out, opacity 0.5s ease; /* Transición de opacidad */
+  z-index: 1000; /* Asegura que el header quede encima de otros elementos */
+  opacity: 1; /* Inicialmente visible */
+  
+}
+
+/* Efecto de desvanecimiento cuando se hace scroll */
+body.scroll .header {
+  opacity: 0.8; /* Opacidad reducida cuando se hace scroll */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.9); /* Sombra más suave al hacer scroll */
+}
+
+/* Logo */
+.logo h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: transform 0.3s ease;
+}
+
+.logo h1:hover {
+  transform: scale(1.1); /* Aumenta el tamaño del logo al pasar el ratón */
+}
+
+
+
+/* Barra lateral */
+
+.sidebar {
+  z-index: 1000;
+  background-size: cover;
+  background-position: left top;
+  position: fixed;
+  top: 87px; /* Mueve la barra lateral hacia abajo desde la parte superior */
+  left: -270px; /* Barra lateral inicialmente escondida */
+  width: 250px;
+  height: calc(100% - 0px); /* Ajusta la altura para que se reduzca desde arriba */
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Centra los elementos en el eje vertical */
+  align-items: flex-end; /* Pega los elementos a la parte derecha */
+  gap: 15px;
+  box-shadow: 4px 0 8px rgba(0, 0, 0, 0.7);
+  transition: transform 0.3s ease;
+  opacity: 0.95;
+}
+
+
+
+/* Agranda la barra lateral al pasar el cursor */
+.sidebar:hover {
+  transform: translateX(150px); /* Mueve la barra lateral a la vista */
+}
+
+/* Botones y estilo dentro de la barra lateral */
+.sidebar h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  text-align: right; /* Alinea el texto de los títulos hacia la derecha */
+}
+
+.sidebar button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: right; /* Alinea el texto de los botones hacia la derecha */
+}
+
+.sidebar button:hover {
+  background-color: #55555536;
+}
+
+
+
+/* Estilo para el botón de navegación en el header */
+.navbar button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.navbar button:hover {
+  background-color: #55555536;
+  transform: translateY(-3px);
+}
+
+.navbar button:active {
+  transform: translateY(1px); 
+}
+
+.navbar button:focus {
+  outline: none;
+}
+
+.navbar button::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  bottom: 0;
+  left: 50%;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.navbar button:hover::before {
+  width: 100%;
+  left: 0;
+}

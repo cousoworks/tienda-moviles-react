@@ -1,0 +1,86 @@
+/* Estilos para la cuadrícula de productos */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px; /* Menor espacio entre las tarjetas */
+  margin: 15px 0;
+  padding: 5px; /* Menos padding para reducir el espacio */
+}
+
+.product-card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 6px; /* Reducción del padding */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 320px; /* Ancho máximo para las tarjetas */
+  margin: 0 auto; /* Centrado automático */
+}
+
+.product-card:hover {
+  transform: translateY(-3px); /* Menos movimiento en hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 6px; /* Menos margen abajo */
+}
+
+.product-card h2 {
+  font-size: 0.9rem; /* Fuente más pequeña */
+  margin: 6px 0; /* Menos espacio alrededor */
+  color: #333;
+}
+
+.product-card p {
+  font-size: 0.8rem; /* Más pequeño aún */
+  color: #555;
+  margin: 3px 0; /* Menos espacio entre párrafos */
+}
+
+.product-card strong {
+  color: #000;
+  font-weight: bold;
+}
+
+.product-card a {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 4px 10px; /* Botón más pequeño */
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.product-card a:hover {
+  background-color: #0056b3;
+}
+
+/* Asegurarse de que el diseño responda correctamente en pantallas más pequeñas */
+@media screen and (max-width: 1200px) {
+  .product-grid {
+      grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .product-grid {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .product-grid {
+      grid-template-columns: 1fr;
+  }
+}
