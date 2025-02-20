@@ -243,4 +243,62 @@ body.scroll .header {
   gap: 10px;
 }
 
+@media (max-width: 390px) {
+  /* Header principal en dispositivos móviles */
+  .header {
+    padding-top: 5px; /* Reduce el espacio superior para ajustarse a la pantalla */
+    flex-direction: column; /* Cambia a columna para apilar elementos */
+    align-items: flex-start; /* Alinea los elementos hacia la izquierda */
+    padding: 10px; /* Agrega espacio interno */
+  }
 
+  .logo h1 {
+    font-size: 1.5rem; /* Reduce el tamaño del logo */
+    margin-left: 0; /* Elimina el margen izquierdo */
+  }
+
+  /* Ajustar sombras y efectos */
+  .header {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7); /* Sombra más ligera */
+    width: 200%;
+  }
+  
+  .logo img {
+    width: 350px; /* Ajusta el tamaño del logo en dispositivos pequeños */
+  }
+ /* Barra lateral en dispositivos móviles */
+ .sidebar {
+  position: fixed;
+  top: 160px; /* Ajusta la posición superior */
+  left: -20%; /* Esconde la barra lateral fuera de la pantalla */
+  width: 100px; /* Ajusta el tamaño de la barra lateral */
+  height: 100%; /* Mantiene la altura completa */
+  padding: 15px; /* Ajusta el padding para espacio interno */
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start; /* Alinea los elementos a la izquierda */
+  gap: 10px; /* Reduce el espacio entre los elementos */
+  box-shadow: 4px 0 8px rgba(0, 0, 0, 0.7);
+  transition: transform 0.3s ease;
+  opacity: 0.95;
+}
+
+/* Mostrar la barra lateral cuando se active */
+.sidebar.active {
+  left: 0; /* Mueve la barra lateral hacia la vista */
+}
+
+.sidebar h3 {
+  font-size: 1rem; /* Reduce el tamaño del texto */
+}
+
+.sidebar button {
+  font-size: 0.9rem; /* Reduce el tamaño de los botones */
+  padding: 5px; /* Reduce el padding de los botones */
+}
+
+.sidebar-separator {
+  width: 55%;
+}
+
+}
