@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
 import Shipping from './pages/Shipping';
 import Cart from './pages/Cart';
+import Footer from './components/Footer';  // Asegúrate de importar el footer
 import mobilesData from './mobiles.json';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -27,10 +28,11 @@ function App() {
               <Route path="/" element={<Home selectedBrand={selectedBrand} products={sortedProducts} handleAddToCart={handleAddToCart} />} />
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/shipping" element={<Shipping />} />
-              <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} /> {/* Pasar setCart */}
+              <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
             </Routes>
           </div>
         </div>
+        <Footer />  {/* El Footer se coloca aquí */}
       </div>
     </Router>
   );

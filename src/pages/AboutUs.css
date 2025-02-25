@@ -19,12 +19,10 @@
 
 /* Estilo para la imagen suelta al final de la descripción */
 .about-us-image {
-    width: 80%;
+    width: 36%;
     height: auto;
-    margin-top: 20px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 10px;
+    
 }
 
   

@@ -1,0 +1,60 @@
+.footer-container {
+  background: linear-gradient(to right, #279ead, #0c0b18, #000000); /* Azul → Morado → Negro */
+  color: white;
+  padding: 1px 0;  /* Reducir el padding vertical */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;  /* Asegura que el footer ocupe todo el ancho */
+  max-height: 200px; /* Agregar altura mínima para centrar contenido */
+}
+
+.footer-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;  /* Tres columnas en una fila */
+  gap: 10px;  /* Reducir el espacio entre las columnas */
+  width: 100%;
+  max-width: 1000px; /* Limitar el ancho máximo */
+  box-sizing: border-box; /* Asegura que el padding no haga que el contenido se desborde */
+  align-items: center;  /* Centrado vertical */
+  justify-items: center;  /* Centrar los items de cada columna */
+  min-height: 100px;  /* Asegurar que haya espacio suficiente para centrar los elementos */
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center; /* Centra el logo verticalmente */
+    justify-content: flex-start; /* Alinea el logo a la izquierda */
+    width: 100%;  /* Asegura que el contenedor ocupe todo el ancho disponible */
+  }
+  
+  .footer-logo-image {
+    width: 120px; /* Reducir el tamaño del logo */
+    height: auto;
+    margin-right: 5px; /* Menos espacio entre logo y los datos de contacto */
+  }
+  
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  width: 100%;  /* Ajustar a todo el ancho disponible */
+  text-align: center; /* Asegurar que el texto esté centrado dentro de la columna */
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;  /* Centrado vertical */
+  text-align: center; /* Asegurar que los enlaces estén centrados dentro de la columna */
+}
+
+.footer-footer {
+  text-align: center;
+  font-size: 0.7rem;  /* Reducir el tamaño del texto */
+  margin-top: 6px;  /* Menos espacio arriba */
+  width: 100%; /* Asegura que el footer esté centrado */
+  grid-column: span 3;  /* Ocupa las tres columnas */
+}

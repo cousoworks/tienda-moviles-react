@@ -4,15 +4,20 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
-  
 }
 
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;  /* Asegura que la altura sea como mínimo la de la ventana */
+}
+
+/* Contenedor principal que incluye la barra lateral y el contenido */
 .container {
   display: flex;
-  height: 100vh;
+  flex-grow: 1;  /* Esto hace que el contenedor ocupe el espacio restante */
 }
 
-/* Barra Lateral */
 .sidebar {
   width: 250px;
   background-color: #333;
@@ -42,7 +47,7 @@ body {
 
 /* Contenido Principal */
 .main-content {
-  flex-grow: 1;
+  flex-grow: 1;  /* Asegura que el contenido ocupe todo el espacio disponible */
   padding: 2rem;
 }
 
