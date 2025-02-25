@@ -117,7 +117,7 @@
 
 /* src/pages/Home.css */
 .add-to-cart-button {
-  background-color: #FF6347;
+  background-color: #5aa4ad;
   color: white;
   border: none;
   padding: 12px 24px;
@@ -130,12 +130,12 @@
 }
 
 .add-to-cart-button:hover {
-  background-color: #FF4500;
+  background-color: #4da5a8;
   transform: scale(1.1);
 }
 
 .add-to-cart-button:active {
-  background-color: #FF0000;
+  background-color: #4ca9b9;
   transform: scale(1);
 }
 

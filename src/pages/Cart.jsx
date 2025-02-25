@@ -4,12 +4,14 @@ import './Cart.css';
 const Cart = ({ cart, setCart }) => {
   // Función para eliminar un producto del carrito
   const handleRemoveFromCart = (productId) => {
-    const index = cart.findIndex((product) => product.id === productId);  // Encontrar el índice del producto a eliminar
-    if (index !== -1) {
-      const newCart = [...cart];  // Crear una copia del carrito
-      newCart.splice(index, 1);  // Eliminar solo el producto en el índice encontrado
-      setCart(newCart);  // Actualizar el estado del carrito
-    }
+    // Crear una copia del carrito sin el producto a eliminar
+    const newCart = cart.filter((product) => product.id !== productId);  
+    setCart(newCart);  // Actualizar el estado del carrito
+  };
+
+  // Función para vaciar el carrito
+  const handleClearCart = () => {
+    setCart([]);  // Vaciar el carrito
   };
 
   // Función para calcular el total del carrito
@@ -44,6 +46,11 @@ const Cart = ({ cart, setCart }) => {
           </div>
         </div>
       )}
+
+      {/* Botón para eliminar todos los productos del carrito */}
+      <button onClick={handleClearCart} className="clear-cart-button">
+        Eliminar todo
+      </button>
     </div>
   );
 };
