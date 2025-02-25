@@ -13,8 +13,8 @@ const Footer = () => {
         <div className="footer-contact">
             
           <h4>Datos de contacto</h4>
-          <p><strong>Dirección:</strong> C/Francisco Silvela 69, Madrid</p>
-          <p><strong>Teléfono de contacto:</strong> 685 333 333</p>
+          <p><strong>Dirección:</strong> C/ Avenida Loveless, Madrid</p>
+          <p><strong>Teléfono de contacto:</strong> 999 999 999</p>
         </div>
         <div className="footer-links">
           <h4>Enlaces de interés</h4>
@@ -27,7 +27,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-footer">
-        <p>© 2023 Móvil Center | Diseñado por DyS Marketing Digital</p>
+        <p>© 2025 Blayne Shop | Diseñado por Blayneraptor</p>
         <p><a href="/aviso-legal">Aviso Legal</a> | <a href="/politica-privacidad">Política de privacidad</a> | <a href="/politica-cookies">Política de Cookies</a></p>
       </div>
     </footer>
