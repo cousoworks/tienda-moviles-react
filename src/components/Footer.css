@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;  /* Asegura que el footer ocupe todo el ancho */
-  max-height: 200px; /* Agregar altura mínima para centrar contenido */
+  max-height: 170px; /* Agregar altura mínima para centrar contenido */
 }
 
 .footer-info {
@@ -21,6 +21,16 @@
   justify-items: center;  /* Centrar los items de cada columna */
   min-height: 100px;  /* Asegurar que haya espacio suficiente para centrar los elementos */
 }
+
+.footer-contact h4,
+.footer-links h4 {
+  font-size: 0.8rem;  /* Ajustar el tamaño de la fuente */
+  color: #7de7e2;  /* Color blanco para los encabezados */
+  margin-bottom: 0px;  /* Espacio debajo del encabezado */
+  font-weight: bold;  /* Hacer que el texto esté en negrita */
+  text-transform: uppercase;  /* Convertir el texto a mayúsculas */
+}
+
 
 .footer-logo {
     display: flex;
@@ -44,12 +54,28 @@
 }
 
 .footer-links {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;  /* Centrado vertical */
-  text-align: center; /* Asegurar que los enlaces estén centrados dentro de la columna */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-end;  /* Centrado vertical */
+    text-align: left; /* Asegurar que los enlaces estén centrados dentro de la columna */
+  }
+  
+  .footer-links a {
+    text-decoration: none; /* Elimina el subrayado */
+    color: white;  /* Asegura que el texto sea blanco */
+  }
+
+  .footer-links ul {
+    list-style-type: circle;
+
+  padding-left: 20px; /* Asegura que haya un poco de espacio a la izquierda */
 }
+
+.footer-links li {
+  margin-bottom: 5px; /* Ajusta el espacio entre los elementos de la lista */
+}
+  
 
 .footer-footer {
   text-align: center;
