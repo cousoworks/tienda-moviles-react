@@ -4,7 +4,12 @@ import './Cart.css';
 const Cart = ({ cart, setCart }) => {
   // Función para eliminar un producto del carrito
   const handleRemoveFromCart = (productId) => {
-    setCart(cart.filter((product) => product.id !== productId));  // Filtramos el carrito para eliminar el producto por su id
+    const index = cart.findIndex((product) => product.id === productId);  // Encontrar el índice del producto a eliminar
+    if (index !== -1) {
+      const newCart = [...cart];  // Crear una copia del carrito
+      newCart.splice(index, 1);  // Eliminar solo el producto en el índice encontrado
+      setCart(newCart);  // Actualizar el estado del carrito
+    }
   };
 
   // Función para calcular el total del carrito

@@ -3,10 +3,15 @@ import './Home.css';
 
 const Home = ({ selectedBrand, products, handleAddToCart }) => {
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [addedToCart, setAddedToCart] = useState(false);  // Estado para manejar el mensaje de confirmación
+  const [addedMessageVisible, setAddedMessageVisible] = useState(false);  // Estado para mostrar el mensaje de añadido al carrito
+  const [animationClass, setAnimationClass] = useState('');  // Estado para manejar la animación del carrito
 
   // Función para abrir el modal con los detalles del producto
   const handleProductClick = (product) => {
     setSelectedProduct(product);
+    setAddedToCart(false);  // Resetear el mensaje de "añadido al carrito" cuando se abre un nuevo producto
+    setAnimationClass('');  // Resetear la animación cuando se cambia de producto
   };
 
   // Función para cerrar el modal
@@ -18,6 +23,19 @@ const Home = ({ selectedBrand, products, handleAddToCart }) => {
   const filteredProducts = selectedBrand
     ? products.filter((product) => product.brand === selectedBrand)
     : products;
+
+  // Función para añadir al carrito con animación
+  const handleAddToCartClick = (product) => {
+    handleAddToCart(product);  // Añadir el producto al carrito
+    setAddedToCart(true);  // Mostrar mensaje de "Añadido al carrito"
+    setAddedMessageVisible(true);  // Mostrar el mensaje de añadido al carrito
+    setAnimationClass('cart-animation');  // Activar la animación de movimiento hacia el carrito
+
+    // Resetear el mensaje después de un tiempo (2 segundos)
+    setTimeout(() => {
+      setAddedMessageVisible(false);  // Desaparecer el mensaje después de 2 segundos
+    }, 2000);  
+  };
 
   return (
     <div className="product-grid">
@@ -57,9 +75,19 @@ const Home = ({ selectedBrand, products, handleAddToCart }) => {
             <p><strong>Pantalla:</strong> {selectedProduct.screenSize}"</p>
 
             {/* Botón para añadir al carrito */}
-            <button onClick={() => handleAddToCart(selectedProduct)} className="add-to-cart-button">
-              Añadir al carrito
+            <button
+              onClick={() => handleAddToCartClick(selectedProduct)}
+              className={`add-to-cart-button ${animationClass}`}
+            >
+              {addedToCart ? 'Añadido al carrito' : 'Añadir al carrito'}
             </button>
+
+            {/* Mensaje de confirmación cuando se añada al carrito */}
+            {addedMessageVisible && (
+              <div className="added-message">
+                <p>¡Producto añadido al carrito!</p>
+              </div>
+            )}
           </div>
         </div>
       )}

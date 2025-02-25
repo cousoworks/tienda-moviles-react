@@ -115,6 +115,77 @@
   background: darkred;
 }
 
+/* src/pages/Home.css */
+.add-to-cart-button {
+  background-color: #FF6347;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
+}
+
+.add-to-cart-button:hover {
+  background-color: #FF4500;
+  transform: scale(1.1);
+}
+
+.add-to-cart-button:active {
+  background-color: #FF0000;
+  transform: scale(1);
+}
+
+/* src/pages/Home.css */
+.cart-animation {
+  animation: moveToCart 0.8s ease-out;
+}
+
+@keyframes moveToCart {
+  0% {
+    transform: scale(1) translateX(0) translateY(0);
+  }
+  50% {
+    transform: scale(1.8) translateX(0px) translateY(0px);
+  }
+  100% {
+    transform: scale(1.5) translateX(700px) translateY(-500px);
+  }
+}
+
+/* Mensaje de confirmación que aparece al añadir al carrito */
+.added-message {
+  background-color: #4cb4c7;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  position: fixed;  /* Lo hacemos fijo para que no se mueva con el scroll */
+  bottom: 30px;  /* Lo posicionamos un poco por encima del fondo */
+  right: 30px;  /* Lo posicionamos a la derecha de la pantalla */
+  font-size: 16px;
+  z-index: 1000;  /* Aseguramos que quede por encima de otros elementos */
+  animation: floatMessage 2s ease-in-out forwards;  /* Animación de flotado */
+}
+
+@keyframes floatMessage {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);  /* Lo hacemos empezar un poco por debajo */
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-10px);  /* Lo movemos un poco hacia arriba */
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px);  /* Lo movemos de nuevo hacia abajo y lo desaparece */
+  }
+}
+
+
 
 /* Asegurarse de que el diseño responda correctamente en pantallas más pequeñas */
 @media (max-width: 768px){
