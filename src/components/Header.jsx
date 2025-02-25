@@ -1,7 +1,9 @@
+// src/components/Header.jsx
 import React, { useState, useEffect } from 'react';
 import './Header.css';
 import logoGif from '../assets/logo.gif';  // Importa el GIF del logo
 import separadorImg from '../assets/separador.png';
+import { Link } from 'react-router-dom';  // Importar Link para navegación
 
 const Header = ({ setSelectedBrand, setSortedProducts }) => {
   const [priceOrder, setPriceOrder] = useState('desc'); // Orden de precio
@@ -73,7 +75,10 @@ const Header = ({ setSelectedBrand, setSortedProducts }) => {
     <>
       <header className="header">
         <div className="logo">
-          <img src={logoGif} alt="Logo" /> {/* Muestra el logo GIF */}
+          {/* Envolvemos la imagen del logo con un Link */}
+          <Link to="/" className="logo-link">
+            <img src={logoGif} alt="Logo" /> {/* Muestra el logo GIF */}
+          </Link>
         </div>
         <nav className="navbar">
           {/* Botón "MARCAS" con menú desplegable */}
@@ -91,9 +96,9 @@ const Header = ({ setSelectedBrand, setSortedProducts }) => {
           </div>
 
           {/* Botones fuera del menú desplegable */}
-          <button className="nav-link">NOSOTROS</button>
-          <button className="nav-link">ENVIOS</button>
-          <button className="nav-link">CARRITO</button>
+          <Link to="/about-us" className="nav-link">NOSOTROS</Link> {/* Usamos Link para navegar */}
+          <Link to="/shipping" className="nav-link">ENVIOS</Link>
+          <Link to="/cart" className="nav-link">CARRITO</Link>
         </nav>
       </header>
 

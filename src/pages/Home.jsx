@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Home.css';
 
-const Home = ({ selectedBrand, products }) => {
+const Home = ({ selectedBrand, products, handleAddToCart }) => {
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   // Función para abrir el modal con los detalles del producto
@@ -52,9 +52,14 @@ const Home = ({ selectedBrand, products }) => {
             <h2>{selectedProduct.name}</h2>
             <p><strong>Marca:</strong> {selectedProduct.brand}</p>
             <p><strong>Descripción:</strong> {selectedProduct.description}</p>
-            <p><strong>Precio:</strong> ${selectedProduct.price}</p>
+            <p><strong>Precio:</strong> {selectedProduct.price}€</p>
             <p><strong>Tamaño:</strong> {selectedProduct.size}</p>
             <p><strong>Pantalla:</strong> {selectedProduct.screenSize}"</p>
+
+            {/* Botón para añadir al carrito */}
+            <button onClick={() => handleAddToCart(selectedProduct)} className="add-to-cart-button">
+              Añadir al carrito
+            </button>
           </div>
         </div>
       )}

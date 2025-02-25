@@ -1,0 +1,84 @@
+/* src/pages/AboutUs.css */
+
+.about-us-container {
+    padding: 10px;
+    text-align: center;
+    max-height: 100vh;  /* Limita la altura del contenedor */
+    overflow-y: hidden; /* Elimina el scroll vertical */
+    box-sizing: border-box;
+}
+
+.about-us-container h1 {
+    color: rgb(0, 0, 0);
+}
+
+.about-us-container p {
+    color: rgb(0, 0, 0);
+    font-size: 1.1rem;
+}
+
+/* Estilo para la imagen suelta al final de la descripción */
+.about-us-image {
+    width: 80%;
+    height: auto;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+  
+/* Estilo de los botones en la barra de navegación */
+.navbar button,
+.navbar .nav-link {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative; /* Necesario para el pseudoelemento ::before */
+  text-decoration: none; /* Eliminar subrayado */
+}
+
+/* Estilo cuando el usuario pasa el cursor sobre el botón o enlace */
+.navbar button:hover,
+.navbar .nav-link:hover {
+  background-color: #7dc6d367;
+  transform: translateY(-3px);
+}
+
+/* Estilo cuando el botón es clickeado */
+.navbar button:active,
+.navbar .nav-link:active {
+  transform: translateY(1px);
+}
+
+/* Estilo cuando el botón o enlace tiene el foco */
+.navbar button:focus,
+.navbar .nav-link:focus {
+  outline: none;
+}
+
+/* Estilo del pseudoelemento antes del texto en los botones y enlaces */
+.navbar button::before,
+.navbar .nav-link::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  bottom: 0;
+  left: 50%;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+/* Estilo cuando el usuario pasa el cursor sobre el botón o enlace (efecto línea debajo) */
+.navbar button:hover::before,
+.navbar .nav-link:hover::before {
+  width: 100%;
+  left: 0;
+}
