@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Home.css';
 
 const Home = ({ selectedBrand, products, handleAddToCart }) => {
@@ -18,6 +18,28 @@ const Home = ({ selectedBrand, products, handleAddToCart }) => {
   const closeModal = () => {
     setSelectedProduct(null);
   };
+
+  // Agregar un event listener para la tecla Escape
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        closeModal();  // Cerrar el modal cuando presionamos Escape
+      }
+    };
+
+    if (selectedProduct) {
+      // Solo agregar el listener si el modal está abierto
+      window.addEventListener("keydown", handleKeyDown);
+    } else {
+      // Eliminar el listener cuando el modal se cierra
+      window.removeEventListener("keydown", handleKeyDown);
+    }
+
+    return () => {
+      // Limpiar el listener al desmontar el componente
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedProduct]);  // Dependencia en selectedProduct para activar/desactivar el listener
 
   // Filtrar productos por marca seleccionada
   const filteredProducts = selectedBrand
