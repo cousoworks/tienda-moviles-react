@@ -243,14 +243,27 @@ body.scroll .header {
   gap: 10px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 766px) {
   /* Header principal en dispositivos móviles */
   .header {
-    padding-top: 5px; /* Reduce el espacio superior para ajustarse a la pantalla */
     flex-direction: column; /* Cambia a columna para apilar elementos */
-    align-items: center; /* Alinea los elementos hacia la izquierda */
-    padding: 10px; /* Agrega espacio interno */
+    align-items: center; /* Alinea los elementos hacia el centro */
+    
   }
+  
+  .navbar {
+    display: flex;
+    flex-direction: column; /* Hace que los botones se apilen verticalmente */
+    align-items: center; /* Alinea los botones al centro */
+    gap: 5px; /* Reduce el espacio entre los botones */
+  }
+  
+  .navbar button {
+    width: 100%; /* Hace que los botones ocupen todo el ancho disponible */
+    padding: 10px 0; /* Agrega más espacio vertical a los botones */
+  }
+
+  
 
   .logo h1 {
     font-size: 1.5rem; /* Reduce el tamaño del logo */
@@ -258,10 +271,7 @@ body.scroll .header {
   }
 
   /* Ajustar sombras y efectos */
-  .header {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7); /* Sombra más ligera */
-    width: 200%;
-  }
+  
   
   .logo img {
     width: 350px; /* Ajusta el tamaño del logo en dispositivos pequeños */
@@ -269,11 +279,11 @@ body.scroll .header {
  /* Barra lateral en dispositivos móviles */
  .sidebar {
   position: fixed;
-  top: 160px; /* Ajusta la posición superior */
-  left: -20%; /* Esconde la barra lateral fuera de la pantalla */
+  top: 275px; /* Ajusta la posición superior */
+  left: -35%; /* Esconde la barra lateral fuera de la pantalla */
   width: 100px; /* Ajusta el tamaño de la barra lateral */
   height: 100%; /* Mantiene la altura completa */
-  padding: 15px; /* Ajusta el padding para espacio interno */
+  padding: 5px; /* Ajusta el padding para espacio interno */
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start; /* Alinea los elementos a la izquierda */
@@ -298,7 +308,15 @@ body.scroll .header {
 }
 
 .sidebar-separator {
-  width: 55%;
+  position: absolute;
+  top: 15px;
+  right: -5px;
+  width: 90px;
+  height: 30px;
+  z-index: 0;
+  clip-path: inset(0 0 0 25px); /* Recorta 15px desde la izquierda */
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.5); /* Sombra en el lado derecho */
+  animation: blink 2.0s infinite ease-in-out; /* Aplica la animación */
 }
 
 }

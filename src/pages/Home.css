@@ -243,7 +243,14 @@
       grid-template-columns: repeat(3, 1fr);
   }
   .main-content {
-    padding: 0 10px;
+    padding: 0%;
   }
-  
+  .container{
+    padding-right: 0rem;
+  }
+  .header {
+    width: 100%; /* Reduce el ancho al 80% del contenedor */
+    min-width: 50%; /* Evita que se haga demasiado grande en pantallas grandes */
+    margin: 0 auto; /* Centrar si es necesario */
+}
 }
