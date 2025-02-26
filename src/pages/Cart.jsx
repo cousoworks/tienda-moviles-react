@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './Cart.css';
 
 const Cart = ({ cart, setCart }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);  // Estado para controlar el modal
+  const [isPurchaseModalOpen, setIsPurchaseModalOpen] = useState(false);  // Estado para controlar el modal de compra
+  const [isProductModalOpen, setIsProductModalOpen] = useState(false);  // Estado para controlar el modal de producto
   const [selectedProduct, setSelectedProduct] = useState(null);  // Estado para guardar el producto seleccionado
 
   // Función para eliminar un producto del carrito
@@ -17,15 +18,25 @@ const Cart = ({ cart, setCart }) => {
   };
 
   // Función para abrir el modal con los detalles del producto
-  const openModal = (product) => {
+  const openProductModal = (product) => {
     setSelectedProduct(product);
-    setIsModalOpen(true);
+    setIsProductModalOpen(true);
   };
 
-  // Función para cerrar el modal
-  const closeModal = () => {
-    setIsModalOpen(false);
+  // Función para cerrar el modal de producto
+  const closeProductModal = () => {
+    setIsProductModalOpen(false);
     setSelectedProduct(null);  // Limpiar el producto seleccionado
+  };
+
+  // Función para abrir el modal de compra
+  const openPurchaseModal = () => {
+    setIsPurchaseModalOpen(true);
+  };
+
+  // Función para cerrar el modal de compra
+  const closePurchaseModal = () => {
+    setIsPurchaseModalOpen(false);
   };
 
   // Función para calcular el total del carrito
@@ -37,23 +48,22 @@ const Cart = ({ cart, setCart }) => {
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "Escape") {
-        closeModal();  // Cerrar el modal cuando presionamos Escape
+        closePurchaseModal();  // Cerrar el modal cuando presionamos Escape
       }
     };
 
-    if (isModalOpen) {
-      // Solo agregar el listener si el modal está abierto
+    if (isPurchaseModalOpen || isProductModalOpen) {
+      // Solo agregar el listener si algún modal está abierto
       window.addEventListener("keydown", handleKeyDown);
     } else {
-      // Eliminar el listener cuando el modal se cierra
+      // Eliminar el listener cuando los modales se cierran
       window.removeEventListener("keydown", handleKeyDown);
     }
 
     return () => {
-      // Limpiar el listener al desmontar el componente
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [isModalOpen]);  // Dependencia en isModalOpen para activar/desactivar el listener
+  }, [isPurchaseModalOpen, isProductModalOpen]);  // Dependencias para activar/desactivar el listener
 
   return (
     <div className="cart-container">
@@ -69,7 +79,7 @@ const Cart = ({ cart, setCart }) => {
                   src={require(`../assets/${product.image}`)}
                   alt={product.name}
                   className="cart-item-image"
-                  onClick={() => openModal(product)}  // Abrir modal al hacer clic en la imagen
+                  onClick={() => openProductModal(product)}  // Abrir modal al hacer clic en la imagen
                 />
                 <div className="cart-item-details">
                   <h2>{product.name}</h2>
@@ -88,13 +98,42 @@ const Cart = ({ cart, setCart }) => {
         </div>
       )}
 
-      {/* Botón para eliminar todos los productos del carrito */}
-      <button onClick={handleClearCart} className="clear-cart-button">
-        Eliminar todo
-      </button>
+      {/* Contenedor para los botones */}
+      <div className="cart-buttons">
+        {/* Botón para eliminar todos los productos del carrito */}
+        <button onClick={handleClearCart} className="clear-cart-button">
+          Eliminar todo
+        </button>
+
+        {/* Botón de realizar compra */}
+        <button onClick={openPurchaseModal} className="purchase-button">
+          Realizar compra
+        </button>
+      </div>
+
+      {/* Modal de compra */}
+      {isPurchaseModalOpen && (
+        <div className="modal-overlay">
+          <div className="modal">
+            <h2>Resumen de la Compra</h2>
+            <ul>
+              {cart.map((product) => (
+                <li key={product.id}>
+                  <p>{product.name} - {product.price}€</p>
+                </li>
+              ))}
+            </ul>
+            <p><strong>Total: {calculateTotal()}€</strong></p>
+            <div className="modal-buttons">
+              <button onClick={closePurchaseModal} className="close-modal-button">Volver atrás</button>
+              <button className="pay-button">Pagar</button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Modal para mostrar detalles del producto */}
-      {isModalOpen && selectedProduct && (
+      {isProductModalOpen && selectedProduct && (
         <div className="modal-overlay">
           <div className="modal">
             <h2>{selectedProduct.name}</h2>
@@ -105,7 +144,7 @@ const Cart = ({ cart, setCart }) => {
             />
             <p>{selectedProduct.description}</p>
             <p><strong>{selectedProduct.price}€</strong></p>
-            <button onClick={closeModal} className="close-modal-button">Cerrar</button>
+            <button onClick={closeProductModal} className="close-modal-button">Cerrar</button>
           </div>
         </div>
       )}

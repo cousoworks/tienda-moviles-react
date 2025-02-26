@@ -185,6 +185,55 @@
   }
 }
 
+/* Estilos para el carrusel de ofertas */
+.carousel {
+  width: 100%;
+  height: 350px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;  /* Bordes redondeados */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);  /* Sombra sutil para darle profundidad */
+}
+
+.carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;  /* Asegura que la imagen esté centrada */
+  transition: transform 0.5s ease-in-out;
+}
+
+
+.carousel p {
+  position: absolute;
+  bottom: 20px; /* Un poco más abajo para no quedar tan pegado al borde */
+  left: 20px;
+  color: white;
+  font-size: 1.4rem; /* Fuente un poco más grande para mayor visibilidad */
+  font-weight: 600; /* Usamos un peso de fuente más moderno */
+  background: linear-gradient(to right, #00000080, #0c0b1873, #279dad79); /* Negro → Morado → Azul */
+  padding: 10px 20px; /* Más espacio para el texto */
+  border-radius: 12px; /* Bordes más redondeados */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra suave para darle profundidad */
+  backdrop-filter: blur(8px); /* Efecto de desenfoque detrás del fondo */
+  max-width: 80%; /* Asegura que el texto no ocupe toda la pantalla */
+  transition: all 0.3s ease; /* Transición suave */
+}
+
+.carousel p:hover {
+  background: linear-gradient(to right, #000000e1, #0c0b18d0, #279dadc5); /* Negro → Morado → Azul */
+  transform: translateY(-5px); /* Suave desplazamiento hacia arriba */
+}
+
+
+@media (max-width: 768px) {
+  .carousel p {
+    font-size: 1rem;
+    padding: 5px 10px;
+  }
+}
+
+
 
 
 /* Asegurarse de que el diseño responda correctamente en pantallas más pequeñas */

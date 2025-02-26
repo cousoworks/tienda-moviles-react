@@ -50,7 +50,7 @@ body {
 /* Contenido Principal */
 .main-content {
   flex-grow: 1;  /* Asegura que el contenido ocupe todo el espacio disponible */
-  padding: 2rem;
+  padding: 0rem;
 }
 
 /* Responsividad */

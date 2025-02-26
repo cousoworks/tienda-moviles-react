@@ -89,7 +89,7 @@ button {
 }
 
 .clear-cart-button {
-  background-color: rgb(53, 201, 206);
+  background-color: rgb(146, 51, 51);
   color: white;
   font-weight: bold;
   padding: 12px 24px;
@@ -98,7 +98,7 @@ button {
 }
 
 .clear-cart-button:hover {
-  background-color: rgb(16, 119, 110);
+  background-color: rgb(110, 28, 23);
   transform: scale(1.05);
 }
 
@@ -168,3 +168,85 @@ button {
 .close-modal-button:focus {
   outline: none;
 }
+/* src/pages/Cart.css */
+/* Contenedor para los botones */
+.cart-buttons {
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.purchase-button {
+  background-color: #48a9c7e7; /* Color verde */
+  font-weight: bold;/* Reducir el tamaño del padding para hacer el botón más pequeño */
+  font-size: 1rem;   /* Reducir el tamaño de la fuente si es necesario */
+  color: white;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.purchase-button:hover {
+  background-color: #28515c; /* Verde más oscuro */
+  transform: scale(1.05);
+}
+
+.purchase-button:focus {
+  outline: none;
+}
+
+.purchase-button:active {
+  transform: scale(0.98);
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.pay-button {
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.pay-button:hover {
+  background-color: #45a049;
+}
+
+.pay-button:focus {
+  outline: none;
+}
+
+.pay-button:active {
+  transform: scale(0.98);
+}
+
+.close-modal-button {
+  background-color: #ff4c4c;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.close-modal-button:hover {
+  background-color: #e04444;
+}
+
+.close-modal-button:focus {
+  outline: none;
+}
+
+.close-modal-button:active {
+  transform: scale(0.98);
+}
+

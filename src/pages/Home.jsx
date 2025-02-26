@@ -3,85 +3,100 @@ import './Home.css';
 
 const Home = ({ selectedBrand, products, handleAddToCart }) => {
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [addedToCart, setAddedToCart] = useState(false);  // Estado para manejar el mensaje de confirmación
-  const [addedMessageVisible, setAddedMessageVisible] = useState(false);  // Estado para mostrar el mensaje de añadido al carrito
-  const [animationClass, setAnimationClass] = useState('');  // Estado para manejar la animación del carrito
+  const [addedToCart, setAddedToCart] = useState(false);
+  const [addedMessageVisible, setAddedMessageVisible] = useState(false);
+  const [animationClass, setAnimationClass] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Función para abrir el modal con los detalles del producto
+  // Carrusel de imágenes (4 fotos con descripción)
+  const offers = [
+    { img: 'offer1.png', description: '¡Oferta increíble en móviles!', link: '#' },
+    { img: 'offer2.png', description: 'Descuentos hasta 50%', link: '#' },
+    { img: 'offer3.png', description: 'Compra 1 y llévate 2', link: '#' },
+    { img: 'offer4.png', description: '¡Envio gratis en todos los pedidos!', link: '#' },
+  ];
+
+  // Función para cambiar la imagen del carrusel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % offers.length);
+    }, 3000); // Cambiar cada 3 segundos
+
+    return () => clearInterval(interval);
+  }, [offers.length]);
+
   const handleProductClick = (product) => {
     setSelectedProduct(product);
-    setAddedToCart(false);  // Resetear el mensaje de "añadido al carrito" cuando se abre un nuevo producto
-    setAnimationClass('');  // Resetear la animación cuando se cambia de producto
+    setAddedToCart(false);
+    setAnimationClass('');
   };
 
-  // Función para cerrar el modal
   const closeModal = () => {
     setSelectedProduct(null);
   };
 
-  // Agregar un event listener para la tecla Escape
   useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.key === "Escape") {
-        closeModal();  // Cerrar el modal cuando presionamos Escape
-      }
+      if (event.key === 'Escape') closeModal();
     };
 
     if (selectedProduct) {
-      // Solo agregar el listener si el modal está abierto
-      window.addEventListener("keydown", handleKeyDown);
+      window.addEventListener('keydown', handleKeyDown);
     } else {
-      // Eliminar el listener cuando el modal se cierra
-      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener('keydown', handleKeyDown);
     }
 
     return () => {
-      // Limpiar el listener al desmontar el componente
-      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [selectedProduct]);  // Dependencia en selectedProduct para activar/desactivar el listener
+  }, [selectedProduct]);
 
-  // Filtrar productos por marca seleccionada
   const filteredProducts = selectedBrand
     ? products.filter((product) => product.brand === selectedBrand)
     : products;
 
-  // Función para añadir al carrito con animación
   const handleAddToCartClick = (product) => {
-    handleAddToCart(product);  // Añadir el producto al carrito
-    setAddedToCart(true);  // Mostrar mensaje de "Añadido al carrito"
-    setAddedMessageVisible(true);  // Mostrar el mensaje de añadido al carrito
-    setAnimationClass('cart-animation');  // Activar la animación de movimiento hacia el carrito
+    handleAddToCart(product);
+    setAddedToCart(true);
+    setAddedMessageVisible(true);
+    setAnimationClass('cart-animation');
 
-    // Resetear el mensaje después de un tiempo (2 segundos)
     setTimeout(() => {
-      setAddedMessageVisible(false);  // Desaparecer el mensaje después de 2 segundos
-    }, 2000);  
+      setAddedMessageVisible(false);
+    }, 2000);
   };
 
   return (
-    <div className="product-grid">
-      {filteredProducts.length === 0 ? (
-        <p>No se encontraron productos para esta marca.</p>
-      ) : (
-        filteredProducts.map((product) => {
-          const imageSrc = require(`../assets/${product.image}`);
+    <div className="home-container">
+      {/* Carrusel de ofertas */}
+      <div className="carousel">
+        <img src={require(`../assets/${offers[currentIndex].img}`)} alt="Oferta" />
+        <p>{offers[currentIndex].description}</p>
+      </div>
 
-          return (
-            <div
-              key={product.id}
-              className="product-card"
-              onClick={() => handleProductClick(product)}
-            >
-              <img src={imageSrc} alt={product.name} />
-              <h2>{product.name}</h2>
-              <p><strong>{product.brand}</strong></p>
-              <p>{product.description}</p>
-              <p><strong>{product.price}€</strong></p>
-            </div>
-          );
-        })
-      )}
+      {/* Cuadrícula de productos */}
+      <div className="product-grid">
+        {filteredProducts.length === 0 ? (
+          <p>No se encontraron productos para esta marca.</p>
+        ) : (
+          filteredProducts.map((product) => {
+            const imageSrc = require(`../assets/${product.image}`);
+            return (
+              <div
+                key={product.id}
+                className="product-card"
+                onClick={() => handleProductClick(product)}
+              >
+                <img src={imageSrc} alt={product.name} />
+                <h2>{product.name}</h2>
+                <p><strong>{product.brand}</strong></p>
+                <p>{product.description}</p>
+                <p><strong>{product.price}€</strong></p>
+              </div>
+            );
+          })
+        )}
+      </div>
 
       {/* Modal de detalles del producto */}
       {selectedProduct && (
@@ -95,8 +110,6 @@ const Home = ({ selectedBrand, products, handleAddToCart }) => {
             <p><strong>Precio:</strong> {selectedProduct.price}€</p>
             <p><strong>Tamaño:</strong> {selectedProduct.size}</p>
             <p><strong>Pantalla:</strong> {selectedProduct.screenSize}"</p>
-
-            {/* Botón para añadir al carrito */}
             <button
               onClick={() => handleAddToCartClick(selectedProduct)}
               className={`add-to-cart-button ${animationClass}`}
@@ -104,7 +117,6 @@ const Home = ({ selectedBrand, products, handleAddToCart }) => {
               {addedToCart ? 'Añadido al carrito' : 'Añadir al carrito'}
             </button>
 
-            {/* Mensaje de confirmación cuando se añada al carrito */}
             {addedMessageVisible && (
               <div className="added-message">
                 <p>¡Producto añadido al carrito!</p>

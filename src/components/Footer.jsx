@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+
 import './Footer.css';
 import logo from '../assets/logo.png';
 import paymentMethodsImage from '../assets/payment-methods.png';
