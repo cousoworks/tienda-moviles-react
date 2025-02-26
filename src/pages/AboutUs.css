@@ -36,9 +36,8 @@
 .about-us-image {
   width: 50%;
   height: auto;
-  margin-top: 20px;
-  border-radius: 8px; /* Bordes redondeados para la imagen */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Sombras suaves alrededor de la imagen */
+  border-radius: 20px; /* Bordes redondeados para la imagen */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6); /* Sombras suaves alrededor de la imagen */
 }
 
 /* Efecto de fondo de la imagen */

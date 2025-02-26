@@ -84,3 +84,53 @@
   width: 100%; /* Asegura que el footer esté centrado */
   grid-column: span 3;  /* Ocupa las tres columnas */
 }
+
+/* Estilos para el modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  width: 60%;
+  max-width: 400px; /* Reducido el tamaño máximo */
+  text-align: center;
+  color: #000000;
+}
+
+.close-button {
+  color: #fff; /* Texto blanco */
+  background-color: red; /* Fondo rojo */
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border: none;
+  padding: 5px 10px; /* Añadir algo de padding para hacerlo más visible */
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background-color 0.3s ease; /* Efecto de transición al pasar el mouse */
+}
+
+.close-button:hover {
+  background-color: darkred; /* Cambiar el color al pasar el ratón */
+}
+
+
+.returns-image {
+  width: 60% !important; /* Forzar que la imagen se haga más pequeña */
+  height: auto !important;
+  margin-top: 4px !important; /* Menos margen */
+}
+
