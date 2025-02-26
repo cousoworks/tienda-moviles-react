@@ -1,37 +1,59 @@
 .shipping-container {
-    padding: 1rem;
-    background-color: #f4f4f4;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .shipping-container h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .shipping-container h2 {
-    font-size: 1.8rem;
-    margin-top: 2rem;
-  }
-  
-  .shipping-container p {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-  }
-  
-  .shipping-container ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .shipping-container ul li {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-  }
-  
-  .shipping-container ul li strong {
-    font-weight: bold;
-  }
-  
+  padding: 2rem;
+  background-color: #f4f4f4;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Sombra suave para profundidad */
+}
+
+.shipping-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.shipping-container h2 {
+  font-size: 1.8rem;
+  margin-top: 2rem;
+  color: #444;
+}
+
+.shipping-container p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.shipping-container ul {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.shipping-container ul li {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+.shipping-container ul li strong {
+  font-weight: bold;
+  color: #222;
+}
+
+.shipping-container ul li::before {
+  content: '•';
+  color: #7dc6d3;
+  padding-right: 8px;
+}
+
+.shipping-container a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.shipping-container a:hover {
+  text-decoration: underline;
+}
