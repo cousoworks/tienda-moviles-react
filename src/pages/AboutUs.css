@@ -1,82 +1,110 @@
 /* src/pages/AboutUs.css */
 
+
+
 .about-us-container {
-    padding: 10px;
-    text-align: center;
-    max-height: 100vh;  /* Limita la altura del contenedor */
-    overflow-y: hidden; /* Elimina el scroll vertical */
-    box-sizing: border-box;
+  padding: 40px;
+  text-align: center;
+  background-color: #f8f8f8; /* Fondo claro para una apariencia moderna */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombras suaves para profundidad */
+  margin-top: 20px; /* Agregado para dar algo de separación con la parte superior */
+  margin-bottom: 20px; /* Para que haya espacio con otros elementos si es necesario */
 }
 
 .about-us-container h1 {
-    color: rgb(0, 0, 0);
+  color: #333;  /* Color oscuro para resaltar */
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;  /* Espaciado para un look más limpio */
 }
 
 .about-us-container p {
-    color: rgb(0, 0, 0);
-    font-size: 1.1rem;
+  color: #555;  /* Gris más suave para mejor legibilidad */
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 800px; /* Limita el ancho del texto */
 }
 
-/* Estilo para la imagen suelta al final de la descripción */
 .about-us-image {
-    width: 36%;
-    height: auto;
-    margin-top: 10px;
-    
+  width: 50%;
+  height: auto;
+  margin-top: 20px;
+  border-radius: 8px; /* Bordes redondeados para la imagen */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Sombras suaves alrededor de la imagen */
 }
 
-  
-/* Estilo de los botones en la barra de navegación */
+/* Efecto de fondo de la imagen */
+.about-us-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.about-us-text {
+  margin-bottom: 40px; /* Espaciado entre el texto y la imagen */
+}
+
+/* Estilo para los botones en la barra de navegación */
 .navbar button,
 .navbar .nav-link {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 500;
-  padding: 8px 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative; /* Necesario para el pseudoelemento ::before */
-  text-decoration: none; /* Eliminar subrayado */
+background: none;
+border: none;
+color: white;
+font-size: 1.1rem;
+font-weight: 500;
+padding: 8px 16px;
+border-radius: 5px;
+cursor: pointer;
+transition: all 0.3s ease;
+position: relative; /* Necesario para el pseudoelemento ::before */
+text-decoration: none; /* Eliminar subrayado */
 }
 
 /* Estilo cuando el usuario pasa el cursor sobre el botón o enlace */
 .navbar button:hover,
 .navbar .nav-link:hover {
-  background-color: #7dc6d367;
-  transform: translateY(-3px);
+background-color: #7dc6d367;
+transform: translateY(-3px);
 }
 
 /* Estilo cuando el botón es clickeado */
 .navbar button:active,
 .navbar .nav-link:active {
-  transform: translateY(1px);
+transform: translateY(1px);
 }
 
 /* Estilo cuando el botón o enlace tiene el foco */
 .navbar button:focus,
 .navbar .nav-link:focus {
-  outline: none;
+outline: none;
 }
 
 /* Estilo del pseudoelemento antes del texto en los botones y enlaces */
 .navbar button::before,
 .navbar .nav-link::before {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  background-color: #fff;
-  bottom: 0;
-  left: 50%;
-  transition: width 0.3s ease, left 0.3s ease;
+content: '';
+position: absolute;
+width: 0;
+height: 2px;
+background-color: #fff;
+bottom: 0;
+left: 50%;
+transition: width 0.3s ease, left 0.3s ease;
 }
 
 /* Estilo cuando el usuario pasa el cursor sobre el botón o enlace (efecto línea debajo) */
 .navbar button:hover::before,
 .navbar .nav-link:hover::before {
-  width: 100%;
-  left: 0;
+width: 100%;
+left: 0;
 }
