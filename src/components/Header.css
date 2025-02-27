@@ -282,27 +282,41 @@ body.scroll .header {
     height: auto; /* Ajusta la altura */
     transition: transform 0.3s ease-in-out; /* Transición suave */
   }
-
-  /* Animación del borde en modo móvil */
-  @keyframes animate-border-mobile {
-    0% { background-position: 50% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 50% 50%; }
+  /* Pseudo-elemento para el borde animado */
+  .header::before {
+    content: "";
+    position: absolute;
+    top: -2px; left: -2px; right: -2px; bottom: -2px; /* Aumenta el tamaño para que parezca un borde */
+    background: linear-gradient(to bottom, #000000 50%, #1c6f7a, #38c9b6, #279ead, #38c9b6, #1c6f7a); /* Cambiar la dirección a vertical */
+    background-size: 100% 300%; /* Aumentamos la altura para la animación */
+    background-position: 0% 0%; /* Comienza desde la parte superior */
+    z-index: -1; /* Lo pone detrás del header */
+    border-radius: 5px; /* Bordes redondeados */
+    animation: animate-border 7s ease-in-out infinite; /* Animación suave */
   }
+  
+  @keyframes animate-border {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 0% 100%; } /* Baja hacia abajo */
+    100% { background-position: 0% 0%; } /* Vuelve a la parte superior */
+  }
+  /* Estilo para el botón de navegación en el header */
+
+
 
   /* Navbar en dispositivos móviles */
   .navbar {
     display: flex;
     flex-direction: column-reverse; /* Invierte el orden de los elementos */
     align-items: center; /* Alinea los botones al centro */
-    gap: 5px; /* Reduce el espacio entre los botones */
+    gap:0px;
   }
 
   .navbar button {
     width: 100%; /* Hace que los botones ocupen todo el ancho disponible */
     padding: 10px 0; /* Agrega más espacio vertical a los botones */
-  }
 
+  }
   .logo {
     width: 100%;  /* El logo ocupará todo el ancho de la pantalla */
     height: 14.5vh;  /* El logo ocupará el 20% del alto de la pantalla */
