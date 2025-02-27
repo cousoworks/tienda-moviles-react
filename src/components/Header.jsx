@@ -1,5 +1,4 @@
-// src/components/Header.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Header.css';
 import logoGif from '../assets/logo.gif';  // Importa el GIF del logo
 import separadorImg from '../assets/separador.png';
@@ -11,19 +10,19 @@ const Header = ({ setSelectedBrand, setSortedProducts }) => {
   const [screenOrder, setScreenOrder] = useState('desc'); // Orden de pantalla
   const [menuOpen, setMenuOpen] = useState(false); // Estado para abrir/cerrar el menú desplegable
   const [isHeaderVisible, setIsHeaderVisible] = useState(true); // Estado para ocultar el header
-  let lastScrollTop = 0;
+  const lastScrollTop = useRef(0);  // Usamos useRef en lugar de una variable normal
 
   useEffect(() => {
     const handleScroll = () => {
       let scrollTop = window.scrollY || document.documentElement.scrollTop;
 
-      if (scrollTop > lastScrollTop && scrollTop > 50) {
+      if (scrollTop > lastScrollTop.current && scrollTop > 50) {
         setIsHeaderVisible(false); // Oculta el header al hacer scroll hacia abajo
       } else {
         setIsHeaderVisible(true); // Muestra el header al hacer scroll hacia arriba
       }
 
-      lastScrollTop = scrollTop;
+      lastScrollTop.current = scrollTop; // Actualizamos el valor de lastScrollTop
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -31,7 +30,7 @@ const Header = ({ setSelectedBrand, setSortedProducts }) => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, []);  // Solo se ejecuta una vez al montar el componente
 
   // Función para hacer scroll hacia la parte superior
   const scrollToTop = () => {
@@ -87,8 +86,13 @@ const Header = ({ setSelectedBrand, setSortedProducts }) => {
           </Link>
         </div>
         <nav className="navbar">
-          <div className="nav-link dropdown" onClick={toggleMenu}>
-            MARCAS
+          <div 
+            className="nav-link dropdown"
+            onClick={toggleMenu} // Usar toggleMenu aquí
+          >
+            <Link to="/" className="nav-link">
+              MARCAS
+            </Link>
             {menuOpen && (
               <ul className="dropdown-menu">
                 <li onClick={() => setSelectedBrand('')}>TODOS</li>
