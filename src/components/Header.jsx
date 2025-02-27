@@ -28,6 +28,11 @@ const Header = ({ setSelectedBrand, setSortedProducts }) => {
     };
   }, []);
 
+  // Función para hacer scroll hacia la parte superior
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   // Función para ordenar los productos por precio
   const sortByPrice = () => {
     const newOrder = priceOrder === 'desc' ? 'asc' : 'desc'; // Alternar entre ascendente y descendente
@@ -96,9 +101,9 @@ const Header = ({ setSelectedBrand, setSortedProducts }) => {
           </div>
 
           {/* Botones fuera del menú desplegable */}
-          <Link to="/about-us" className="nav-link">NOSOTROS</Link> {/* Usamos Link para navegar */}
-          <Link to="/shipping" className="nav-link">ENVIOS</Link>
-          <Link to="/cart" className="nav-link">CARRITO</Link>
+          <Link to="/about-us" className="nav-link" onClick={scrollToTop}>NOSOTROS</Link> {/* Usamos Link para navegar */}
+          <Link to="/shipping" className="nav-link" onClick={scrollToTop}>ENVIOS</Link>
+          <Link to="/cart" className="nav-link" onClick={scrollToTop}>CARRITO</Link>
         </nav>
       </header>
 
