@@ -1,27 +1,56 @@
 /* Header principal */
 .header {
-  position: -webkit-sticky; /* Para compatibilidad con navegadores webkit */
+  position: -webkit-sticky;
   position: sticky;
-  top: 0; /* Fija el header en la parte superior */
-  width: 100%;
-  background: linear-gradient(to right, #000000, #0c0b18, #279ead); /* Negro → Morado → Azul */
+  top: 0;
+  width: 98.3%;
+  height: 75px; /* Ajusta la altura */
+  background: linear-gradient(to right, #000000, #0c0b18, #1c6f7a, #38c9b6, #279ead);
   color: white;
-  padding-top: 10px;
+  padding: 5px 15px; /* Reduce el padding para que no crezca tanto */
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
-  transition: background 0.3s ease-in-out, opacity 0.5s ease; /* Transición suave */
-  z-index: 1000; /* Mantiene el header sobre otros elementos */
-  opacity: 1; /* Inicialmente visible */
+  transition: background 0.3s ease-in-out, opacity 0.5s ease;
+  z-index: 1000;
+  opacity: 1;
 }
 
 
+/* Pseudo-elemento para el borde animado */
+.header::before {
+  content: "";
+  position: absolute;
+  top: -2px; left: -2px; right: -2px; bottom: -2px; /* Aumenta el tamaño para que parezca un borde */
+  background: linear-gradient(to right, #000000 50%, #1c6f7a, #38c9b6, #279ead, #38c9b6, #1c6f7a);
+  background-size: 170% 100%; /* Ajusta el área de animación */
+  background-position: 20% 20%; /* Mantiene el negro en la mitad */
+  z-index: -1; /* Lo pone detrás del header */
+  border-radius: 5px; /* Bordes redondeados */
+  animation: animate-border 7s ease-in-out infinite; /* Animación suave */
+}
 /* Efecto de desvanecimiento cuando se hace scroll */
 body.scroll .header {
-  opacity: 0.8; /* Opacidad reducida cuando se hace scroll */
+  opacity: 0.7; /* Opacidad reducida cuando se hace scroll */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.9); /* Sombra más suave al hacer scroll */
 }
+/* Cuando el cursor está sobre el header, se elimina la opacidad */
+.header:hover {
+  opacity: 1 !important; /* Restablece la opacidad al 100% al poner el cursor encima */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7); /* Restablece la sombra normal */
+}
+
+
+/* Definir la animación del borde */
+@keyframes animate-border {
+  0% { background-position: 50% 50%; } /* Mantiene la izquierda negra */
+  50% { background-position: 100% 50%; } /* Mueve la parte derecha */
+  100% { background-position: 50% 50%; } /* Regresa */
+}
+
+
+
 
 /* Logo */
 .logo h1 {
@@ -41,7 +70,7 @@ body.scroll .header {
 .sidebar {
   z-index: 1000;
   position: fixed;
-  top: 99px; /* Mueve la barra lateral hacia abajo desde la parte superior */
+  top: 86px; /* Mueve la barra lateral hacia abajo desde la parte superior */
   left: -270px; /* Barra lateral inicialmente escondida */
   width: 250px;
   height: calc(100% - 0px); /* Ajusta la altura para que se reduzca desde arriba */
