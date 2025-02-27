@@ -164,3 +164,43 @@
   margin-top: 4px !important; /* Menos margen */
 }
 
+/* Modo móvil (menos de 768px) */
+@media (max-width: 768px) {
+  
+  
+  /* Footer info (ya no es necesario usar grid-template-columns) */
+  .footer-info {
+    display: flex;
+    justify-content: space-between;  /* Alineación flexible de los elementos */
+    width: 97%;
+  }
+  .footer-contact h4,
+.footer-links h4 {
+  font-size: 0.7rem;  /* Ajustar el tamaño de la fuente */
+  color: #7de7e2;  /* Color blanco para los encabezados */
+  font-weight: bold;  /* Hacer que el texto esté en negrita */
+  text-transform: uppercase;  /* Convertir el texto a mayúsculas */
+}
+.footer-contact p {
+  font-size: 0.7rem;
+}
+ .footer-links li{
+  font-size: 0.7rem;
+  margin-bottom: 3px;
+}
+  
+  /* Footer footer (ajustado para que esté dentro del contenedor común) */
+  .footer-footer {
+    text-align: center;
+    font-size: 0.7rem;  /* Reducir el tamaño del texto */
+    width: 100%; /* Asegura que el footer esté centrado */
+    margin-top: 30px; /* Más espacio arriba para separar del contenido */
+  }
+  .footer-logo-image {
+    width: 90px; /* Reducir el tamaño del logo */
+    height: auto;
+    padding-left: 15px;
+  }
+  
+  
+}
