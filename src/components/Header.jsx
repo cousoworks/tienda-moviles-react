@@ -79,35 +79,33 @@ const Header = ({ setSelectedBrand, setSortedProducts }) => {
 
   return (
     <>
-      <header className={`header ${isHeaderVisible ? '' : 'hidden'}`}>
-        <div className="logo">
-          <Link to="/" className="logo-link">
-            <img src={logoGif} alt="Logo" />
-          </Link>
-        </div>
-        <nav className="navbar">
-          <div 
-            className="nav-link dropdown"
-            onClick={toggleMenu} // Usar toggleMenu aquí
-          >
-            <Link to="/" className="nav-link">
-              MARCAS
-            </Link>
-            {menuOpen && (
-              <ul className="dropdown-menu">
-                <li onClick={() => setSelectedBrand('')}>TODOS</li>
-                <li onClick={() => setSelectedBrand('Samsung')}>SAMSUNG</li>
-                <li onClick={() => setSelectedBrand('Apple')}>IPHONE</li>
-                <li onClick={() => setSelectedBrand('Xiaomi')}>XIAOMI</li>
-                <li onClick={() => setSelectedBrand('OnePlus')}>ONEPLUS</li>
-              </ul>
-            )}
-          </div>
-          <Link to="/about-us" className="nav-link" onClick={scrollToTop}>NOSOTROS</Link>
-          <Link to="/shipping" className="nav-link" onClick={scrollToTop}>ENVIOS</Link>
-          <Link to="/cart" className="nav-link" onClick={scrollToTop}>CARRITO</Link>
-        </nav>
-      </header>
+     <header className={`header ${isHeaderVisible ? '' : 'hidden'}`}>
+  <div className="logo">
+    <Link to="/" className="logo-link" onClick={() => setSelectedBrand('')}> {/* Restablecer el filtro aquí */}
+      <img src={logoGif} alt="Logo" />
+    </Link>
+  </div>
+  <nav className="navbar">
+    <div className="nav-link dropdown" onClick={toggleMenu}>
+      <Link to="/" className="nav-link">
+        MARCAS
+      </Link>
+      {menuOpen && (
+        <ul className="dropdown-menu">
+          <li onClick={() => setSelectedBrand('')}>TODOS</li>
+          <li onClick={() => setSelectedBrand('Samsung')}>SAMSUNG</li>
+          <li onClick={() => setSelectedBrand('Apple')}>IPHONE</li>
+          <li onClick={() => setSelectedBrand('Xiaomi')}>XIAOMI</li>
+          <li onClick={() => setSelectedBrand('OnePlus')}>ONEPLUS</li>
+        </ul>
+      )}
+    </div>
+    <Link to="/about-us" className="nav-link" onClick={scrollToTop}>NOSOTROS</Link>
+    <Link to="/shipping" className="nav-link" onClick={scrollToTop}>ENVIOS</Link>
+    <Link to="/cart" className="nav-link" onClick={scrollToTop}>CARRITO</Link>
+  </nav>
+</header>
+
 
       <div className="sidebar">
         <img src={separadorImg} alt="Separador" className="sidebar-separator" />
