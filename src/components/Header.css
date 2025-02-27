@@ -30,16 +30,8 @@
   border-radius: 5px; /* Bordes redondeados */
   animation: animate-border 7s ease-in-out infinite; /* Animación suave */
 }
-/* Efecto de desvanecimiento cuando se hace scroll */
-body.scroll .header {
-  opacity: 0.7; /* Opacidad reducida cuando se hace scroll */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.9); /* Sombra más suave al hacer scroll */
-}
-/* Cuando el cursor está sobre el header, se elimina la opacidad */
-.header:hover {
-  opacity: 1 !important; /* Restablece la opacidad al 100% al poner el cursor encima */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7); /* Restablece la sombra normal */
-}
+
+
 
 
 /* Definir la animación del borde */
@@ -338,9 +330,9 @@ body.scroll .header {
   /* Barra lateral en dispositivos móviles */
   .sidebar {
     position: fixed;
-    top: 275px; /* Ajusta la posición superior */
+    top: 50%; /* Ajusta la posición superior */
     left: -35%; /* Esconde la barra lateral fuera de la pantalla */
-    width: 120px; /* Ajusta el tamaño de la barra lateral */
+    width: 30%; /* Ajusta el tamaño de la barra lateral */
     height: 100%; /* Mantiene la altura completa */
     padding: 5px; /* Ajusta el padding para espacio interno */
     flex-direction: column;
@@ -348,6 +340,7 @@ body.scroll .header {
     align-items: flex-start; /* Alinea los elementos a la izquierda */
     gap: 10px; /* Reduce el espacio entre los elementos */
     box-shadow: 4px 0 8px rgba(0, 0, 0, 0.7);
+    border-radius: 7px;
     transition: transform 0.3s ease;
     opacity: 0.95;
   }
