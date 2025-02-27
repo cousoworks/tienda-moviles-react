@@ -10,10 +10,10 @@ const Home = ({ selectedBrand, products, handleAddToCart }) => {
 
   // Carrusel de imágenes (4 fotos con descripción)
   const offers = [
-    { img: 'offer1.png', description: '¡Oferta increíble en móviles!', link: '#' },
-    { img: 'offer2.png', description: 'Descuentos hasta 50%', link: '#' },
-    { img: 'offer3.png', description: 'Compra 1 y llévate 2', link: '#' },
-    { img: 'offer4.png', description: '¡Envio gratis en todos los pedidos!', link: '#' },
+    { img: 'offer1.png', description: '¡Ofertas increíbles en móviles!', link: '#' },
+    { img: 'offer2.png', description: 'Descuentos de hasta un 50%', link: '#' },
+    { img: 'offer3.png', description: 'Compra 2 y llévate unos auriculares', link: '#' },
+    { img: 'offer4.png', description: '¡Envío gratis en todos los pedidos!', link: '#' },
   ];
 
   // Función para cambiar la imagen del carrusel

@@ -1,14 +1,44 @@
+/* Footer */
 .footer-container {
-  background: linear-gradient(to right, #279ead, #0c0b18, #000000); /* Azul → Morado → Negro */
+  position: -webkit-sticky;
+  position: relative;
+  bottom: 0;
+  width: 99.9%;
+  height: 160px;  /* Ajusta la altura como prefieras */
+  background: linear-gradient(to right, #279ead, #2a1d3f, #1a1a1a); /* Gradiente más sutil */
   color: white;
   padding: 1px 0;  /* Reducir el padding vertical */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;  /* Asegura que el footer ocupe todo el ancho */
-  max-height: 170px; /* Agregar altura mínima para centrar contenido */
+  max-height: 160px;
+  z-index: 1000;
+  opacity: 0.9;  /* Reduce la opacidad para un brillo más suave */
+  transition: opacity 0.3s ease-in-out;
 }
+
+/* Pseudo-elemento para el borde animado */
+.footer-container::before {
+  content: "";
+  position: absolute;
+  top: -2px; left: -2px; right: -2px; bottom: -2px;
+  background: linear-gradient(to right, #000000 50%, #15545c, #278b7e, #1d6faa, #1c665c, #0f3e44); /* Menos saturación */
+  background-size: 200% 100%; /* Área de animación más pequeña */
+  background-position: 50% 50%;
+  z-index: -1;
+  border-radius: 5px;
+  animation: animate-border 10s ease-in-out infinite; /* Animación más lenta */
+}
+
+/* Animación del borde */
+@keyframes animate-border {
+  0% { background-position: 50% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 50% 50%; }
+}
+
+
 
 .footer-info {
   display: grid;
