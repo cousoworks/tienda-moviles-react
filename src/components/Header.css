@@ -272,12 +272,29 @@ body.scroll .header {
   gap: 10px;
 }
 
+/* Modo móvil (menos de 766px de ancho) */
 @media (max-width: 766px) {
   /* Header principal en dispositivos móviles */
   .header {
     flex-direction: column; /* Cambia a columna para apilar elementos */
     align-items: center; /* Alinea los elementos hacia el centro */
-    
+    justify-content: center; /* Centra los elementos verticalmente */
+    height: auto; /* Ajusta la altura */
+    transition: transform 0.3s ease-in-out; /* Transición suave */
+  }
+
+  /* Ocultar el header cuando se aplica la clase .header-hidden */
+  .header-hidden {
+    transform: translateY(-100%); /* Mueve el header más hacia arriba para esconderlo más */
+  }
+
+  /* Ajustar la sombra y opacidad para el modo móvil */
+  .header::before {
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background-size: 250% 100%; /* Reducir el área de la animación */
   }
   
   .navbar {
@@ -294,17 +311,20 @@ body.scroll .header {
 
   
 
-  .logo h1 {
-    font-size: 1.5rem; /* Reduce el tamaño del logo */
-    margin-left: 0; /* Elimina el margen izquierdo */
+  .logo {
+    width: 100%;  /* El logo ocupará todo el ancho de la pantalla */
+    height: 14.5vh;  /* El logo ocupará el 20% del alto de la pantalla */
+    display: flex;
+    justify-content: center;  /* Centra el logo horizontalmente */
+    align-items: center;  /* Centra el logo verticalmente */
   }
 
-  /* Ajustar sombras y efectos */
-  
-  
   .logo img {
-    width: 350px; /* Ajusta el tamaño del logo en dispositivos pequeños */
+    width: auto;  /* Mantiene el ancho del logo proporcional */
+    height: 100%;  /* Hace que el logo ocupe el 100% del contenedor en altura */
   }
+
+
  /* Barra lateral en dispositivos móviles */
  .sidebar {
   position: fixed;
