@@ -13,7 +13,7 @@
   align-items: center;
   justify-content: center;
   max-height: 160px;
-  z-index: 1000;
+  z-index: 1;
   opacity: 0.9;  /* Reduce la opacidad para un brillo más suave */
   transition: opacity 0.3s ease-in-out;
 }
