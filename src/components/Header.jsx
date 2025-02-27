@@ -10,17 +10,22 @@ const Header = ({ setSelectedBrand, setSortedProducts }) => {
   const [sizeOrder, setSizeOrder] = useState('desc'); // Orden de tamaño
   const [screenOrder, setScreenOrder] = useState('desc'); // Orden de pantalla
   const [menuOpen, setMenuOpen] = useState(false); // Estado para abrir/cerrar el menú desplegable
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true); // Estado para ocultar el header
+  let lastScrollTop = 0;
 
   useEffect(() => {
     const handleScroll = () => {
-      const body = document.querySelector('body');
-      if (window.scrollY > 50) {
-        body.classList.add('scroll');
+      let scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+      if (scrollTop > lastScrollTop && scrollTop > 50) {
+        setIsHeaderVisible(false); // Oculta el header al hacer scroll hacia abajo
       } else {
-        body.classList.remove('scroll');
+        setIsHeaderVisible(true); // Muestra el header al hacer scroll hacia arriba
       }
+
+      lastScrollTop = scrollTop;
     };
-    
+
     window.addEventListener('scroll', handleScroll);
 
     return () => {
@@ -35,9 +40,8 @@ const Header = ({ setSelectedBrand, setSortedProducts }) => {
 
   // Función para ordenar los productos por precio
   const sortByPrice = () => {
-    const newOrder = priceOrder === 'desc' ? 'asc' : 'desc'; // Alternar entre ascendente y descendente
+    const newOrder = priceOrder === 'desc' ? 'asc' : 'desc';
     setPriceOrder(newOrder);
-
     setSortedProducts((prevProducts) =>
       [...prevProducts].sort((a, b) =>
         newOrder === 'desc' ? b.price - a.price : a.price - b.price
@@ -47,9 +51,8 @@ const Header = ({ setSelectedBrand, setSortedProducts }) => {
 
   // Función para ordenar los productos por tamaño
   const sortBySize = () => {
-    const newOrder = sizeOrder === 'desc' ? 'asc' : 'desc'; // Alternar entre ascendente y descendente
+    const newOrder = sizeOrder === 'desc' ? 'asc' : 'desc';
     setSizeOrder(newOrder);
-
     setSortedProducts((prevProducts) =>
       [...prevProducts].sort((a, b) =>
         newOrder === 'desc'
@@ -61,9 +64,8 @@ const Header = ({ setSelectedBrand, setSortedProducts }) => {
 
   // Función para ordenar los productos por tamaño de pantalla
   const sortByScreenSize = () => {
-    const newOrder = screenOrder === 'desc' ? 'asc' : 'desc'; // Alternar entre ascendente y descendente
+    const newOrder = screenOrder === 'desc' ? 'asc' : 'desc';
     setScreenOrder(newOrder);
-
     setSortedProducts((prevProducts) =>
       [...prevProducts].sort((a, b) =>
         newOrder === 'desc' ? b.screenSize - a.screenSize : a.screenSize - b.screenSize
@@ -78,15 +80,13 @@ const Header = ({ setSelectedBrand, setSortedProducts }) => {
 
   return (
     <>
-      <header className="header">
+      <header className={`header ${isHeaderVisible ? '' : 'hidden'}`}>
         <div className="logo">
-          {/* Envolvemos la imagen del logo con un Link */}
           <Link to="/" className="logo-link">
-            <img src={logoGif} alt="Logo" /> {/* Muestra el logo GIF */}
+            <img src={logoGif} alt="Logo" />
           </Link>
         </div>
         <nav className="navbar">
-          {/* Botón "MARCAS" con menú desplegable */}
           <div className="nav-link dropdown" onClick={toggleMenu}>
             MARCAS
             {menuOpen && (
@@ -99,9 +99,7 @@ const Header = ({ setSelectedBrand, setSortedProducts }) => {
               </ul>
             )}
           </div>
-
-          {/* Botones fuera del menú desplegable */}
-          <Link to="/about-us" className="nav-link" onClick={scrollToTop}>NOSOTROS</Link> {/* Usamos Link para navegar */}
+          <Link to="/about-us" className="nav-link" onClick={scrollToTop}>NOSOTROS</Link>
           <Link to="/shipping" className="nav-link" onClick={scrollToTop}>ENVIOS</Link>
           <Link to="/cart" className="nav-link" onClick={scrollToTop}>CARRITO</Link>
         </nav>
