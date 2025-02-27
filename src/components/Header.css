@@ -275,15 +275,18 @@ body.scroll .header {
 /* Modo móvil (menos de 766px de ancho) */
 @media (max-width: 766px) {
   /* Header principal en dispositivos móviles */
-  .header {
-    flex-direction: column; /* Cambia a columna para apilar elementos */
-    align-items: center; /* Alinea los elementos hacia el centro */
-    justify-content: center; /* Centra los elementos verticalmente */
-    height: auto; /* Ajusta la altura */
-    transition: transform 0.3s ease-in-out; /* Transición suave */
-  }
+.header {
+  flex-direction: column; /* Cambia a columna para apilar elementos */
+  align-items: center; /* Alinea los elementos hacia el centro */
+  justify-content: center; /* Centra los elementos verticalmente */
+  height: auto; /* Ajusta la altura */
+  transition: transform 0.3s ease-in-out; /* Transición suave */
+  padding: 0; /* Eliminado el padding */
+}
+
   /* Pseudo-elemento para el borde animado */
   .header::before {
+    width: 100%; /* Ajusta el ancho al 100% */
     content: "";
     position: absolute;
     top: -2px; left: -2px; right: -2px; bottom: -2px; /* Aumenta el tamaño para que parezca un borde */
@@ -326,7 +329,7 @@ body.scroll .header {
   }
 
   .logo img {
-    width: auto;  /* Mantiene el ancho del logo proporcional */
+    width: 80%;  /* Mantiene el ancho del logo proporcional */
     height: 100%;  /* Hace que el logo ocupe el 100% del contenedor en altura */
   }
 
