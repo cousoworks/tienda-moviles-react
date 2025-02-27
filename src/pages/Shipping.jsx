@@ -31,7 +31,7 @@ const Shipping = () => {
       <p>Realizamos envíos a nivel nacional e internacional. Todos los pedidos se procesan dentro de 1-2 días hábiles. Sin embargo, debido a factores externos como el clima o problemas logísticos, el tiempo de entrega puede variar.</p>
 
       <h2>¿Tienes preguntas?</h2>
-      <p>Si tienes alguna duda sobre los envíos, no dudes en contactarnos a través de nuestro formulario de contacto o enviarnos un correo electrónico a soporte@blayneshop.com. Estamos aquí para ayudarte.</p>
+      <p>Si tienes alguna duda sobre los envíos, no dudes en contactarnos enviándonos un correo electrónico a soporte@blayneshop.com. Estamos aquí para ayudarte.</p>
     </div>
   );
 };

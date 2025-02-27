@@ -16,7 +16,7 @@ const AboutUs = () => {
           Nuestra historia comenzó hace más de 5 años, cuando un pequeño grupo de entusiastas de la tecnología decidió unir fuerzas para crear una plataforma única que ofreciera no solo productos de alta calidad, sino también un servicio excepcional. Empezamos con una pequeña tienda online, pero rápidamente nos dimos cuenta de que había una gran demanda de información confiable sobre móviles y tecnología.
         </p>
         <p>
-          Con el paso del tiempo, nuestra comunidad creció y hoy somos uno de los referentes en el mundo de los smartphones. Nos especializamos en proporcionar guías de compra detalladas, comparativas de modelos y consejos para que nuestros clientes siempre estén informados sobre lo último en el mercado.
+          Con el paso del tiempo, nuestra comunidad creció y hoy somos uno de los referentes en el mundo de los smartphones.
         </p>
         <p>
           Nuestro equipo sigue creciendo, y nuestra misión no ha cambiado: queremos ayudarte a tomar las mejores decisiones sobre los dispositivos que más importan en tu vida diaria. Ya sea que busques el último modelo de smartphone o un consejo sobre qué accesorio es ideal para tu dispositivo, estamos aquí para ti.
