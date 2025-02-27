@@ -20,7 +20,7 @@ const Header = ({ setSelectedBrand, setSortedProducts }) => {
         body.classList.remove('scroll');
       }
     };
-
+    
     window.addEventListener('scroll', handleScroll);
 
     return () => {
