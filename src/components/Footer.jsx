@@ -49,7 +49,7 @@ const Footer = () => {
         </div>
         <div className="footer-contact">
           <h4>Datos de contacto</h4>
-          <p><strong>Dirección:</strong> C/ Avenida Loveless, Madrid</p>
+          <p><strong>Dirección:</strong> C/ Trafalgar Law 20, Madrid</p>
           <p><strong>Teléfono de contacto:</strong> 999 999 999</p>
         </div>
         <div className="footer-links">

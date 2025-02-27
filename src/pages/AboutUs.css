@@ -107,3 +107,13 @@ transition: width 0.3s ease, left 0.3s ease;
 width: 100%;
 left: 0;
 }
+
+@media screen and (max-width: 768px) {
+  .about-us-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Bordes redondeados para la imagen */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6); /* Sombras suaves alrededor de la imagen */
+  }
+  
+}
