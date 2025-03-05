@@ -87,7 +87,7 @@ const Cart = ({ cart, setCart }) => {
                   <p><strong>{product.price}€</strong></p>
                 </div>
                 <button onClick={() => handleRemoveFromCart(product.id)} className="remove-button">
-                  Eliminar
+                  X
                 </button>
               </li>
             ))}
