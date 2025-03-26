@@ -303,14 +303,20 @@
   /* Navbar en dispositivos móviles */
   .navbar {
     display: flex;
-    flex-direction: column-reverse; /* Invierte el orden de los elementos */
-    align-items: center; /* Alinea los botones al centro */
-    gap:0px;
+    flex-direction: row; /* Mostrar en fila */
+    justify-content: space-around; /* Distribuye los elementos en fila */
+    align-items: center; /* Alinea los botones al centro verticalmente */
+    gap: 0px; /* Separa los elementos */
+  }
+  .navbar button,
+  .navbar .nav-link {
+    font-size: 0.8rem !important; /* Ajusta el valor según necesites */
   }
 
   .navbar button {
     width: 100%; /* Hace que los botones ocupen todo el ancho disponible */
-    padding: 10px 0; /* Agrega más espacio vertical a los botones */
+    padding: 5px 0; /* Agrega más espacio vertical a los botones */
+
 
   }
   .logo {
