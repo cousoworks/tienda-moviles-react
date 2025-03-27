@@ -295,7 +295,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 9999; /* Valor alto para que siempre esté encima */
+    z-index: 99999 !important;
   }
 
 .modal-content {
