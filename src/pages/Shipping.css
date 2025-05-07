@@ -2,7 +2,7 @@
   padding: 2rem;
   background-color: #f4f4f4;
   max-width: 800px;
-  margin: 0 auto;
+  margin: 100px auto 20px; /* Añadido margen superior de 100px */
   border-radius: 8px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Sombra suave para profundidad */
 }

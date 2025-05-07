@@ -1,378 +1,596 @@
-/* Header principal */
+/* Header principal con diseño moderno */
 .header {
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
   top: 0;
-  width: 98.3%;
-  height: 75px; /* Ajusta la altura */
-  background: linear-gradient(to right, #000000, #0c0b18, #1c6f7a, #38c9b6, #279ead);
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 80px;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: white;
-  padding: 5px 15px; /* Reduce el padding para que no crezca tanto */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
-  transition: background 0.3s ease-in-out, opacity 0.5s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   z-index: 1000;
-  opacity: 1;
+  padding: 0 20px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              background-color 0.3s ease, 
+              box-shadow 0.3s ease;
+  box-sizing: border-box;
+  overflow-x: clip;
 }
 
+/* Ocultar header al hacer scroll */
+.header.hidden {
+  transform: translateY(-100%);
+}
 
-/* Pseudo-elemento para el borde animado */
+/* Pseudo-elemento para el borde animado con gradiente moderno */
 .header::before {
   content: "";
   position: absolute;
-  top: -2px; left: -2px; right: -2px; bottom: -2px; /* Aumenta el tamaño para que parezca un borde */
-  background: linear-gradient(to right, #000000 50%, #1c6f7a, #38c9b6, #279ead, #38c9b6, #1c6f7a);
-  background-size: 170% 100%; /* Ajusta el área de animación */
-  background-position: 20% 20%; /* Mantiene el negro en la mitad */
-  z-index: -1; /* Lo pone detrás del header */
-  border-radius: 5px; /* Bordes redondeados */
-  animation: animate-border 7s ease-in-out infinite; /* Animación suave */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #1c6f7a, #38c9b6, #279ead, #38c9b6, #1c6f7a);
+  background-size: 200% 100%;
+  animation: gradient-shift 8s ease infinite;
+  z-index: 1001;
 }
 
-
-
-
-/* Definir la animación del borde */
-@keyframes animate-border {
-  0% { background-position: 50% 50%; } /* Mantiene la izquierda negra */
-  50% { background-position: 100% 50%; } /* Mueve la parte derecha */
-  100% { background-position: 50% 50%; } /* Regresa */
+/* Animación de desplazamiento del gradiente */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
+/* Logo con animación suave */
+.logo {
+  display: flex;
+  align-items: center;
+}
 
+.logo-link {
+  display: block;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
+.logo-link:hover {
+  transform: scale(1.05);
+}
 
-/* Logo */
-.logo h1 {
+.logo img {
+  height: 60px;
+  width: auto;
+  filter: drop-shadow(0 0 8px rgba(56, 201, 182, 0.3));
+  transition: filter 0.4s ease, transform 0.3s ease;
+}
+
+.logo img:hover {
+  filter: drop-shadow(0 0 12px rgba(56, 201, 182, 0.5));
+  transform: translateY(-2px);
+}
+
+/* Barra de navegación moderna */
+.navbar {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: nowrap;
+  max-width: 60%;
+}
+
+/* Enlaces de navegación con animaciones */
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  position: relative;
+  transition: color 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #38c9b6, #1c6f7a);
+  transition: width 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.nav-link:hover {
+  color: #38c9b6;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Menú desplegable mejorado con animación al pasar el cursor */
+.dropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Flecha indicadora para el dropdown - eliminada */
+.dropdown .nav-link::after {
+  content: none; /* Eliminamos el contenido que creaba la flecha */
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(15px);
+  min-width: 160px;
+  background: rgba(20, 20, 20, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  list-style-type: none;
+  padding: 10px 0;
   margin: 0;
-  font-size: 2rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-  transition: transform 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1001;
+  overflow: hidden;
+  border: 1px solid rgba(56, 201, 182, 0.1);
 }
 
-.logo h1:hover {
-  transform: scale(1.1); /* Aumenta el tamaño del logo al pasar el ratón */
+/* Activar menú al pasar el cursor */
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(8px);
 }
 
-/* Barra lateral */
+/* Dropdown menú estilos */
+.dropdown-menu li {
+  padding: 12px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: center;
+  border-radius: 6px;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+}
 
+.dropdown-menu li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(56, 201, 182, 0), rgba(56, 201, 182, 0.1), rgba(56, 201, 182, 0));
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+  z-index: -1;
+}
+
+.dropdown-menu li:hover {
+  color: #38c9b6;
+  background-color: rgba(56, 201, 182, 0.05);
+  transform: translateX(3px);
+}
+
+.dropdown-menu li:hover::before {
+  transform: translateX(100%);
+}
+
+.dropdown-menu li:active {
+  transform: translateX(3px) scale(0.98);
+}
+
+/* Barra lateral moderna */
 .sidebar {
-  z-index: 1000;
   position: fixed;
-  top: 86px; /* Mueve la barra lateral hacia abajo desde la parte superior */
-  left: -270px; /* Barra lateral inicialmente escondida */
-  width: 250px;
-  height: calc(100% - 0px); /* Ajusta la altura para que se reduzca desde arriba */
-  background: linear-gradient(to bottom, #000000, #0c0b18, #279ead); /* Negro → Morado → Azul */
+  top: 100px;
+  left: -220px;
+  width: 220px;
+  height: auto;
+  background: rgba(20, 20, 20, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 0 12px 12px 0;
   color: white;
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Centra los elementos en el eje vertical */
-  align-items: flex-end; /* Pega los elementos a la parte derecha */
   gap: 15px;
-  box-shadow: 4px 0 8px rgba(0, 0, 0, 0.7);
-  transition: transform 0.3s ease;
-  opacity: 0.95;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.25);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 999;
 }
 
-
-/* Agranda la barra lateral al pasar el cursor */
 .sidebar:hover {
-  transform: translateX(150px); /* Mueve la barra lateral a la vista */
+  transform: translateX(220px);
 }
 
-/* Botones y estilo dentro de la barra lateral */
 .sidebar h3 {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-  text-align: right; /* Alinea el texto de los títulos hacia la derecha */
+  font-size: 1.2rem;
+  margin: 0 0 15px 0;
+  color: #38c9b6;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(56, 201, 182, 0.3);
+  padding-bottom: 8px;
 }
 
 .sidebar button {
   background: none;
-  border: none;
+  border: 1px solid rgba(56, 201, 182, 0.3);
+  border-radius: 8px;
   color: white;
   font-size: 1rem;
   font-weight: 500;
-  padding: 6px; /* Mayor tamaño para un efecto más estilizado */
-  border-radius: 8px; /* Bordes más redondeados */
+  padding: 10px 15px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Añadimos transformaciones y sombras */
-  text-align: center; /* Centra el texto */
-  display: inline-block;
+  transition: all 0.3s ease;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(56, 201, 182, 0.2), transparent);
+  transition: left 0.5s ease;
 }
 
 .sidebar button:hover {
-  background-color: rgba(85, 85, 85, 0.22); /* Color de fondo más sutil al hacer hover */
-  transform: scale(1.1); /* Efecto de zoom */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil al hacer hover */
+  background-color: rgba(56, 201, 182, 0.1);
+  transform: translateX(5px);
+  border-color: rgba(56, 201, 182, 0.7);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar button:hover::before {
+  left: 100%;
 }
 
 .sidebar button:active {
-  transform: scale(1); /* Al hacer clic, el zoom se reduce */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Menos sombra al hacer clic */
+  transform: translateX(3px) scale(0.98);
 }
 
-@keyframes blink {
-  0% { opacity: 1; }
-  50% { opacity: 0.3; } /* Reduce opacidad en el medio */
-  100% { opacity: 1; }
-}
-
+/* Separador con animación */
 .sidebar-separator {
   position: absolute;
-  top: 15px;
-  right: -45px;
-  width: 70px;
-  height: 30px;
-  z-index: 0;
-  clip-path: inset(0 0 0 25px); /* Recorta 15px desde la izquierda */
-  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.5); /* Sombra en el lado derecho */
-  animation: blink 2.0s infinite ease-in-out; /* Aplica la animación */
+  top: 20px;
+  right: -40px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 0 8px 8px 0;
+  background: linear-gradient(135deg, #1c6f7a, #38c9b6);
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: pulse 2s infinite;
 }
 
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(56, 201, 182, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(56, 201, 182, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(56, 201, 182, 0); }
+}
 
-
-/* Estilo para el botón de navegación en el header */
-.navbar button {
-  background: none;
+/* Estilos para el menú hamburguesa moderno */
+.hamburger-menu {
+  display: none;
+  background: transparent;
   border: none;
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 500;
-  padding: 8px 16px;
-  border-radius: 5px;
   cursor: pointer;
+  padding: 10px;
+  z-index: 1002;
+  position: relative;
+  width: 50px;
+  height: 50px;
   transition: all 0.3s ease;
-
 }
 
-.navbar button:hover {
-  background-color: #7dc6d367;
-  transform: translateY(-3px);
-}
-
-.navbar button:active {
-  transform: translateY(1px); 
-}
-
-.navbar button:focus {
-  outline: none;
-}
-
-.navbar button::before {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  background-color: #fff;
-  bottom: 0;
-  left: 50%;
-  transition: width 0.3s ease, left 0.3s ease;
-}
-
-.navbar button:hover::before {
-  width: 100%;
-  left: 0;
-}
-
-.logo img {
-  width: 300px; /* Ajusta el tamaño del logo */
-  height: auto; /* Mantiene la relación de aspecto */
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  transition: opacity 0.5s ease-in-out, box-shadow 0.3s ease-in-out; /* Transición suave */
-  position: -webkit-sticky; /* Para compatibilidad con navegadores webkit */
-  position: sticky;
-}
-
-/* Efecto de desvanecimiento cuando se hace scroll */
-.logo.scroll img {
-  opacity: 0.8; /* Reduce la opacidad */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.9); /* Sombra más suave */
-  
-}
-
-/* Asegúrate de que los botones tengan el mismo estilo */
-.navbar .nav-link {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 500;
-  padding: 8px 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  vertical-align: middle;
-  position: relative; /* Necesario para el posicionamiento del menú desplegable */
-}
-
-/* Estilo del contenedor de la lista desplegable (sólo para el botón TODOS) */
-.navbar .nav-link.dropdown {
+.hamburger-box {
+  width: 30px;
+  height: 24px;
+  display: inline-block;
   position: relative;
 }
 
-/* Menú desplegable */
-.dropdown-menu {
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -2px;
+}
+
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+  width: 30px;
+  height: 3px;
+  background-color: #38c9b6;
+  border-radius: 4px;
   position: absolute;
-  left: 0;
-  background-color: #2b3636b4;
-  color: white;
-  list-style-type: none;
-  padding: 10px;
-  margin-top: 5px;
-  border-radius: 5px;
-  width: 120px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 10; /* Asegura que el menú se muestre encima de otros elementos */
-  opacity: 0; /* Inicialmente invisible */
-  visibility: hidden; /* No ocupa espacio en el layout */
-  transition: opacity 0.3s ease, visibility 0.3s ease; /* Transiciones de opacidad y visibilidad */
+  transition: transform 0.15s ease, background-color 0.3s ease;
 }
 
-/* Mostrar el menú con el desvanecimiento */
-.navbar .nav-link.dropdown:hover .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
+.hamburger-inner::before, .hamburger-inner::after {
+  content: "";
+  display: block;
 }
 
-.dropdown-menu li {
-  padding: 0.8rem 1.2rem;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.5s ease, color 0.3s ease;
+.hamburger-inner::before {
+  top: -10px;
 }
 
-.dropdown-menu li:hover {
-  background-color: #77c8d3;
-  color: #333;
-  border-radius: 5px;
+.hamburger-inner::after {
+  bottom: -10px;
 }
 
-/* Asegúrate de que todos los botones en la barra de navegación estén alineados */
-.navbar {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 10px;
+/* Animación hamburguesa → X */
+.hamburger-menu.active .hamburger-inner {
+  transform: rotate(45deg);
+  background-color: #38c9b6;
 }
 
-/* Modo móvil (menos de 766px de ancho) */
-@media (max-width: 766px) {
-  /* Header principal en dispositivos móviles */
-.header {
-  flex-direction: column; /* Cambia a columna para apilar elementos */
-  align-items: center; /* Alinea los elementos hacia el centro */
-  justify-content: center; /* Centra los elementos verticalmente */
-  height: auto; /* Ajusta la altura */
-  transition: transform 0.3s ease-in-out; /* Transición suave */
-  padding: 0; /* Eliminado el padding */
-  width: 100%;
+.hamburger-menu.active .hamburger-inner::before {
+  top: 0;
+  opacity: 0;
+  transform: rotate(-45deg);
 }
 
-.header.hidden {
-  transform: translateY(-100%); /* Oculta el header moviéndolo hacia arriba */
+.hamburger-menu.active .hamburger-inner::after {
+  bottom: 0;
+  transform: rotate(-90deg);
+  background-color: #38c9b6;
 }
 
+/* Flecha para indicar dropdown en móvil */
+.mobile-dropdown-arrow {
+  display: none;
+}
 
-  /* Pseudo-elemento para el borde animado */
-  .header::before {
-    width: 100%; /* Ajusta el ancho al 100% */
-    content: "";
-    position: absolute;
-    top: -2px; left: -2px; right: -2px; bottom: -2px; /* Aumenta el tamaño para que parezca un borde */
-    background: linear-gradient(to bottom, #000000 50%, #1c6f7a, #38c9b6, #279ead, #38c9b6, #1c6f7a); /* Cambiar la dirección a vertical */
-    background-size: 100% 300%; /* Aumentamos la altura para la animación */
-    background-position: 0% 0%; /* Comienza desde la parte superior */
-    z-index: -1; /* Lo pone detrás del header */
-    border-radius: 5px; /* Bordes redondeados */
-    animation: animate-border 7s ease-in-out infinite; /* Animación suave */
+/* Adaptación móvil mejorada */
+@media (max-width: 768px) {
+  .header {
+    width: 100%;
+    height: 60px;
+    padding: 0 10px;
+    margin: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.95);
   }
   
-  @keyframes animate-border {
-    0% { background-position: 0% 0%; }
-    50% { background-position: 0% 100%; } /* Baja hacia abajo */
-    100% { background-position: 0% 0%; } /* Vuelve a la parte superior */
-  }
-
-  /* Navbar en dispositivos móviles */
-  .navbar {
-    display: flex;
-    flex-direction: row; /* Mostrar en fila */
-    justify-content: space-around; /* Distribuye los elementos en fila */
-    align-items: center; /* Alinea los botones al centro verticalmente */
-    gap: 0px; /* Separa los elementos */
-  }
-  .navbar button,
-  .navbar .nav-link {
-    font-size: 0.8rem !important; /* Ajusta el valor según necesites */
-  }
-
-  .navbar button {
-    width: 100%; /* Hace que los botones ocupen todo el ancho disponible */
-    padding: 5px 0; /* Agrega más espacio vertical a los botones */
-
-
-  }
   .logo {
-    width: 100%;  /* El logo ocupará todo el ancho de la pantalla */
-    height: 14.5vh;  /* El logo ocupará el 20% del alto de la pantalla */
-    display: flex;
-    justify-content: center;  /* Centra el logo horizontalmente */
-    align-items: center;  /* Centra el logo verticalmente */
+    max-width: 120px;
   }
-
+  
   .logo img {
-    width: 100%;  /* Mantiene el ancho del logo proporcional */
-    height: 100%;  /* Hace que el logo ocupe el 100% del contenedor en altura */
+    height: 40px;
+    margin: 0;
   }
-
-  /* Barra lateral en dispositivos móviles */
-  .sidebar {
+  
+  /* Mostrar botón hamburguesa en dispositivos móviles - versión moderna */
+  .hamburger-menu {
+    display: block;
+  }
+  
+  /* Configuración del menú móvil con un estilo más moderno */
+  .navbar {
     position: fixed;
-    top: 50%; /* Ajusta la posición superior */
-    left: -35%; /* Esconde la barra lateral fuera de la pantalla */
-    width: 30%; /* Ajusta el tamaño de la barra lateral */
-    height: 100%; /* Mantiene la altura completa */
-    padding: 5px; /* Ajusta el padding para espacio interno */
+    top: 60px;
+    right: -80%;
+    width: 70%;
+    max-width: 280px;
+    height: auto;
+    max-height: 80vh;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start; /* Alinea los elementos a la izquierda */
-    gap: 10px; /* Reduce el espacio entre los elementos */
-    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.7);
-    border-radius: 7px;
-    transition: transform 0.3s ease;
-    opacity: 0.95;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 20px;
+    gap: 10px;
+    transition: right 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    overflow-y: auto;
+    z-index: 1001;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 0 15px;
+    overflow-x: hidden;
+  }
+  
+  /* Animación para mostrar el menú móvil */
+  .navbar.mobile-open {
+    right: 0;
+  }
+  
+  /* Ajuste para enlaces en móvil - corrigiendo visibilidad */
+  .navbar .nav-link {
+    font-size: 1rem;
+    padding: 12px;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgba(56, 201, 182, 0.2);
+    animation: fadeInDown 0.5s ease forwards;
+    opacity: 0;
+    transform: translateY(-10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white; /* Asegurar que el texto sea blanco */
+    font-weight: 600; /* Hacerlo más visible con negrita */
+    background-color: rgba(30, 30, 30, 0.7); /* Fondo sutil para mejor contraste */
+    border-radius: 5px;
+    margin-bottom: 5px;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.8); /* Sombra sutil para el texto */
   }
 
-  /* Mostrar la barra lateral cuando se active */
-  .sidebar.active {
-    left: 0; /* Mueve la barra lateral hacia la vista */
+  .navbar.mobile-open .nav-link {
+    opacity: 1; /* Asegurar que el texto sea visible cuando el menú está abierto */
+    transform: translateY(0);
+  }
+  
+  /* Hacer visibles los elementos del menú de inmediato cuando el menú está abierto */
+  .navbar.mobile-open .nav-link:nth-child(1),
+  .navbar.mobile-open .nav-link:nth-child(2),
+  .navbar.mobile-open .nav-link:nth-child(3),
+  .navbar.mobile-open .nav-link:nth-child(4) {
+    animation: fadeInDown 0.4s ease forwards;
+    opacity: 1;
+  }
+  
+  /* Mostrar flecha para dropdown en móvil - eliminada */
+  .mobile-dropdown-arrow {
+    display: none; /* Ocultamos la flecha en móvil */
+  }
+  
+  /* Dropdown en móvil - ahora se expande y colapsa */
+  .dropdown {
+    width: 100%;
+  }
+  
+  .dropdown-menu {
+    position: static;
+    width: 100%;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease, visibility 0s linear 0.3s, padding 0.3s ease;
+    margin: 0;
+    padding: 0;
+    background: rgba(30, 30, 30, 0.5);
+    box-shadow: none;
+    border-radius: 8px;
+    transform: none !important;
+    pointer-events: none;
+  }
+  
+  .dropdown-menu.mobile-visible {
+    max-height: 300px;
+    opacity: 1;
+    visibility: visible;
+    padding: 10px 0;
+    transition: max-height 0.4s ease, opacity 0.3s ease, visibility 0s linear 0s, padding 0.3s ease;
+    pointer-events: auto;
+  }
+  
+  .dropdown:hover .dropdown-menu {
+    max-height: inherit;
+    padding: inherit;
+  }
+  
+  .dropdown-menu li {
+    padding: 8px;
+    margin: 5px;
+    text-align: center;
+    border-radius: 5px;
+    transform: none !important;
+    border: 1px solid rgba(56, 201, 182, 0.1);
+    background: rgba(56, 201, 182, 0.05);
+  }
+  
+  .dropdown-menu li:active {
+    background: rgba(56, 201, 182, 0.2);
+  }
+  
+  /* BARRA LATERAL MEJORADA - MÁS COMPACTA */
+  .sidebar {
+    position: fixed;
+    top: auto;
+    left: -150px;
+    bottom: 20px;
+    width: 150px;
+    height: auto;
+    max-height: 180px;
+    border-radius: 0 12px 12px 0;
+    transform: none;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    opacity: 0.98;
+    background: rgba(20, 20, 20, 0.98);
+    z-index: 999;
+    box-shadow: 3px 0 15px rgba(56, 201, 182, 0.3);
+    border-right: 2px solid rgba(56, 201, 182, 0.5);
+    padding: 12px;
+  }
+  
+  .sidebar:hover {
+    transform: none;
+    left: 0;
   }
 
+  /* Hacer visible la barra lateral cuando se abre el menú móvil */
+  .sidebar.mobile-visible {
+    left: 0;
+    animation: slideInSidebar 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
   .sidebar h3 {
-    font-size: 1rem; /* Reduce el tamaño del texto */
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    text-align: center;
+    color: #38c9b6;
+    border-bottom: 1px solid rgba(56, 201, 182, 0.3);
+    padding-bottom: 5px;
   }
-
+  
+  .filter-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
   .sidebar button {
-    font-size: 0.9rem; /* Reduce el tamaño de los botones */
-    padding: 5px; /* Reduce el padding de los botones */
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    margin-bottom: 0;
+    width: 100%;
+    border-color: rgba(56, 201, 182, 0.3);
+    background: rgba(56, 201, 182, 0.1);
+    border-radius: 6px;
   }
-
+  
+  /* Separador mejorado y más pequeño */
   .sidebar-separator {
     position: absolute;
-    top: 15px;
-    right: -50px;
-    width: 90px;
-    height: 30px;
-    z-index: 0;
-    clip-path: inset(0 0 0 25px); /* Recorta 15px desde la izquierda */
-    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.5); /* Sombra en el lado derecho */
-    animation: blink 2.0s infinite ease-in-out; /* Aplica la animación */
+    top: 10px;
+    right: -25px;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: rgba(56, 201, 182, 0.9);
+    box-shadow: 3px 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 0 8px 8px 0;
+    animation: pulse 2s infinite;
+  }
+  
+  .sidebar-separator::before {
+    content: '«';
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
   }
 }

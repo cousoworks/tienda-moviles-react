@@ -7,6 +7,7 @@ const Home = ({ selectedBrand, products, handleAddToCart }) => {
   const [addedMessageVisible, setAddedMessageVisible] = useState(false);
   const [animationClass, setAnimationClass] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [filterAnimating, setFilterAnimating] = useState(false);
 
   // Carrusel de imágenes (4 fotos con descripción)
   const offers = [
@@ -24,6 +25,16 @@ const Home = ({ selectedBrand, products, handleAddToCart }) => {
 
     return () => clearInterval(interval);
   }, [offers.length]);
+
+  // Efecto para activar la animación cuando cambia el filtro
+  useEffect(() => {
+    setFilterAnimating(true);
+    const timer = setTimeout(() => {
+      setFilterAnimating(false);
+    }, 800); // Duración de la animación
+    
+    return () => clearTimeout(timer);
+  }, [selectedBrand, products]); // Se ejecuta cuando cambia la marca seleccionada o los productos (filtrados)
 
   const handleProductClick = (product) => {
     setSelectedProduct(product);
@@ -74,18 +85,21 @@ const Home = ({ selectedBrand, products, handleAddToCart }) => {
         <p>{offers[currentIndex].description}</p>
       </div>
 
-      {/* Cuadrícula de productos */}
-      <div className="product-grid">
+      {/* Cuadrícula de productos con animación */}
+      <div className={`product-grid ${filterAnimating ? 'filter-animation' : ''}`}>
         {filteredProducts.length === 0 ? (
           <p>No se encontraron productos para esta marca.</p>
         ) : (
-          filteredProducts.map((product) => {
+          filteredProducts.map((product, index) => {
             const imageSrc = require(`../assets/${product.image}`);
             return (
               <div
                 key={product.id}
                 className="product-card"
                 onClick={() => handleProductClick(product)}
+                style={{ 
+                  animationDelay: `${index * 0.05}s` 
+                }}
               >
                 <img src={imageSrc} alt={product.name} />
                 <h2>{product.name}</h2>

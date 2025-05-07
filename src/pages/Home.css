@@ -8,6 +8,24 @@
   padding: 5px; /* Menos padding para reducir el espacio */
 }
 
+/* Animación cuando se aplican filtros */
+.filter-animation .product-card {
+  animation: fadeInScale 0.6s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .product-card {
   background-color: #fff;
   border: 1px solid #ccc;
@@ -31,6 +49,11 @@
   height: auto;
   border-bottom: 1px solid #ddd;
   margin-bottom: 6px; /* Menos margen abajo */
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
 }
 
 .product-card h2 {

@@ -4,7 +4,7 @@
   background-color: #f4f4f4;
   border-radius: 8px;
   max-width: 800px;
-  margin: 0 auto;
+  margin: 100px auto 20px; /* Añadido margen superior de 100px */
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Añadida sombra suave para profundidad */
 }
 
