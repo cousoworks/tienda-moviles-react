@@ -63,12 +63,20 @@ const Header = ({ setSelectedBrand, setSortedProducts }) => {
 
   // Prevenir errores de comunicación asíncrona
   useEffect(() => {
+    // Crear referencias a los manejadores específicos para poder limpiarlos correctamente
+    const handleResizeCleanup = () => {}; 
+    const handleScrollCleanup = () => {};
+    const handleClickOutsideCleanup = () => {};
+    
+    window.addEventListener('resize', handleResizeCleanup);
+    window.addEventListener('scroll', handleScrollCleanup);
+    document.addEventListener('mousedown', handleClickOutsideCleanup);
+    
     return () => {
-      // Limpieza de posibles manejadores de eventos pendientes
-      const allEventListeners = ['click', 'touchstart', 'mousedown', 'resize', 'scroll'];
-      allEventListeners.forEach(event => {
-        window.removeEventListener(event, () => {});
-      });
+      // Limpieza específica de los manejadores
+      window.removeEventListener('resize', handleResizeCleanup);
+      window.removeEventListener('scroll', handleScrollCleanup);
+      document.removeEventListener('mousedown', handleClickOutsideCleanup);
     };
   }, []);
 
@@ -89,13 +97,16 @@ const Header = ({ setSelectedBrand, setSortedProducts }) => {
 
   // Toggle submenu móvil (MARCAS) - con mejor manejo de eventos
   const toggleMobileSubmenu = (e) => {
+    // Detener el comportamiento predeterminado del enlace
+    e.preventDefault();
+    
+    // Solo ejecutar la lógica en móvil
     if (window.innerWidth <= 768) {
-      e.preventDefault();
-      e.stopPropagation(); // Prevenir posible propagación del evento
-      setTimeout(() => {
-        setMobileSubmenuOpen(prevState => !prevState);
-      }, 0);
-      return false;
+      // Evitar propagación del evento
+      e.stopPropagation();
+      
+      // Cambiar estado del submenú con un timeout para evitar problemas de sincronización
+      setMobileSubmenuOpen(!mobileSubmenuOpen);
     }
   };
 
@@ -159,6 +170,9 @@ const Header = ({ setSelectedBrand, setSortedProducts }) => {
     scrollToTop();
   };
 
+  // Determinar si estamos en la página de inicio para mostrar la barra lateral
+  const isHomePage = location.pathname === '/';
+
   return (
     <>
       <header className={`header ${isHeaderVisible ? '' : 'hidden'}`}>
@@ -183,12 +197,7 @@ const Header = ({ setSelectedBrand, setSortedProducts }) => {
         <nav className={`navbar ${mobileMenuOpen ? 'mobile-open' : ''}`}>
           <div className={`dropdown ${mobileSubmenuOpen ? 'mobile-submenu-open' : ''}`} ref={dropdownRef}>
             {/* En desktop al pasar el cursor se despliega el menú, en móvil al hacer clic se alterna */}
-            <Link to="#" className="nav-link" onClick={(e) => {
-              e.preventDefault();
-              if (window.innerWidth <= 768) {
-                toggleMobileSubmenu(e);
-              }
-            }}>
+            <Link to="#" className="nav-link" onClick={toggleMobileSubmenu}>
               MARCAS
             </Link>
             <ul className={`dropdown-menu ${mobileSubmenuOpen ? 'mobile-visible' : ''}`}>
@@ -205,21 +214,24 @@ const Header = ({ setSelectedBrand, setSortedProducts }) => {
         </nav>
       </header>
 
-      <div className={`sidebar ${mobileMenuOpen ? 'mobile-visible' : ''}`}>
-        <div className="sidebar-separator"></div>
-        <h3>Filtros</h3>
-        <div className="filter-buttons">
-          <button onClick={sortByPrice}>
-            Precio {priceOrder === 'desc' ? '↓' : '↑'}
-          </button>
-          <button onClick={sortBySize}>
-            Tamaño {sizeOrder === 'desc' ? '↓' : '↑'}
-          </button>
-          <button onClick={sortByScreenSize}>
-            Pantalla {screenOrder === 'desc' ? '↓' : '↑'}
-          </button>
+      {/* La barra lateral solo se muestra en la página de inicio */}
+      {isHomePage && (
+        <div className={`sidebar ${mobileMenuOpen ? 'mobile-visible' : ''}`}>
+          <div className="sidebar-separator"></div>
+          <h3>Filtros</h3>
+          <div className="filter-buttons">
+            <button onClick={sortByPrice}>
+              Precio {priceOrder === 'desc' ? '↓' : '↑'}
+            </button>
+            <button onClick={sortBySize}>
+              Tamaño {sizeOrder === 'desc' ? '↓' : '↑'}
+            </button>
+            <button onClick={sortByScreenSize}>
+              Pantalla {screenOrder === 'desc' ? '↓' : '↑'}
+            </button>
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 };

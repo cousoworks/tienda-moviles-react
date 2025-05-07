@@ -424,25 +424,26 @@
     right: 0;
   }
   
-  /* Ajuste para enlaces en móvil - corrigiendo visibilidad */
+  /* Ajuste para enlaces en móvil - corrigiendo visibilidad y alineación */
   .navbar .nav-link {
     font-size: 1rem;
     padding: 12px;
     width: 100%;
-    text-align: center;
+    text-align: left;  /* Alineamos todos los botones a la izquierda */
     border-bottom: 1px solid rgba(56, 201, 182, 0.2);
     animation: fadeInDown 0.5s ease forwards;
     opacity: 0;
     transform: translateY(-10px);
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;  /* Alineamos el contenido a la izquierda */
     align-items: center;
-    color: white; /* Asegurar que el texto sea blanco */
-    font-weight: 600; /* Hacerlo más visible con negrita */
-    background-color: rgba(30, 30, 30, 0.7); /* Fondo sutil para mejor contraste */
+    color: white;
+    font-weight: 600;
+    background-color: rgba(30, 30, 30, 0.7);
     border-radius: 5px;
     margin-bottom: 5px;
-    text-shadow: 0 0 2px rgba(0, 0, 0, 0.8); /* Sombra sutil para el texto */
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
+    padding-left: 15px;  /* Añadimos un poco más de padding a la izquierda */
   }
 
   .navbar.mobile-open .nav-link {
