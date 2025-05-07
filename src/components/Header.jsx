@@ -16,33 +16,49 @@ const Header = ({ setSelectedBrand, setSortedProducts }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Mejorar el manejo del scroll para evitar atascamientos
   useEffect(() => {
+    let scrollTimeout = null;
+    let ticking = false;
+    
     const handleScroll = () => {
-      let scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-      // Ocultar/mostrar header con umbral de 50px
-      if (scrollTop > lastScrollTop.current && scrollTop > 50) {
-        setIsHeaderVisible(false);
-      } else {
+      if (!ticking) {
+        // Usar requestAnimationFrame para optimizar el rendimiento del scroll
+        window.requestAnimationFrame(() => {
+          const scrollTop = window.scrollY || document.documentElement.scrollTop;
+          
+          // Ocultar/mostrar header con umbral de 50px y una diferencia mínima
+          if (scrollTop > lastScrollTop.current + 5 && scrollTop > 50) {
+            setIsHeaderVisible(false);
+          } else if (scrollTop < lastScrollTop.current - 5) {
+            setIsHeaderVisible(true);
+          }
+          
+          lastScrollTop.current = scrollTop;
+          ticking = false;
+        });
+        
+        ticking = true;
+      }
+      
+      // Limpiamos el timeout anterior y establecemos uno nuevo
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+      }
+      
+      // Asegurar que el header se muestre nuevamente cuando el usuario deja de hacer scroll
+      scrollTimeout = setTimeout(() => {
         setIsHeaderVisible(true);
-      }
-
-      lastScrollTop.current = scrollTop;
+      }, 500);
     };
 
-    // Cerrar el menú al hacer clic fuera de él
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setMenuOpen(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    document.addEventListener('mousedown', handleClickOutside);
-
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      document.removeEventListener('mousedown', handleClickOutside);
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+      }
     };
   }, []);
 

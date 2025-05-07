@@ -95,6 +95,7 @@
   position: relative;
   transition: color 0.3s ease;
   letter-spacing: 0.5px;
+  -webkit-tap-highlight-color: transparent; /* Elimina el flash azul en móviles */
 }
 
 .nav-link::after {
@@ -465,11 +466,7 @@
     display: none; /* Ocultamos la flecha en móvil */
   }
   
-  /* Dropdown en móvil - ahora se expande y colapsa */
-  .dropdown {
-    width: 100%;
-  }
-  
+  /* Dropdown en móvil - animación suave para expandir y colapsar */
   .dropdown-menu {
     position: static;
     width: 100%;
@@ -477,7 +474,10 @@
     opacity: 0;
     visibility: hidden;
     overflow: hidden;
-    transition: max-height 0.4s ease, opacity 0.3s ease, visibility 0s linear 0.3s, padding 0.3s ease;
+    transition: max-height 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                opacity 0.4s ease, 
+                visibility 0s linear 0.3s, 
+                padding 0.3s ease;
     margin: 0;
     padding: 0;
     background: rgba(30, 30, 30, 0.5);
@@ -492,13 +492,22 @@
     opacity: 1;
     visibility: visible;
     padding: 10px 0;
-    transition: max-height 0.4s ease, opacity 0.3s ease, visibility 0s linear 0s, padding 0.3s ease;
+    transition: max-height 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                opacity 0.3s ease, 
+                visibility 0s linear 0s, 
+                padding 0.3s ease;
     pointer-events: auto;
+    animation: fadeIn 0.4s ease forwards;
   }
   
-  .dropdown:hover .dropdown-menu {
-    max-height: inherit;
-    padding: inherit;
+  /* Animación para fade in elementos */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .dropdown {
+    width: 100%;
   }
   
   .dropdown-menu li {
