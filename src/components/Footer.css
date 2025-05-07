@@ -1,206 +1,310 @@
-/* Footer */
+/* Footer moderno */
 .footer-container {
-  position: -webkit-sticky;
   position: relative;
   bottom: 0;
-  width: 99.9%;
-  height: 160px;  /* Ajusta la altura como prefieras */
-  background: linear-gradient(to right, #279ead, #2a1d3f, #1a1a1a); /* Gradiente más sutil */
+  width: 100%;
+  background: linear-gradient(90deg, #000000, #111111, #0a0a0a, #111111, #000000);
   color: white;
-  padding: 1px 0;  /* Reducir el padding vertical */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-height: 160px;
+  padding: 25px 0 10px 0;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  opacity: 0.9;  /* Reduce la opacidad para un brillo más suave */
-  transition: opacity 0.3s ease-in-out;
+  overflow: hidden;
 }
 
-/* Pseudo-elemento para el borde animado */
+/* Pseudo-elemento para el borde animado con gradiente moderno */
 .footer-container::before {
   content: "";
   position: absolute;
-  top: -2px; left: -2px; right: -2px; bottom: -2px;
-  background: linear-gradient(to right, #000000 50%, #15545c, #278b7e, #1d6faa, #1c665c, #0f3e44); /* Menos saturación */
-  background-size: 200% 100%; /* Área de animación más pequeña */
-  background-position: 50% 50%;
-  z-index: -1;
-  border-radius: 5px;
-  animation: animate-border 10s ease-in-out infinite; /* Animación más lenta */
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #1c6f7a, #38c9b6, #279ead, #38c9b6, #1c6f7a);
+  background-size: 200% 100%;
+  animation: gradient-shift 8s ease infinite;
+  z-index: 1001;
 }
 
-/* Animación del borde */
-@keyframes animate-border {
-  0% { background-position: 50% 50%; }
+/* Animación de desplazamiento del gradiente - misma que el header para coherencia */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
-  100% { background-position: 50% 50%; }
+  100% { background-position: 0% 50%; }
 }
-
-
 
 .footer-info {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;  /* Tres columnas en una fila */
-  gap: 10px;  /* Reducir el espacio entre las columnas */
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
   width: 100%;
-  max-width: 1000px; /* Limitar el ancho máximo */
-  box-sizing: border-box; /* Asegura que el padding no haga que el contenido se desborde */
-  align-items: center;  /* Centrado vertical */
-  justify-items: center;  /* Centrar los items de cada columna */
-  min-height: 100px;  /* Asegurar que haya espacio suficiente para centrar los elementos */
+  max-width: 1200px;
+  box-sizing: border-box;
+  align-items: flex-start;
+  padding: 0 20px;
 }
 
 .footer-contact h4,
 .footer-links h4 {
-  font-size: 0.8rem;  /* Ajustar el tamaño de la fuente */
-  color: #7de7e2;  /* Color blanco para los encabezados */
-  margin-bottom: 0px;  /* Espacio debajo del encabezado */
-  font-weight: bold;  /* Hacer que el texto esté en negrita */
-  text-transform: uppercase;  /* Convertir el texto a mayúsculas */
+  font-size: 1rem;
+  color: #38c9b6;
+  margin-bottom: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  position: relative;
+  display: inline-block;
 }
 
+/* Línea decorativa debajo de los títulos */
+.footer-contact h4::after,
+.footer-links h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, #38c9b6, #1c6f7a);
+  transition: width 0.3s ease;
+}
+
+.footer-contact h4:hover::after,
+.footer-links h4:hover::after {
+  width: 100%;
+}
 
 .footer-logo {
-    display: flex;
-    align-items: center; /* Centra el logo verticalmente */
-    justify-content: flex-start; /* Alinea el logo a la izquierda */
-    width: 100%;  /* Asegura que el contenedor ocupe todo el ancho disponible */
-  }
-  
-  .footer-logo-image {
-    width: 120px; /* Reducir el tamaño del logo */
-    height: auto;
-    margin-right: 5px; /* Menos espacio entre logo y los datos de contacto */
-  }
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.footer-logo-image {
+  width: 130px;
+  height: auto;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.footer-logo-image:hover {
+  transform: scale(1.05);
+}
 
 .footer-contact {
   display: flex;
   flex-direction: column;
-  width: 100%;  /* Ajustar a todo el ancho disponible */
-  text-align: center; /* Asegurar que el texto esté centrado dentro de la columna */
+  width: 100%;
+}
+
+.footer-contact p {
+  margin: 8px 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.footer-contact p:hover {
+  opacity: 1;
 }
 
 .footer-links {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: flex-end;  /* Centrado vertical */
-    text-align: left; /* Asegurar que los enlaces estén centrados dentro de la columna */
-  }
-  
-  .footer-links a {
-    text-decoration: none; /* Elimina el subrayado */
-    color: white;  /* Asegura que el texto sea blanco */
-  }
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+}
 
-  .footer-links ul {
-    list-style-type: circle;
-
-  padding-left: 20px; /* Asegura que haya un poco de espacio a la izquierda */
+.footer-links ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .footer-links li {
-  margin-bottom: 5px; /* Ajusta el espacio entre los elementos de la lista */
+  margin-bottom: 10px;
+  position: relative;
 }
-  
+
+.footer-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 0.9rem;
+  position: relative;
+  padding-left: 15px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+
+/* Pseudo-elemento para el icono antes del enlace */
+.footer-links a::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  color: #38c9b6;
+  transition: transform 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #38c9b6;
+  transform: translateX(5px);
+}
+
+.footer-links a:hover::before {
+  transform: translateX(3px);
+}
 
 .footer-footer {
   text-align: center;
-  font-size: 0.7rem;  /* Reducir el tamaño del texto */
-  margin-top: 6px;  /* Menos espacio arriba */
-  width: 100%; /* Asegura que el footer esté centrado */
-  grid-column: span 3;  /* Ocupa las tres columnas */
+  font-size: 0.8rem;
+  margin-top: 25px;
+  width: 100%;
+  padding-top: 15px;
+  border-top: 1px solid rgba(56, 201, 182, 0.2);
 }
 
-/* Estilos para el modal */
+/* Estilos para el modal mejorado */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  z-index: 1002;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .modal-content {
-  background-color: #fff;
-  padding: 15px;
-  border-radius: 8px;
-  width: 60%;
-  max-width: 400px; /* Reducido el tamaño máximo */
+  background-color: #1a1a1a;
+  padding: 25px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
   text-align: center;
-  color: #000000;
+  color: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(56, 201, 182, 0.3);
+  position: relative;
+  animation: scaleIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-content h1 {
+  color: #38c9b6;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.modal-content p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
 }
 
 .close-button {
-  color: #fff; /* Texto blanco */
-  background-color: red; /* Fondo rojo */
   position: absolute;
-  top: 5px;
-  right: 5px;
-  border: none;
-  padding: 5px 10px; /* Añadir algo de padding para hacerlo más visible */
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(56, 201, 182, 0.2);
+  border: 1px solid rgba(56, 201, 182, 0.5);
+  color: #38c9b6;
   font-size: 16px;
   cursor: pointer;
-  border-radius: 5px; /* Bordes redondeados */
-  transition: background-color 0.3s ease; /* Efecto de transición al pasar el mouse */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
 }
 
 .close-button:hover {
-  background-color: darkred; /* Cambiar el color al pasar el ratón */
+  background: rgba(56, 201, 182, 0.4);
+  transform: rotate(90deg);
 }
 
-
-.returns-image {
-  width: 60% !important; /* Forzar que la imagen se haga más pequeña */
-  height: auto !important;
-  margin-top: 4px !important; /* Menos margen */
+.returns-image, .payment-methods-image {
+  width: auto;
+  max-width: 80%;
+  height: auto;
+  margin: 15px auto;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
 }
 
-/* Modo móvil (menos de 768px) */
+.returns-image:hover, .payment-methods-image:hover {
+  transform: scale(1.02);
+}
+
+/* Adaptación para móvil */
 @media (max-width: 768px) {
-  
-  
-  /* Footer info (ya no es necesario usar grid-template-columns) */
+  .footer-container {
+    padding: 20px 10px 10px 10px;
+  }
+
   .footer-info {
-    display: flex;
-    justify-content: space-between;  /* Alineación flexible de los elementos */
-    width: 97%;
-  }
-  .footer-contact h4,
-.footer-links h4 {
-  font-size: 0.7rem;  /* Ajustar el tamaño de la fuente */
-  color: #7de7e2;  /* Color blanco para los encabezados */
-  font-weight: bold;  /* Hacer que el texto esté en negrita */
-  text-transform: uppercase;  /* Convertir el texto a mayúsculas */
-}
-.footer-contact p {
-  font-size: 0.7rem;
-}
- .footer-links li{
-  font-size: 0.7rem;
-  margin-bottom: 3px;
-}
-  
-  /* Footer footer (ajustado para que esté dentro del contenedor común) */
-  .footer-footer {
+    grid-template-columns: 1fr;
+    gap: 20px;
     text-align: center;
-    font-size: 0.7rem;  /* Reducir el tamaño del texto */
-    width: 100%; /* Asegura que el footer esté centrado */
-   
   }
-  .footer-logo-image {
-    width: 90px; /* Reducir el tamaño del logo */
-    height: auto;
-    padding-left: 15px;
+
+  .footer-contact h4::after,
+  .footer-links h4::after {
+    left: 50%;
+    transform: translateX(-50%);
   }
-  
-  
+
+  .footer-logo, .footer-contact, .footer-links {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-links ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .footer-links li {
+    margin: 5px 10px;
+  }
+
+  .footer-footer {
+    margin-top: 20px;
+    font-size: 0.75rem;
+  }
+
+  .modal-content {
+    width: 95%;
+    padding: 20px 15px;
+  }
+
+  .modal-content h1 {
+    font-size: 1.2rem;
+  }
+
+  .returns-image, .payment-methods-image {
+    max-width: 90%;
+  }
 }
