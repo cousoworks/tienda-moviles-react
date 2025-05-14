@@ -497,17 +497,23 @@
 
   .add-to-cart-button:active {
     transform: scale(1); /* Sin cambio al hacer clic */
-  }  /* Modal */
-  .modal-overlay {
+  }  /* Modal */  .modal-overlay {
     background: white;
-    padding: 10px;
+    padding:0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
   }
-  
   .modal-content {
+    
     padding: 15px;
-    max-width: 70% !important;
-    width: 90%;
-    max-height: 80vh;
+    max-width: 90% !important;
+    width: 100%;
+    max-height: 85vh;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
   }
   
   .modal-content img {
@@ -515,11 +521,15 @@
     margin-bottom: 10px;
     max-height: 180px;
   }
-  
   .modal-details {
     width: 100%;
-    height: 80vw !important;
-    
+    height: auto !important;
+    max-height: 60vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 5px;
   }
   
   .product-specs {
@@ -527,17 +537,17 @@
     gap: 2px;
     
   }
-  
-  .spec-item {
-    margin-bottom: 4px;
+    .spec-item {
+    margin-bottom: 2px;
+    padding: 2px;
   }
   
   .spec-label {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
   
   .spec-value {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
   
   .modal-content h2 {
@@ -551,38 +561,44 @@
     margin-bottom: 10px;
     width: 90%;
   }
-  
-  .modal-content .product-price {
+    .modal-content .product-price {
     font-size: 1.3rem;
     margin: 8px 0;
   }
-  
-  .product-specs {
-    grid-template-columns: 1fr;
+    .product-specs {
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
     width: 100%;
+    margin: 0 auto;
+    padding: 0 5px;
+    box-sizing: border-box;
   }
-  
-  .modal-content h2 {
+    .modal-content h2 {
     font-size: 1.3rem;
     margin-bottom: 8px;
     width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0 5px;
   }
-  
-  .modal-content .product-description {
-    
+    .modal-content .product-description {
     font-size: 0.9rem;
     margin-bottom: 8px;
     width: 100%;
+    text-align: center;
+    padding: 0 5px;
+    box-sizing: border-box;
   }
   
   .modal-content .product-price {
     font-size: 1.3rem;
     margin: 8px 0;
   }
-  
-  .color-options {
+    .color-options {
     flex-wrap: wrap;
     justify-content: center;
+    gap: 8px;
+    margin: 5px 0;
   }
   
   .close-button {
