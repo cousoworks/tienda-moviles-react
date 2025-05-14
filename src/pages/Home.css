@@ -518,11 +518,14 @@
   
   .modal-details {
     width: 100%;
+    height: 80vw !important;
+    
   }
   
   .product-specs {
     width: 100%;
-    gap: 5px;
+    gap: 2px;
+    
   }
   
   .spec-item {
@@ -566,6 +569,7 @@
   }
   
   .modal-content .product-description {
+    
     font-size: 0.9rem;
     margin-bottom: 8px;
     width: 100%;
