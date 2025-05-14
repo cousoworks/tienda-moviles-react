@@ -8,6 +8,7 @@ const Home = ({ selectedBrand, products, handleAddToCart }) => {
   const [animationClass, setAnimationClass] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [filterAnimating, setFilterAnimating] = useState(false);
+  const [selectedColor, setSelectedColor] = useState(null);
 
   // Carrusel de imágenes (4 fotos con descripción)
   const offers = [
@@ -35,11 +36,18 @@ const Home = ({ selectedBrand, products, handleAddToCart }) => {
     
     return () => clearTimeout(timer);
   }, [selectedBrand, products]); // Se ejecuta cuando cambia la marca seleccionada o los productos (filtrados)
+
   const handleProductClick = (product) => {
     // Limpia estados previos antes de abrir el modal
     setAddedToCart(false);
     setAnimationClass('');
     setAddedMessageVisible(false);
+    // Inicializar el color seleccionado al primer color disponible
+    if (product.colors && product.colors.length > 0) {
+      setSelectedColor(product.colors[0]);
+    } else {
+      setSelectedColor(null);
+    }
     // Establece el producto seleccionado al final para activar el renderizado del modal
     setTimeout(() => {
       setSelectedProduct(product);
@@ -54,12 +62,13 @@ const Home = ({ selectedBrand, products, handleAddToCart }) => {
     // Limpia los estados antes de cerrar
     setAnimationClass('');
     setAddedToCart(false);
+    setSelectedColor(null);
     
     // Cerramos el modal con un pequeño retraso para permitir las animaciones
     setTimeout(() => {
       setSelectedProduct(null);
     }, 10);
-  };  useEffect(() => {
+  };useEffect(() => {
     // Handler para evento de teclado
     const handleKeyDown = (event) => {
       if (event.key === 'Escape' && selectedProduct) {
@@ -83,7 +92,13 @@ const Home = ({ selectedBrand, products, handleAddToCart }) => {
       event.stopPropagation();
     }
     
-    handleAddToCart(product);
+    // Crear una copia del producto con el color seleccionado
+    const productWithColor = {
+      ...product,
+      selectedColor: selectedColor
+    };
+    
+    handleAddToCart(productWithColor);
     setAddedToCart(true);
     setAddedMessageVisible(true);
     setAnimationClass('cart-animation');
@@ -203,8 +218,7 @@ const Home = ({ selectedBrand, products, handleAddToCart }) => {
                   <span className="spec-value">{selectedProduct.waterResistant || "No especificado"}</span>
                 </div>
               </div>
-              
-              {selectedProduct.colors && (
+                {selectedProduct.colors && (
                 <>
                   <div className="spec-item" style={{ gridColumn: "span 2", textAlign: "center" }}>
                     <span className="spec-label">Colores disponibles</span>
@@ -248,31 +262,37 @@ const Home = ({ selectedBrand, products, handleAddToCart }) => {
                         return (
                           <div 
                             key={index} 
-                            className={`color-option`}
+                            className={`color-option ${selectedColor === color ? 'selected' : ''}`}
                             title={color}
                             style={{ backgroundColor: colorCode, border: "1px solid #ccc" }}
+                            onClick={() => setSelectedColor(color)}
                           />
                         );
                       })}
                     </div>
+                    {selectedColor && (
+                      <div className="selected-color-display">
+                        Color seleccionado: <strong>{selectedColor}</strong>
+                      </div>
+                    )}
                   </div>
                 </>
-              )}
-                <div className="add-to-cart-section">
+              )}                <div className="add-to-cart-section">
                 <button
                   onClick={(e) => handleAddToCartClick(selectedProduct, e)}
                   className={`add-to-cart-button ${animationClass}`}
+                  disabled={selectedProduct.colors && selectedProduct.colors.length > 0 && !selectedColor}
                 >
                   <i className="fas fa-shopping-cart"></i>
                   {addedToCart ? 'Añadido al carrito' : 'Añadir al carrito'}
+                  {selectedProduct.colors && selectedProduct.colors.length > 0 && !selectedColor && 
+                    ' (Selecciona un color)'}
                 </button>
               </div>
-            </div>
-
-            {addedMessageVisible && (
+            </div>            {addedMessageVisible && (
               <div className="added-message">
                 <i className="fas fa-check-circle"></i>
-                <p>¡Producto añadido al carrito!</p>
+                <p>¡Producto añadido al carrito!{selectedColor ? ` (${selectedColor})` : ''}</p>
               </div>
             )}
           </div>
