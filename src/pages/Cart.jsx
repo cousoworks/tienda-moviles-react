@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Cart.css';
 
 const Cart = ({ cart, setCart }) => {
-  const [isPurchaseModalOpen, setIsPurchaseModalOpen] = useState(false);  // Estado para controlar el modal de compra
-  const [isProductModalOpen, setIsProductModalOpen] = useState(false);  // Estado para controlar el modal de producto
-  const [selectedProduct, setSelectedProduct] = useState(null);  // Estado para guardar el producto seleccionado
+  const [isPurchaseModalOpen, setIsPurchaseModalOpen] = useState(false);
+  const [isProductModalOpen, setIsProductModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [animateItems, setAnimateItems] = useState(false);
 
   // Función para eliminar un producto del carrito
   const handleRemoveFromCart = (productId) => {
     const newCart = cart.filter((product) => product.id !== productId);
-    setCart(newCart);  // Actualizar el estado del carrito
+    setCart(newCart);
   };
 
   // Función para vaciar el carrito
   const handleClearCart = () => {
-    setCart([]);  // Vaciar el carrito
+    setCart([]);
   };
 
   // Función para abrir el modal con los detalles del producto
@@ -26,7 +28,7 @@ const Cart = ({ cart, setCart }) => {
   // Función para cerrar el modal de producto
   const closeProductModal = () => {
     setIsProductModalOpen(false);
-    setSelectedProduct(null);  // Limpiar el producto seleccionado
+    setSelectedProduct(null);
   };
 
   // Función para abrir el modal de compra
@@ -44,89 +46,186 @@ const Cart = ({ cart, setCart }) => {
     return cart.reduce((total, product) => total + product.price, 0).toFixed(2);
   };
 
-  // Agregar un event listener para la tecla Escape
+  // Calcular impuestos (IVA 21%)
+  const calculateTax = () => {
+    const total = parseFloat(calculateTotal());
+    return ((total * 0.21)).toFixed(2);
+  };
+
+  // Calcular el envío (gratis si el total es > 999€)
+  const calculateShipping = () => {
+    const total = parseFloat(calculateTotal());
+    return total > 999 ? "0.00" : "4.99";
+  };
+
+  // Total final con impuestos y envío
+  const calculateFinalTotal = () => {
+    const total = parseFloat(calculateTotal());
+    const tax = parseFloat(calculateTax());
+    const shipping = parseFloat(calculateShipping());
+    return (total + tax + shipping).toFixed(2);
+  };
+
+  // Animación al cargar la página
+  useEffect(() => {
+    setAnimateItems(true);
+  }, []);
+
+  // Agregar event listener para la tecla Escape
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "Escape") {
-        closePurchaseModal();  // Cerrar el modal cuando presionamos Escape
+        closePurchaseModal();
+        closeProductModal();
       }
     };
 
     if (isPurchaseModalOpen || isProductModalOpen) {
-      // Solo agregar el listener si algún modal está abierto
       window.addEventListener("keydown", handleKeyDown);
     } else {
-      // Eliminar el listener cuando los modales se cierran
       window.removeEventListener("keydown", handleKeyDown);
     }
 
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [isPurchaseModalOpen, isProductModalOpen]);  // Dependencias para activar/desactivar el listener
+  }, [isPurchaseModalOpen, isProductModalOpen]);
+
+  // Función para simular la finalización de la compra
+  const handlePurchase = () => {
+    // Aquí iría la lógica para procesar el pago
+    alert("¡Gracias por tu compra! Tu pedido ha sido procesado.");
+    setCart([]);
+    closePurchaseModal();
+  };
 
   return (
     <div className="cart-container">
-      <h1>Carrito de la Compra</h1>
+      <h1>Carrito de Compra</h1>
+      
       {cart.length === 0 ? (
-        <p>Tu carrito está vacío.</p>
+        <div className="empty-cart">
+          <div className="empty-cart-icon">
+            <i className="fas fa-shopping-cart"></i>
+          </div>
+          <p>Tu carrito está vacío</p>
+          <Link to="/" className="start-shopping-button">
+            <i className="fas fa-shopping-bag"></i>
+            Comenzar a comprar
+          </Link>
+        </div>
       ) : (
         <div>
           <ul>
-            {cart.map((product) => (
-              <li key={product.id} className="cart-item">
+            {cart.map((product, index) => (
+              <li 
+                key={`${product.id}-${index}`} 
+                className="cart-item"
+                style={{"--item-index": index}}
+              >
                 <img
                   src={require(`../assets/${product.image}`)}
                   alt={product.name}
                   className="cart-item-image"
-                  onClick={() => openProductModal(product)}  // Abrir modal al hacer clic en la imagen
+                  onClick={() => openProductModal(product)}
                 />
                 <div className="cart-item-details">
                   <h2>{product.name}</h2>
                   <p>{product.description}</p>
+                  <div className="item-specs">
+                    {product.processor && (
+                      <span className="item-spec">
+                        <i className="fas fa-microchip"></i> {product.processor}
+                      </span>
+                    )}
+                    {product.ram && (
+                      <span className="item-spec">
+                        <i className="fas fa-memory"></i> {product.ram}
+                      </span>
+                    )}
+                    {product.storage && (
+                      <span className="item-spec">
+                        <i className="fas fa-hdd"></i> {product.storage}
+                      </span>
+                    )}
+                  </div>
                   <p><strong>{product.price}€</strong></p>
                 </div>
-                <button onClick={() => handleRemoveFromCart(product.id)} className="remove-button">
-                  X
+                <button 
+                  onClick={() => handleRemoveFromCart(product.id)} 
+                  className="remove-button"
+                  aria-label="Eliminar producto"
+                >
+                  <i className="fas fa-times"></i>
                 </button>
               </li>
             ))}
           </ul>
+          
           <div className="cart-total">
-            <h3>Total: {calculateTotal()}€</h3>
+            <h3>
+              Resumen del Pedido
+              <span className="total-amount">{calculateFinalTotal()}€</span>
+            </h3>
+            
+            <div className="cart-summary">
+              <div className="summary-row">
+                <span>Subtotal</span>
+                <span>{calculateTotal()}€</span>
+              </div>
+              <div className="summary-row">
+                <span>IVA (21%)</span>
+                <span>{calculateTax()}€</span>
+              </div>
+              <div className="summary-row">
+                <span>Envío</span>
+                <span>{calculateShipping() === "0.00" ? "Gratis" : `${calculateShipping()}€`}</span>
+              </div>
+              <div className="summary-row total">
+                <span>Total</span>
+                <span>{calculateFinalTotal()}€</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="cart-buttons">
+            <button onClick={handleClearCart} className="clear-cart-button">
+              <i className="fas fa-trash"></i> Vaciar carrito
+            </button>
+            <button onClick={openPurchaseModal} className="purchase-button">
+              <i className="fas fa-credit-card"></i> Finalizar compra
+            </button>
           </div>
         </div>
       )}
-
-      {/* Contenedor para los botones */}
-      <div className="cart-buttons">
-        {/* Botón para eliminar todos los productos del carrito */}
-        <button onClick={handleClearCart} className="clear-cart-button">
-          Eliminar todo
-        </button>
-
-        {/* Botón de realizar compra */}
-        <button onClick={openPurchaseModal} className="purchase-button">
-          Realizar compra
-        </button>
-      </div>
 
       {/* Modal de compra */}
       {isPurchaseModalOpen && (
         <div className="modal-overlay">
           <div className="modal">
-            <h2>Resumen de la Compra</h2>
-            <ul>
-              {cart.map((product) => (
-                <li key={product.id}>
-                  <p>{product.name} - {product.price}€</p>
-                </li>
+            <h2>Finalizar Compra</h2>
+            
+            <div className="purchase-summary">
+              {cart.map((product, index) => (
+                <div key={index} className="purchase-item">
+                  <span className="purchase-item-name">{product.name}</span>
+                  <span className="purchase-item-price">{product.price}€</span>
+                </div>
               ))}
-            </ul>
-            <p><strong>Total: {calculateTotal()}€</strong></p>
+              
+              <div className="purchase-total">
+                <span className="purchase-total-label">Total:</span>
+                <span className="purchase-total-price">{calculateFinalTotal()}€</span>
+              </div>
+            </div>
+            
             <div className="modal-buttons">
-              <button onClick={closePurchaseModal} className="close-modal-button">Volver atrás</button>
-              <button className="pay-button">Pagar</button>
+              <button onClick={closePurchaseModal} className="close-modal-button">
+                Volver
+              </button>
+              <button onClick={handlePurchase} className="pay-button">
+                <i className="fas fa-lock"></i> Pagar
+              </button>
             </div>
           </div>
         </div>
@@ -140,11 +239,31 @@ const Cart = ({ cart, setCart }) => {
             <img
               src={require(`../assets/${selectedProduct.image}`)}
               alt={selectedProduct.name}
-              className="modal-image"
             />
             <p>{selectedProduct.description}</p>
-            <p><strong>{selectedProduct.price}€</strong></p>
-            <button onClick={closeProductModal} className="close-modal-button">Cerrar</button>
+            
+            <div className="product-details">
+              {selectedProduct.processor && (
+                <p><strong>Procesador:</strong> {selectedProduct.processor}</p>
+              )}
+              {selectedProduct.ram && (
+                <p><strong>RAM:</strong> {selectedProduct.ram}</p>
+              )}
+              {selectedProduct.storage && (
+                <p><strong>Almacenamiento:</strong> {selectedProduct.storage}</p>
+              )}
+              {selectedProduct.camera && (
+                <p><strong>Cámara principal:</strong> {selectedProduct.camera.main}</p>
+              )}
+              {selectedProduct.battery && (
+                <p><strong>Batería:</strong> {selectedProduct.battery}</p>
+              )}
+              <p><strong>Precio:</strong> {selectedProduct.price}€</p>
+            </div>
+            
+            <button onClick={closeProductModal} className="close-modal-button">
+              Cerrar
+            </button>
           </div>
         </div>
       )}

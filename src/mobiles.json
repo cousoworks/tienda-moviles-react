@@ -7,7 +7,22 @@
     "description": "El modelo más avanzado de Samsung con cámara de 200 MP y pantalla Dynamic AMOLED 2X.",
     "price": 1099,
     "size": "163.3 x 77.9 x 8.9 mm",
-    "screenSize": 6.8
+    "screenSize": 6.8,
+    "processor": "Snapdragon 8 Gen 3",
+    "ram": "12 GB",
+    "storage": "256 GB",
+    "camera": {
+      "main": "200 MP",
+      "ultra": "12 MP",
+      "telephoto": "10 MP",
+      "front": "12 MP"
+    },
+    "battery": "5000 mAh",
+    "os": "Android 14",
+    "colors": ["Titanium Black", "Titanium Gray", "Titanium Violet", "Titanium Yellow"],
+    "waterResistant": "IP68",
+    "fastCharge": true,
+    "chargingSpeed": "45W"
   },
   {
     "id": 2,
@@ -17,7 +32,22 @@
     "description": "Versión más compacta del S24 Ultra, con características premium y cámara avanzada.",
     "price": 999,
     "size": "157.8 x 75.9 x 7.6 mm",
-    "screenSize": 6.6
+    "screenSize": 6.6,
+    "processor": "Snapdragon 8 Gen 3",
+    "ram": "12 GB",
+    "storage": "256 GB",
+    "camera": {
+      "main": "50 MP",
+      "ultra": "12 MP",
+      "telephoto": "10 MP",
+      "front": "12 MP"
+    },
+    "battery": "4900 mAh",
+    "os": "Android 14",
+    "colors": ["Onyx Black", "Marble Gray", "Cobalt Violet", "Amber Yellow"],
+    "waterResistant": "IP68",
+    "fastCharge": true,
+    "chargingSpeed": "45W"
   },
   {
     "id": 3,
@@ -27,7 +57,22 @@
     "description": "El modelo base de la serie S24, con rendimiento premium y una pantalla excelente.",
     "price": 899,
     "size": "151.5 x 69.6 x 7.6 mm",
-    "screenSize": 6.1
+    "screenSize": 6.1,
+    "processor": "Snapdragon 8 Gen 3",
+    "ram": "8 GB",
+    "storage": "128 GB",
+    "camera": {
+      "main": "50 MP",
+      "ultra": "12 MP",
+      "telephoto": "10 MP",
+      "front": "12 MP"
+    },
+    "battery": "4000 mAh",
+    "os": "Android 14",
+    "colors": ["Phantom Black", "Cream", "Green", "Lavender"],
+    "waterResistant": "IP68",
+    "fastCharge": true,
+    "chargingSpeed": "25W"
   },
   {
     "id": 4,
@@ -37,7 +82,22 @@
     "description": "Con una cámara de 200 MP y pantalla Dynamic AMOLED 2X, sigue siendo uno de los mejores modelos de Samsung.",
     "price": 999,
     "size": "163.4 x 78.1 x 8.9 mm",
-    "screenSize": 6.8
+    "screenSize": 6.8,
+    "processor": "Snapdragon 8 Gen 2",
+    "ram": "12 GB",
+    "storage": "256 GB",
+    "camera": {
+      "main": "200 MP",
+      "ultra": "12 MP",
+      "telephoto": "10 MP",
+      "front": "12 MP"
+    },
+    "battery": "5000 mAh",
+    "os": "Android 13",
+    "colors": ["Phantom Black", "Cream", "Green", "Lavender"],
+    "waterResistant": "IP68",
+    "fastCharge": true,
+    "chargingSpeed": "45W"
   },
   {
     "id": 5,
@@ -47,7 +107,22 @@
     "description": "Con una pantalla de 6.6 pulgadas y grandes características, es una excelente opción dentro de la gama S23.",
     "price": 899,
     "size": "157.8 x 75.6 x 7.6 mm",
-    "screenSize": 6.6
+    "screenSize": 6.6,
+    "processor": "Snapdragon 8 Gen 2",
+    "ram": "8 GB",
+    "storage": "256 GB",
+    "camera": {
+      "main": "50 MP",
+      "ultra": "12 MP",
+      "telephoto": "10 MP",
+      "front": "12 MP"
+    },
+    "battery": "4700 mAh",
+    "os": "Android 13",
+    "colors": ["Phantom Black", "Cream", "Green", "Lavender"],
+    "waterResistant": "IP68",
+    "fastCharge": true,
+    "chargingSpeed": "45W"
   },
   {
     "id": 6,
@@ -57,7 +132,22 @@
     "description": "El modelo más avanzado de iPhone con chip A18 Pro y cámara mejorada.",
     "price": 1199,
     "size": "160.8 x 78.1 x 7.5 mm",
-    "screenSize": 6.7
+    "screenSize": 6.7,
+    "processor": "A18 Pro",
+    "ram": "8 GB",
+    "storage": "256 GB",
+    "camera": {
+      "main": "48 MP",
+      "ultra": "48 MP",
+      "telephoto": "12 MP",
+      "front": "12 MP"
+    },
+    "battery": "4422 mAh",
+    "os": "iOS 18",
+    "colors": ["Natural Titanium", "Blue Titanium", "White Titanium", "Titanium Black"],
+    "waterResistant": "IP68",
+    "fastCharge": true,
+    "chargingSpeed": "27W"
   },
   {
     "id": 7,
@@ -67,7 +157,22 @@
     "description": "Versión más compacta del Pro Max, con el mismo rendimiento y cámara avanzada.",
     "price": 1099,
     "size": "147.5 x 71.5 x 7.4 mm",
-    "screenSize": 6.1
+    "screenSize": 6.1,
+    "processor": "A18 Pro",
+    "ram": "8 GB",
+    "storage": "256 GB",
+    "camera": {
+      "main": "48 MP",
+      "ultra": "48 MP",
+      "telephoto": "12 MP",
+      "front": "12 MP"
+    },
+    "battery": "3355 mAh",
+    "os": "iOS 18",
+    "colors": ["Natural Titanium", "Blue Titanium", "White Titanium", "Titanium Black"],
+    "waterResistant": "IP68",
+    "fastCharge": true,
+    "chargingSpeed": "27W"
   },
   {
     "id": 8,
@@ -77,7 +182,22 @@
     "description": "Con el chip A17 Pro, cámara avanzada y pantalla Super Retina, sigue siendo una opción top.",
     "price": 1099,
     "size": "159.8 x 76.7 x 8.25 mm",
-    "screenSize": 6.7
+    "screenSize": 6.7,
+    "processor": "A17 Pro",
+    "ram": "8 GB",
+    "storage": "256 GB",
+    "camera": {
+      "main": "48 MP",
+      "ultra": "12 MP",
+      "telephoto": "12 MP",
+      "front": "12 MP"
+    },
+    "battery": "4422 mAh",
+    "os": "iOS 17",
+    "colors": ["Natural Titanium", "Blue Titanium", "White Titanium", "Titanium Black"],
+    "waterResistant": "IP68",
+    "fastCharge": true,
+    "chargingSpeed": "25W"
   },
   {
     "id": 9,
@@ -87,7 +207,22 @@
     "description": "El modelo más compacto de la serie 15, con el rendimiento del A17 Pro.",
     "price": 999,
     "size": "146.6 x 70.6 x 8.25 mm",
-    "screenSize": 6.1
+    "screenSize": 6.1,
+    "processor": "A17 Pro",
+    "ram": "8 GB",
+    "storage": "128 GB",
+    "camera": {
+      "main": "48 MP",
+      "ultra": "12 MP",
+      "telephoto": "12 MP",
+      "front": "12 MP"
+    },
+    "battery": "3274 mAh",
+    "os": "iOS 17",
+    "colors": ["Natural Titanium", "Blue Titanium", "White Titanium", "Titanium Black"],
+    "waterResistant": "IP68",
+    "fastCharge": true,
+    "chargingSpeed": "25W"
   },
   {
     "id": 10,
@@ -97,7 +232,22 @@
     "description": "Con características premium y una cámara de gran calidad.",
     "price": 899,
     "size": "163.7 x 74.6 x 8.8 mm",
-    "screenSize": 6.73
+    "screenSize": 6.73,
+    "processor": "Snapdragon 8 Gen 3",
+    "ram": "16 GB",
+    "storage": "512 GB",
+    "camera": {
+      "main": "50 MP",
+      "ultra": "50 MP",
+      "telephoto": "50 MP",
+      "front": "32 MP"
+    },
+    "battery": "5300 mAh",
+    "os": "Android 14",
+    "colors": ["Ceramic Black", "Ceramic White", "Ceramic Blue"],
+    "waterResistant": "IP68",
+    "fastCharge": true,
+    "chargingSpeed": "90W"
   },
   {
     "id": 11,
@@ -107,7 +257,22 @@
     "description": "Un modelo con características avanzadas y gran rendimiento.",
     "price": 799,
     "size": "161.6 x 74.9 x 8.7 mm",
-    "screenSize": 6.73
+    "screenSize": 6.73,
+    "processor": "Snapdragon 8 Gen 3",
+    "ram": "12 GB",
+    "storage": "256 GB",
+    "camera": {
+      "main": "50 MP",
+      "ultra": "50 MP",
+      "telephoto": "50 MP",
+      "front": "32 MP"
+    },
+    "battery": "4880 mAh",
+    "os": "Android 14",
+    "colors": ["Light Green", "Flowy Emerald", "Silky Black"],
+    "waterResistant": "IP68",
+    "fastCharge": true,
+    "chargingSpeed": "120W"
   },
   {
     "id": 12,
@@ -117,7 +282,22 @@
     "description": "Con cámara Leica y rendimiento superior, uno de los mejores modelos de Xiaomi.",
     "price": 849,
     "size": "152.8 x 71.5 x 8.8 mm",
-    "screenSize": 6.36
+    "screenSize": 6.36,
+    "processor": "Snapdragon 8 Gen 2",
+    "ram": "8 GB",
+    "storage": "256 GB",
+    "camera": {
+      "main": "50 MP",
+      "ultra": "12 MP",
+      "telephoto": "10 MP",
+      "front": "32 MP"
+    },
+    "battery": "4500 mAh",
+    "os": "Android 13",
+    "colors": ["Black", "White", "Green"],
+    "waterResistant": "IP68",
+    "fastCharge": true,
+    "chargingSpeed": "67W"
   },
   {
     "id": 13,
@@ -127,7 +307,22 @@
     "description": "Un modelo de gama alta con cámara avanzada y gran rendimiento.",
     "price": 799,
     "size": "162.9 x 74.6 x 8.8 mm",
-    "screenSize": 6.73
+    "screenSize": 6.73,
+    "processor": "Snapdragon 8 Gen 2",
+    "ram": "12 GB",
+    "storage": "256 GB",
+    "camera": {
+      "main": "50 MP",
+      "ultra": "50 MP",
+      "telephoto": "50 MP",
+      "front": "32 MP"
+    },
+    "battery": "4820 mAh",
+    "os": "Android 13",
+    "colors": ["Ceramic Black", "Ceramic White", "Cool Blue"],
+    "waterResistant": "IP68",
+    "fastCharge": true,
+    "chargingSpeed": "120W"
   },
   {
     "id": 14,
@@ -137,7 +332,22 @@
     "description": "Con Snapdragon 8 Gen 3 y carga rápida de 80 W, es el modelo más avanzado de OnePlus.",
     "price": 999,
     "size": "163.2 x 74.1 x 8.9 mm",
-    "screenSize": 6.7
+    "screenSize": 6.7,
+    "processor": "Snapdragon 8 Gen 3",
+    "ram": "16 GB",
+    "storage": "512 GB",
+    "camera": {
+      "main": "50 MP",
+      "ultra": "48 MP",
+      "telephoto": "64 MP",
+      "front": "32 MP"
+    },
+    "battery": "5400 mAh",
+    "os": "Android 14",
+    "colors": ["Silky Black", "Iron Gray", "Eternal Green"],
+    "waterResistant": "IP65",
+    "fastCharge": true,
+    "chargingSpeed": "100W"
   },
   {
     "id": 15,
@@ -147,7 +357,22 @@
     "description": "Mejorado con sistema de cámaras avanzado y pantalla de calidad superior.",
     "price": 949,
     "size": "163.3 x 74.8 x 8.7 mm",
-    "screenSize": 6.7
+    "screenSize": 6.7,
+    "processor": "Snapdragon 8 Gen 3",
+    "ram": "12 GB",
+    "storage": "256 GB",
+    "camera": {
+      "main": "50 MP",
+      "ultra": "48 MP",
+      "telephoto": "64 MP",
+      "front": "32 MP"
+    },
+    "battery": "5000 mAh",
+    "os": "Android 14",
+    "colors": ["Titan Black", "Galactic Silver"],
+    "waterResistant": "IP68",
+    "fastCharge": true,
+    "chargingSpeed": "80W"
   },
   {
     "id": 16,
@@ -157,7 +382,22 @@
     "description": "Con Snapdragon 8 Gen 2, carga rápida de 100 W y pantalla AMOLED de 120 Hz.",
     "price": 899,
     "size": "163.1 x 74.1 x 8.5 mm",
-    "screenSize": 6.7
+    "screenSize": 6.7,
+    "processor": "Snapdragon 8 Gen 2",
+    "ram": "16 GB",
+    "storage": "256 GB",
+    "camera": {
+      "main": "50 MP",
+      "ultra": "48 MP",
+      "telephoto": "32 MP",
+      "front": "16 MP"
+    },
+    "battery": "5000 mAh",
+    "os": "Android 13",
+    "colors": ["Titan Black", "Eternal Green"],
+    "waterResistant": "IP65",
+    "fastCharge": true,
+    "chargingSpeed": "100W"
   },
   {
     "id": 17,
@@ -167,6 +407,21 @@
     "description": "Una opción premium con características excepcionales a un precio más asequible.",
     "price": 799,
     "size": "164.8 x 75.9 x 8.7 mm",
-    "screenSize": 6.74
+    "screenSize": 6.74,
+    "processor": "Snapdragon 8+ Gen 1",
+    "ram": "8 GB",
+    "storage": "128 GB",
+    "camera": {
+      "main": "50 MP",
+      "ultra": "8 MP",
+      "telephoto": "2 MP",
+      "front": "16 MP"
+    },
+    "battery": "5000 mAh",
+    "os": "Android 13",
+    "colors": ["Sonic Black", "Galactic Silver"],
+    "waterResistant": "IP54",
+    "fastCharge": true,
+    "chargingSpeed": "100W"
   }
 ]

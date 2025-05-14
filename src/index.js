@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client'; // Correcto para React 18+
 import App from './App';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const container = document.getElementById('root');
 
