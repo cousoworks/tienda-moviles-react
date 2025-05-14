@@ -203,7 +203,7 @@
 .sidebar {
   position: fixed;
   top: 100px;
-  left: -180px; /* Reducido de -220px para que se vea un poco el borde */
+  left: -200px; /* Reducido de -220px para que se vea un poco el borde */
   width: 180px; /* Reducido de 220px para hacerla más compacta */
   height: auto;
   background: rgba(15, 15, 15, 0.7); /* Más transparente */
