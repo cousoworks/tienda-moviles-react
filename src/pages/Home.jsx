@@ -4,6 +4,7 @@ import ProductCard from '../components/ProductCard';
 import Carousel from '../components/bits/Carousel';
 import FilterBar from '../components/bits/FilterBar';
 import Pagination from '../components/bits/Pagination';
+import SearchBar from '../components/bits/SearchBar';
 import { debounce } from '../utils/performance';
 
 // Lazy load the ProductModal since it's only used when needed
@@ -24,7 +25,8 @@ const Home = ({ products, handleAddToCart, selectedBrand, setSelectedBrand }) =>
   const [sizeOrder, setSizeOrder] = useState(null);
   const [screenOrder, setScreenOrder] = useState(null);
   const [activeFilters, setActiveFilters] = useState([]);
-  const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
+  const [mobileFilterOpen, setMobileFilterOpen] = useState(false); // Can be false, 'filters', or 'search'
+  const [searchQuery, setSearchQuery] = useState('');
   
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
@@ -100,6 +102,7 @@ const Home = ({ products, handleAddToCart, selectedBrand, setSelectedBrand }) =>
     setPriceOrder(null);
     setSizeOrder(null);
     setScreenOrder(null);
+    setSearchQuery(''); // Clear search as well
     
     // Scroll to products section
     setTimeout(() => {
@@ -107,8 +110,39 @@ const Home = ({ products, handleAddToCart, selectedBrand, setSelectedBrand }) =>
     }, 100);
   };
 
-  // Filter products based on selected brand and active filters
+  // Handle search query changes with debouncing
+  const handleSearchChangeCore = useCallback((query) => {
+    setSearchQuery(query);
+    
+    // Scroll to products section after a short delay
+    setTimeout(() => {
+      scrollToProducts();
+    }, 100);
+  }, [scrollToProducts]);
+
+  // Create debounced version for search
+  const handleSearchChange = useMemo(
+    () => debounce(handleSearchChangeCore, 300),
+    [handleSearchChangeCore]
+  );
+
+  // Filter products based on selected brand, active filters, and search query
   const filteredProducts = products.filter(product => {
+    // Apply search filter first
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase().trim();
+      const searchableFields = [
+        product.name,
+        product.brand,
+        product.description,
+        product.processor
+      ].join(' ').toLowerCase();
+      
+      if (!searchableFields.includes(query)) {
+        return false;
+      }
+    }
+    
     // Only apply brand filter if a specific brand is selected
     if (selectedBrand && selectedBrand !== '' && product.brand !== selectedBrand) {
       return false;
@@ -267,10 +301,10 @@ const Home = ({ products, handleAddToCart, selectedBrand, setSelectedBrand }) =>
   const endIndex = startIndex + productsPerPage;
   const currentProducts = filteredProducts.slice(startIndex, endIndex);
   
-  // Reset to page 1 when filters change
+  // Reset to page 1 when filters or search change
   useEffect(() => {
     setCurrentPage(1);
-  }, [selectedBrand, activeFilters]);
+  }, [selectedBrand, activeFilters, searchQuery]);
   
   // Scroll to products when brand changes from navbar
   useEffect(() => {
@@ -291,7 +325,7 @@ const Home = ({ products, handleAddToCart, selectedBrand, setSelectedBrand }) =>
     }, 800); // Duración de la animación
     
     return () => clearTimeout(timer);
-  }, [selectedBrand, activeFilters]); // Se ejecuta cuando cambian los filtros
+  }, [selectedBrand, activeFilters, searchQuery]); // Se ejecuta cuando cambian los filtros o búsqueda
 
   // Handle product click
   const handleProductClick = (product) => {
@@ -373,7 +407,7 @@ const Home = ({ products, handleAddToCart, selectedBrand, setSelectedBrand }) =>
 
   // Toggle mobile filters visibility
   const toggleMobileFilters = () => {
-    setMobileFilterOpen(!mobileFilterOpen);
+    setMobileFilterOpen(prev => prev === 'filters' ? false : 'filters');
   };
 
   // Pagination functions
@@ -469,6 +503,19 @@ const Home = ({ products, handleAddToCart, selectedBrand, setSelectedBrand }) =>
         </div>
       </section>
       
+      {/* Search Bar Section */}
+      <section className="mb-6">
+        <div className="max-w-2xl mx-auto">
+          <SearchBar
+            searchQuery={searchQuery}
+            onSearchChange={handleSearchChange}
+            placeholder="Buscar móviles por nombre, marca, procesador..."
+            className="w-full"
+            isMobile={false}
+          />
+        </div>
+      </section>
+      
       {/* Main content layout with sidebar */}
       <div className="flex flex-col md:flex-row gap-6">
         {/* Filters sidebar */}
@@ -487,6 +534,8 @@ const Home = ({ products, handleAddToCart, selectedBrand, setSelectedBrand }) =>
               activeFilters={[...(selectedBrand ? [`brand:${selectedBrand}`] : []), ...activeFilters]}
               onClearFilters={clearAllFilters}
               compact={true}
+              mobileFiltersOpen={mobileFilterOpen === 'filters'}
+              onToggleMobileFilters={toggleMobileFilters}
             />
           </div>
         </div>
@@ -503,20 +552,41 @@ const Home = ({ products, handleAddToCart, selectedBrand, setSelectedBrand }) =>
             >
               <div>
                 <h2 className="text-2xl font-bold text-gray-800">
-                  {selectedBrand ? `Móviles ${selectedBrand}` : 'Todos los móviles'}
+                  {searchQuery ? (
+                    <>Resultados para: "{searchQuery}"</>
+                  ) : selectedBrand ? (
+                    `Móviles ${selectedBrand}`
+                  ) : (
+                    'Todos los móviles'
+                  )}
                 </h2>
                 <p className="text-sm text-gray-500 mt-1">
-                  Encuentra el smartphone perfecto para ti
+                  {searchQuery ? (
+                    `${totalProducts} resultado${totalProducts !== 1 ? 's' : ''} encontrado${totalProducts !== 1 ? 's' : ''}`
+                  ) : (
+                    'Encuentra el smartphone perfecto para ti'
+                  )}
                 </p>
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-sm bg-primary/10 text-primary font-medium px-3 py-1 rounded-full">
                   {totalProducts} productos{totalPages > 1 && ` (Página ${currentPage} de ${totalPages})`}
                 </span>
-                <div className="md:hidden">
+                
+                {/* Mobile Search and Filter */}
+                <div className="md:hidden flex items-center gap-2">
+                  {/* Mobile Search Toggle */}
                   <button 
                     className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-600"
-                    onClick={toggleMobileFilters}
+                    onClick={() => setMobileFilterOpen(prev => prev === 'search' ? false : 'search')}
+                  >
+                    <i className="fas fa-search"></i>
+                  </button>
+                  
+                  {/* Mobile Filter Toggle */}
+                  <button 
+                    className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-600"
+                    onClick={() => setMobileFilterOpen(prev => prev === 'filters' ? false : 'filters')}
                   >
                     <i className="fas fa-filter"></i>
                   </button>
@@ -547,18 +617,41 @@ const Home = ({ products, handleAddToCart, selectedBrand, setSelectedBrand }) =>
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4 }}
                 >
-                  <i className="fas fa-filter text-4xl text-gray-300 mb-4"></i>
-                  <p className="text-gray-500 text-lg mb-2">No se encontraron productos que coincidan con tus filtros</p>
-                  <p className="text-gray-400 text-sm mb-4">Prueba otras opciones o limpia los filtros</p>
-                  <motion.button 
-                    className="px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium flex items-center gap-2"
-                    onClick={clearAllFilters}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <i className="fas fa-times-circle"></i>
-                    Limpiar filtros
-                  </motion.button>
+                  <i className={`text-4xl text-gray-300 mb-4 ${searchQuery ? 'fas fa-search' : 'fas fa-filter'}`}></i>
+                  <p className="text-gray-500 text-lg mb-2">
+                    {searchQuery 
+                      ? `No se encontraron móviles que coincidan con "${searchQuery}"`
+                      : 'No se encontraron productos que coincidan con tus filtros'
+                    }
+                  </p>
+                  <p className="text-gray-400 text-sm mb-4">
+                    {searchQuery 
+                      ? 'Prueba con otros términos de búsqueda'
+                      : 'Prueba otras opciones o limpia los filtros'
+                    }
+                  </p>
+                  <div className="flex gap-2">
+                    {searchQuery && (
+                      <motion.button 
+                        className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg text-sm font-medium flex items-center gap-2"
+                        onClick={() => handleSearchChange('')}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <i className="fas fa-times-circle"></i>
+                        Limpiar búsqueda
+                      </motion.button>
+                    )}
+                    <motion.button 
+                      className="px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium flex items-center gap-2"
+                      onClick={clearAllFilters}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <i className="fas fa-refresh"></i>
+                      {searchQuery ? 'Limpiar todo' : 'Limpiar filtros'}
+                    </motion.button>
+                  </div>
                 </motion.div>
               ) : (
                 currentProducts.map((product, index) => (
@@ -572,6 +665,82 @@ const Home = ({ products, handleAddToCart, selectedBrand, setSelectedBrand }) =>
               )}
             </motion.div>
           </section>
+          
+          {/* Mobile Search Modal */}
+          <AnimatePresence>
+            {mobileFilterOpen === 'search' && (
+              <>
+                {/* Backdrop */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="md:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+                  onClick={() => setMobileFilterOpen(false)}
+                />
+                
+                {/* Search Modal Content */}
+                <motion.div
+                  initial={{ opacity: 0, y: "-100%" }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: "-100%" }}
+                  transition={{ 
+                    type: "spring", 
+                    damping: 25, 
+                    stiffness: 300,
+                    duration: 0.4 
+                  }}
+                  className="md:hidden fixed inset-x-0 top-0 bottom-auto bg-white shadow-2xl z-50 p-4"
+                  style={{ paddingTop: 'calc(env(safe-area-inset-top, 0px) + 1rem)' }}
+                >
+                  {/* Search Header */}
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-lg font-semibold flex items-center gap-2">
+                      <i className="fas fa-search text-primary"></i>
+                      Buscar móviles
+                    </h3>
+                    <motion.button 
+                      onClick={() => setMobileFilterOpen(false)}
+                      whileTap={{ scale: 0.9 }}
+                      className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                    >
+                      <i className="fas fa-times text-gray-500"></i>
+                    </motion.button>
+                  </div>
+                  
+                  {/* Mobile Search Bar */}
+                  <SearchBar
+                    searchQuery={searchQuery}
+                    onSearchChange={handleSearchChange}
+                    placeholder="Buscar por nombre, marca, procesador..."
+                    className="w-full"
+                    isMobile={true}
+                  />
+                  
+                  {/* Quick Search Suggestions */}
+                  <div className="mt-4">
+                    <p className="text-sm text-gray-600 mb-2">Búsquedas populares:</p>
+                    <div className="flex flex-wrap gap-2">
+                      {['iPhone', 'Samsung', 'Xiaomi', 'OnePlus', 'Galaxy', 'Snapdragon'].map((suggestion) => (
+                        <motion.button
+                          key={suggestion}
+                          whileTap={{ scale: 0.95 }}
+                          onClick={() => {
+                            handleSearchChange(suggestion);
+                            setMobileFilterOpen(false);
+                          }}
+                          className="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 transition-colors"
+                        >
+                          {suggestion}
+                        </motion.button>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              </>
+            )}
+          </AnimatePresence>
           
           {/* Pagination */}
           <Pagination

@@ -5,3 +5,4 @@ export { default as Carousel } from './Carousel';
 export { default as MobileMenu } from './MobileMenu';
 export { default as FilterBar } from './FilterBar';
 export { default as Pagination } from './Pagination';
+export { default as SearchBar } from './SearchBar';

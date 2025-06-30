@@ -13,11 +13,13 @@ const FilterBar = React.memo(({
   onFilterChange,
   activeFilters = [],
   onClearFilters,
-  compact = false
+  compact = false,
+  mobileFiltersOpen = false,
+  onToggleMobileFilters
 }) => {
   // State for expanded sections
   const [expandedSection, setExpandedSection] = useState(null);
-  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  // Remove internal mobileFiltersOpen state - use external prop
   const [selectedFilters, setSelectedFilters] = useState({
     price: [],
     screenSize: [],
@@ -278,9 +280,11 @@ const FilterBar = React.memo(({
     }
   };
 
-  // Toggle mobile filters
+  // Toggle mobile filters - use external function
   const toggleMobileFilters = () => {
-    setMobileFiltersOpen(!mobileFiltersOpen);
+    if (typeof onToggleMobileFilters === 'function') {
+      onToggleMobileFilters();
+    }
   };
 
   // Reset all filters
