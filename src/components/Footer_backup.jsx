@@ -20,7 +20,7 @@ const Footer = () => {
               </div>
               <h3 className="text-xl font-bold mb-4 text-white">Tech Mobile</h3>
               <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                Tu tienda de confianza para los últimos smartphones y accesorios móviles. 
+                Tech Mobile: tu aliado tecnológico para los últimos smartphones y accesorios móviles. 
                 Calidad garantizada y atención personalizada.
               </p>
               <div className="flex justify-center lg:justify-start space-x-4">

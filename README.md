@@ -1,6 +1,6 @@
-# � Tienda de Móviles 
+# 📱 Tech Mobile 
 
-Bienvenido a **Tienda de Móviles **! 🏢📱 Una tienda online moderna e interactiva donde puedes explorar, filtrar y comprar diferentes modelos de smartphones.
+Bienvenido a **Tech Mobile**! 🏢📱 Una tienda online moderna e interactiva donde puedes explorar, filtrar y comprar diferentes modelos de smartphones.
 
 ---
 
@@ -43,7 +43,7 @@ El proyecto utiliza un enfoque de "React Bits" con componentes modulares:
 
 ## �🌐 Demo
 
-🔗 [Ver la tienda online en Vercel ](https://tienda-moviles-react.vercel.app/)
+🔗 [Ver Tech Mobile online en Vercel ](https://tienda-moviles-react.vercel.app/)
 
 ---
 
@@ -131,9 +131,9 @@ Si quieres mejorar esta aplicación, siéntete libre de hacer un **fork** y envi
 
 Si tienes alguna pregunta o sugerencia, puedes encontrarme en:
 
-- 💻 **GitHub:** [github.com/Blayneraptor](https://github.com/Blayneraptor)
+- 💻 **GitHub:** [github.com/cousoworks](https://github.com/cousoworks)
 - 📧 **Email:** [cousoworks@gmail.com](mailto:cousoworks@gmail.com)
 
 ---
 
-🌟 **Gracias por visitar la Tienda de Móviles Blayne!** 🏢📱
+🌟 **Gracias por visitar Tech Mobile!** 🏢📱
