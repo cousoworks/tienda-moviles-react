@@ -1,6 +1,6 @@
-# � Tienda de Móviles Blayne
+# � Tienda de Móviles 
 
-Bienvenido a **Tienda de Móviles Blayne**! 🏢📱 Una tienda online moderna e interactiva donde puedes explorar, filtrar y comprar diferentes modelos de smartphones.
+Bienvenido a **Tienda de Móviles **! 🏢📱 Una tienda online moderna e interactiva donde puedes explorar, filtrar y comprar diferentes modelos de smartphones.
 
 ---
 
