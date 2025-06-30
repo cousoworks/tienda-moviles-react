@@ -1,0 +1,212 @@
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import './Home.css';
+import ProductCard from '../components/ProductCard';
+import ProductModal from '../components/ProductModal';
+import { Carousel } from '../components/bits';
+
+const Home = ({ selectedBrand, products, handleAddToCart }) => {
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [addedToCart, setAddedToCart] = useState(false);
+  const [addedMessageVisible, setAddedMessageVisible] = useState(false);
+  const [animationClass, setAnimationClass] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [filterAnimating, setFilterAnimating] = useState(false);
+  const [selectedColor, setSelectedColor] = useState(null);
+
+  // Carrusel de imágenes
+  const offers = [
+    { img: 'offer1.png', description: '¡Ofertas increíbles en móviles!', link: '#' },
+    { img: 'offer2.png', description: 'Descuentos de hasta un 50%', link: '#' },
+    { img: 'offer3.png', description: 'Compra 2 y llévate unos auriculares', link: '#' },
+    { img: 'offer4.png', description: '¡Envío gratis en todos los pedidos!', link: '#' },
+  ];
+
+  // Función para cambiar la imagen del carrusel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % offers.length);
+    }, 3000); // Cambiar cada 3 segundos
+
+    return () => clearInterval(interval);
+  }, [offers.length]);
+
+  // Efecto para activar la animación cuando cambia el filtro
+  useEffect(() => {
+    setFilterAnimating(true);
+    const timer = setTimeout(() => {
+      setFilterAnimating(false);
+    }, 800); // Duración de la animación
+    
+    return () => clearTimeout(timer);
+  }, [selectedBrand, products]); // Se ejecuta cuando cambia la marca seleccionada o los productos (filtrados)
+
+  const handleProductClick = (product) => {
+    // Limpia estados previos antes de abrir el modal
+    setAddedToCart(false);
+    setAnimationClass('');
+    setAddedMessageVisible(false);
+    // Inicializar el color seleccionado al primer color disponible
+    if (product.colors && product.colors.length > 0) {
+      setSelectedColor(product.colors[0]);
+    } else {
+      setSelectedColor(null);
+    }
+    // Establece el producto seleccionado
+    setSelectedProduct(product);
+  };
+
+  const closeModal = () => {
+    // Limpia los estados antes de cerrar
+    setAnimationClass('');
+    setAddedToCart(false);
+    setSelectedColor(null);
+    
+    // Cerramos el modal
+    setSelectedProduct(null);
+  };
+
+  useEffect(() => {
+    // Handler para evento de teclado
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape' && selectedProduct) {
+        closeModal();
+      }
+    };
+
+    // Añadir listener cuando el componente se monta
+    document.addEventListener('keydown', handleKeyDown);
+
+    // Limpiar listener cuando el componente se desmonta
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedProduct]);
+
+  const filteredProducts = selectedBrand
+    ? products.filter((product) => product.brand === selectedBrand)
+    : products;
+
+  const handleAddToCartClick = (product, event) => {
+    if (event) {
+      event.stopPropagation();
+    }
+    
+    // Crear una copia del producto con el color seleccionado
+    const productWithColor = {
+      ...product,
+      selectedColor: selectedColor
+    };
+    
+    handleAddToCart(productWithColor);
+    setAddedToCart(true);
+    setAddedMessageVisible(true);
+    setAnimationClass('cart-animation');
+
+    // Limpiar animación después de completarse
+    // eslint-disable-next-line
+    const animationTimer = setTimeout(() => {
+      setAnimationClass('');
+      setAddedToCart(false);
+    }, 1000);
+
+    // eslint-disable-next-line
+    const messageTimer = setTimeout(() => {
+      setAddedMessageVisible(false);
+    }, 2000);
+  };
+
+  // Render carousel item
+  const renderCarouselItem = (offer, index) => (
+    <div className="carousel-slide">
+      <div className="carousel-content">
+        <div className="carousel-image">
+          <img src={require(`../assets/${offer.img}`)} alt={`Oferta ${index + 1}`} />
+        </div>
+        <div className="carousel-info">
+          <h2>{offer.description}</h2>
+          <motion.button 
+            className="carousel-button"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Ver oferta <i className="fas fa-arrow-right"></i>
+          </motion.button>
+        </div>
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="home-container">
+      {/* Hero Banner with Carousel */}
+      <section className="hero-section">
+        <div className="hero-banner">
+          <Carousel
+            items={offers}
+            renderItem={renderCarouselItem}
+            interval={4000}
+            className="hero-carousel"
+          />
+        </div>
+      </section>
+      
+      {/* Category Title */}
+      <section className="category-section">
+        <motion.div 
+          className="section-title"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          <h2>{selectedBrand ? `Móviles ${selectedBrand}` : 'Todos los móviles'}</h2>
+          <p className="products-count">{filteredProducts.length} productos</p>
+        </motion.div>
+      </section>
+
+      {/* Products Grid */}
+      <section className="products-section">
+        <div className={`product-grid ${filterAnimating ? 'filter-animation' : ''}`}>
+          {filteredProducts.length === 0 ? (
+            <motion.div 
+              className="no-products-message"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <i className="fas fa-search" style={{ fontSize: '2rem', marginBottom: '1rem' }}></i>
+              <p>No se encontraron productos para esta marca.</p>
+            </motion.div>
+          ) : (
+            filteredProducts.map((product, index) => (
+              <ProductCard 
+                key={product.id} 
+                product={product} 
+                index={index}
+                onClick={() => handleProductClick(product)}
+              />
+            ))
+          )}
+        </div>
+      </section>
+
+      {/* Product Detail Modal */}
+      <AnimatePresence>
+        {selectedProduct && (
+          <ProductModal 
+            product={selectedProduct}
+            onClose={closeModal}
+            selectedColor={selectedColor}
+            setSelectedColor={setSelectedColor}
+            onAddToCart={(e) => handleAddToCartClick(selectedProduct, e)}
+            addedToCart={addedToCart}
+            addedMessageVisible={addedMessageVisible}
+            animationClass={animationClass}
+          />
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+export default Home;

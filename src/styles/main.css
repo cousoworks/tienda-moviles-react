@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background font-sans text-gray-900;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom animation classes */
+.cart-animation {
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Smooth page transitions */
+.main-content {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Prevent layout shift during navigation */
+.app {
+  contain: layout;
+}
+
+/* Custom animations that can't be defined in the Tailwind config */
+@keyframes pulse-subtle {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+}

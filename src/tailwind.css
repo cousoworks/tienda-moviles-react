@@ -1,0 +1,127 @@
+/* Modern CSS Variables */
+:root {
+  --color-primary: #1e40af;
+  --color-secondary: #60a5fa;
+  --color-accent: #3730a3;
+  --color-background: #f8fafc;
+  --color-white: #ffffff;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Base styles */
+body {
+  background-color: var(--color-background);
+  color: var(--color-gray-900);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  margin-top: 0;
+}
+
+/* Component Classes */
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background-color: rgba(30, 64, 175, 0.9); /* var(--color-primary) at 90% opacity */
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(96, 165, 250, 0.9); /* var(--color-secondary) at 90% opacity */
+}
+
+.card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 1rem;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* Animation classes */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.4s ease-out;
+}
+
+.animate-pulse {
+  animation: pulse-subtle 1.5s infinite;
+}
+
+/* Custom keyframes */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { 
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% { 
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+}

@@ -1,0 +1,30 @@
+.product-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: var(--color-primary);
+  color: white;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 500;
+  box-shadow: var(--shadow-sm);
+  z-index: 1;
+}
+
+.half-filled {
+  position: relative;
+}
+
+.half-filled:before {
+  content: "\f089"; /* fa-star-half-alt */
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  overflow: hidden;
+  color: var(--color-warning);
+}

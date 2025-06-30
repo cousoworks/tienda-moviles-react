@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-import './Footer.css';
 import logo from '../assets/logo.png';
 import paymentMethodsImage from '../assets/payment-methods.png';
 import returnsImage from '../assets/returns-image.png';
@@ -40,14 +39,13 @@ const Footer = () => {
     setIsDeadlinesModalOpen(false);
     setIsShippingModalOpen(false);  // Cierra el modal de envíos
   };
-
   return (
-    <footer className="footer-container">
-      <div className="footer-info">
-        <div className="footer-logo">
-          <img src={logo} alt="Logo Móvil Center" className="footer-logo-image" />
+    <footer className="bg-gray-900 text-white pt-12 pb-6">
+      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div className="flex flex-col items-center md:items-start">
+          <img src={logo} alt="Logo Móvil Center" className="h-16 mb-4" />
         </div>
-        <div className="footer-contact">
+        <div className="flex flex-col">
           <h4>Datos de contacto</h4>
           <p><strong>Dirección:</strong> C/ Trafalgar Law 20, Madrid</p>
           <p><strong>Teléfono de contacto:</strong> 999 999 999</p>
@@ -61,9 +59,8 @@ const Footer = () => {
             <li><a href="/" onClick={openDeadlinesModal}>Plazos</a></li>
           </ul>
         </div>
-      </div>
-      <div className="footer-footer">
-        <p>© {currentYear} Blayne Shop | Diseñado por Blayneraptor</p>
+      </div>      <div className="footer-footer">
+        <p>© {currentYear} Tech Mobile | Todos los derechos reservados</p>
       </div>
 
       {/* Modal para Métodos de pago */}
@@ -81,9 +78,8 @@ const Footer = () => {
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="close-button" onClick={closeModal}>X</button>
-            <h1>Devoluciones</h1>
-            <p>
-              En Blayne Shop queremos que estés completamente satisfecho con tu compra. Si no estás feliz con el producto, puedes devolverlo dentro de los 30 días siguientes a la recepción del pedido.
+            <h1>Devoluciones</h1>            <p>
+              En Tech Mobile queremos que estés completamente satisfecho con tu compra. Si no estás feliz con el producto, puedes devolverlo dentro de los 30 días siguientes a la recepción del pedido.
             </p>
             <img src={returnsImage} alt="Devoluciones" className="returns-image" />
           </div>

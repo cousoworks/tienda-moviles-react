@@ -1,12 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './Header.css';
-import logoGif from '../assets/logo.gif';
+import techLogo from '../assets/tech_mobile_logo.svg';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const Header = ({ setSelectedBrand, setSortedProducts }) => {
-  const [priceOrder, setPriceOrder] = useState('desc');
-  const [sizeOrder, setSizeOrder] = useState('desc');
-  const [screenOrder, setScreenOrder] = useState('desc');
+const Header = ({ setSelectedBrand, setSortedProducts, cart = [] }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -18,7 +15,6 @@ const Header = ({ setSelectedBrand, setSortedProducts }) => {
 
   // Mejorar el manejo del scroll para evitar atascamientos
   useEffect(() => {
-    let scrollTimeout = null;
     let ticking = false;
     
     const handleScroll = () => {
@@ -27,10 +23,12 @@ const Header = ({ setSelectedBrand, setSortedProducts }) => {
         window.requestAnimationFrame(() => {
           const scrollTop = window.scrollY || document.documentElement.scrollTop;
           
-          // Ocultar/mostrar header con umbral de 50px y una diferencia mínima
-          if (scrollTop > lastScrollTop.current + 5 && scrollTop > 50) {
+          // Ocultar/mostrar header basado en dirección del scroll
+          if (scrollTop > lastScrollTop.current + 5 && scrollTop > 100) {
+            // Scrolling down - hide header
             setIsHeaderVisible(false);
-          } else if (scrollTop < lastScrollTop.current - 5) {
+          } else if (scrollTop < lastScrollTop.current - 5 || scrollTop <= 50) {
+            // Scrolling up or near top - show header
             setIsHeaderVisible(true);
           }
           
@@ -40,27 +38,23 @@ const Header = ({ setSelectedBrand, setSortedProducts }) => {
         
         ticking = true;
       }
-      
-      // Limpiamos el timeout anterior y establecemos uno nuevo
-      if (scrollTimeout) {
-        clearTimeout(scrollTimeout);
-      }
-      
-      // Asegurar que el header se muestre nuevamente cuando el usuario deja de hacer scroll
-      scrollTimeout = setTimeout(() => {
+    };
+
+    // Función para mostrar header cuando el mouse está en la parte superior
+    const handleMouseMove = (e) => {
+      if (e.clientY <= 50 && !isHeaderVisible) {
         setIsHeaderVisible(true);
-      }, 500);
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      if (scrollTimeout) {
-        clearTimeout(scrollTimeout);
-      }
+      window.removeEventListener('mousemove', handleMouseMove);
     };
-  }, []);
+  }, [isHeaderVisible]);
 
   // Cierra el menú móvil cuando se cambia de tamaño de ventana
   useEffect(() => {
@@ -133,39 +127,8 @@ const Header = ({ setSelectedBrand, setSortedProducts }) => {
   };
 
   // Funciones para ordenar los productos
-  const sortByPrice = () => {
-    const newOrder = priceOrder === 'desc' ? 'asc' : 'desc';
-    setPriceOrder(newOrder);
-    setSortedProducts((prevProducts) =>
-      [...prevProducts].sort((a, b) =>
-        newOrder === 'desc' ? b.price - a.price : a.price - b.price
-      )
-    );
-  };
-
-  const sortBySize = () => {
-    const newOrder = sizeOrder === 'desc' ? 'asc' : 'desc';
-    setSizeOrder(newOrder);
-    setSortedProducts((prevProducts) =>
-      [...prevProducts].sort((a, b) =>
-        newOrder === 'desc'
-          ? parseFloat(b.size.split(' x ')[0]) - parseFloat(a.size.split(' x ')[0])
-          : parseFloat(a.size.split(' x ')[0]) - parseFloat(b.size.split(' x ')[0])
-      )
-    );
-  };
-
-  const sortByScreenSize = () => {
-    const newOrder = screenOrder === 'desc' ? 'asc' : 'desc';
-    setScreenOrder(newOrder);
-    setSortedProducts((prevProducts) =>
-      [...prevProducts].sort((a, b) =>
-        newOrder === 'desc' ? b.screenSize - a.screenSize : a.screenSize - b.screenSize
-      )
-    );
-  };
-
   // Función para manejar la apertura y cierre del menú
+  // eslint-disable-next-line no-unused-vars
   const toggleMenu = (e) => {
     e.stopPropagation();
     setMenuOpen(!menuOpen);
@@ -186,68 +149,150 @@ const Header = ({ setSelectedBrand, setSortedProducts }) => {
     scrollToTop();
   };
 
-  // Determinar si estamos en la página de inicio para mostrar la barra lateral
-  const isHomePage = location.pathname === '/';
-
   return (
     <>
-      <header className={`header ${isHeaderVisible ? '' : 'hidden'}`}>
-        <div className="logo">
-          <Link to="/" className="logo-link" onClick={() => handleBrandSelect('')}>
-            <img src={logoGif} alt="Logo" />
-          </Link>
-        </div>
-        
-        {/* Botón hamburguesa para dispositivos móviles */}
-        <button 
-          className={`hamburger-menu ${mobileMenuOpen ? 'active' : ''}`} 
-          onClick={toggleMobileMenu}
-          aria-label="Menú principal"
-        >
-          <div className="hamburger-box">
-            <div className="hamburger-inner"></div>
-          </div>
-        </button>
-
-        {/* Navegación principal - visible en escritorio, oculta en móvil */}
-        <nav className={`navbar ${mobileMenuOpen ? 'mobile-open' : ''}`}>
-          <div className={`dropdown ${mobileSubmenuOpen ? 'mobile-submenu-open' : ''}`} ref={dropdownRef}>
-            {/* En desktop al pasar el cursor se despliega el menú, en móvil al hacer clic se alterna */}
-            <Link to="#" className="nav-link" onClick={toggleMobileSubmenu}>
-              MARCAS
+      <header className={`fixed w-full bg-white/95 backdrop-blur-sm shadow-md z-[9998] transition-all duration-300 ease-in-out ${isHeaderVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
+        <div className="container mx-auto px-4 py-3 flex items-center justify-between">          <div className="h-12">
+            <Link to="/" className="block h-full" onClick={() => handleBrandSelect('')}>
+              <img src={techLogo} alt="Tech Mobile" className="h-full w-auto object-contain" />
             </Link>
-            <ul className={`dropdown-menu ${mobileSubmenuOpen ? 'mobile-visible' : ''}`}>
-              <li onClick={() => handleBrandSelect('')}>TODOS</li>
-              <li onClick={() => handleBrandSelect('Samsung')}>SAMSUNG</li>
-              <li onClick={() => handleBrandSelect('Apple')}>IPHONE</li>
-              <li onClick={() => handleBrandSelect('Xiaomi')}>XIAOMI</li>
-              <li onClick={() => handleBrandSelect('OnePlus')}>ONEPLUS</li>
-            </ul>
           </div>
-          <Link to="/about-us" className="nav-link" onClick={() => {scrollToTop(); closeMobileMenu();}}>NOSOTROS</Link>
-          <Link to="/shipping" className="nav-link" onClick={() => {scrollToTop(); closeMobileMenu();}}>ENVÍOS</Link>
-          <Link to="/cart" className="nav-link" onClick={() => {scrollToTop(); closeMobileMenu();}}>CARRITO</Link>
-        </nav>
-      </header>
+          
+          {/* Botón hamburguesa para dispositivos móviles */}
+          <button 
+            className="md:hidden relative w-10 h-10 flex flex-col justify-center items-center focus:outline-none" 
+            onClick={toggleMobileMenu}
+            aria-label="Menú principal"
+          >
+            <span className={`block w-6 h-0.5 bg-gray-800 transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
+            <span className={`block w-6 h-0.5 bg-gray-800 my-1 transition-all duration-300 ${mobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+            <span className={`block w-6 h-0.5 bg-gray-800 transition-all duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
+          </button>
 
-      {/* La barra lateral solo se muestra en la página de inicio */}
-      {isHomePage && (
-        <div className={`sidebar ${mobileMenuOpen ? 'mobile-visible' : ''}`}>
-          <div className="sidebar-separator"></div>
-          <h3>Filtros</h3>
-          <div className="filter-buttons">
-            <button onClick={sortByPrice}>
-              Precio {priceOrder === 'desc' ? '↓' : '↑'}
-            </button>
-            <button onClick={sortBySize}>
-              Tamaño {sizeOrder === 'desc' ? '↓' : '↑'}
-            </button>
-            <button onClick={sortByScreenSize}>
-              Pantalla {screenOrder === 'desc' ? '↓' : '↑'}
-            </button>
-          </div>
+          {/* Navegación principal - visible en escritorio, oculta en móvil */}
+          <nav className={`absolute md:relative top-full left-0 w-full md:w-auto bg-white md:bg-transparent md:flex md:items-center transform transition-all duration-300 shadow-md md:shadow-none
+            ${mobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-2 md:translate-y-0 opacity-0 md:opacity-100 pointer-events-none md:pointer-events-auto'}`}>
+            
+            <div className="relative group" ref={dropdownRef}>
+              {/* En desktop al pasar el cursor se despliega el menú, en móvil al hacer clic se alterna */}
+              <Link 
+                to="#" 
+                className="block px-5 py-3 md:py-2 text-gray-800 md:text-sm font-medium hover:text-primary border-b md:border-b-0 md:mr-6"
+                onClick={toggleMobileSubmenu}
+              >
+                MARCAS
+                <i className={`fas fa-chevron-down ml-2 text-xs transform transition-transform duration-300 ${mobileSubmenuOpen ? 'rotate-180' : ''}`}></i>
+              </Link>
+              <ul className={`md:absolute md:top-full md:left-0 bg-white w-full md:w-48 md:shadow-lg md:rounded-md md:py-1 overflow-hidden transition-all duration-300 
+                ${mobileSubmenuOpen ? 'max-h-80 opacity-100' : 'max-h-0 md:group-hover:max-h-80 opacity-0 md:group-hover:opacity-100'}`}>
+                <li 
+                  onClick={() => handleBrandSelect('')}
+                  className="px-5 py-2.5 md:py-2 hover:bg-gray-50 hover:text-primary cursor-pointer text-sm"
+                >
+                  TODOS
+                </li>
+                <li 
+                  onClick={() => handleBrandSelect('Samsung')}
+                  className="px-5 py-2.5 md:py-2 hover:bg-gray-50 hover:text-primary cursor-pointer text-sm"
+                >
+                  SAMSUNG
+                </li>
+                <li 
+                  onClick={() => handleBrandSelect('Apple')}
+                  className="px-5 py-2.5 md:py-2 hover:bg-gray-50 hover:text-primary cursor-pointer text-sm"
+                >
+                  IPHONE
+                </li>
+                <li 
+                  onClick={() => handleBrandSelect('Xiaomi')}
+                  className="px-5 py-2.5 md:py-2 hover:bg-gray-50 hover:text-primary cursor-pointer text-sm"
+                >
+                  XIAOMI
+                </li>
+                <li 
+                  onClick={() => handleBrandSelect('OnePlus')}
+                  className="px-5 py-2.5 md:py-2 hover:bg-gray-50 hover:text-primary cursor-pointer text-sm"
+                >
+                  ONEPLUS
+                </li>
+                <li 
+                  onClick={() => handleBrandSelect('Google')}
+                  className="px-5 py-2.5 md:py-2 hover:bg-gray-50 hover:text-primary cursor-pointer text-sm"
+                >
+                  GOOGLE
+                </li>
+                <li 
+                  onClick={() => handleBrandSelect('Oppo')}
+                  className="px-5 py-2.5 md:py-2 hover:bg-gray-50 hover:text-primary cursor-pointer text-sm"
+                >
+                  OPPO
+                </li>
+                <li 
+                  onClick={() => handleBrandSelect('Vivo')}
+                  className="px-5 py-2.5 md:py-2 hover:bg-gray-50 hover:text-primary cursor-pointer text-sm"
+                >
+                  VIVO
+                </li>
+                <li 
+                  onClick={() => handleBrandSelect('Realme')}
+                  className="px-5 py-2.5 md:py-2 hover:bg-gray-50 hover:text-primary cursor-pointer text-sm"
+                >
+                  REALME
+                </li>
+              </ul>
+            </div>
+            
+            <Link 
+              to="/about-us" 
+              className="block px-5 py-3 md:py-2 text-gray-800 md:text-sm font-medium hover:text-primary border-b md:border-b-0 md:mr-6"
+              onClick={() => {scrollToTop(); closeMobileMenu();}}
+            >
+              NOSOTROS
+            </Link>
+            
+            <Link 
+              to="/shipping" 
+              className="block px-5 py-3 md:py-2 text-gray-800 md:text-sm font-medium hover:text-primary border-b md:border-b-0 md:mr-6"
+              onClick={() => {scrollToTop(); closeMobileMenu();}}
+            >
+              ENVÍOS
+            </Link>
+            
+            <Link 
+              to="/cart" 
+              className="block px-5 py-3 md:py-2 text-gray-800 md:text-sm font-medium hover:text-primary relative"
+              onClick={() => {scrollToTop(); closeMobileMenu();}}
+            >              <i className="fas fa-shopping-cart mr-2"></i>
+              CARRITO
+              <AnimatePresence>
+                {cart.length > 0 && (
+                  <motion.span 
+                    key="cart-badge"
+                    className="absolute -top-1 -right-1 w-5 h-5 flex items-center justify-center text-xs bg-primary text-white rounded-full"
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ 
+                      scale: 1, 
+                      opacity: 1 
+                    }}
+                    transition={{ 
+                      duration: 0.3,
+                      type: "spring",
+                      stiffness: 200 
+                    }}
+                  >
+                    {cart.length}
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </Link>
+          </nav>
         </div>
-      )}
+      </header>
+      
+      {/* Espacio para que el contenido no quede bajo el header fijo */}
+      <div className="h-[72px]"></div>
+      
+      {/* Sidebar derecho eliminado */}
     </>
   );
 };

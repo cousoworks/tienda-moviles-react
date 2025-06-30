@@ -1,0 +1,1940 @@
+[
+  {
+    "name": "OnePlus 11",
+    "brand": "OnePlus",
+    "description": "6.7\" LTPO AMOLED display, Hasselblad triple camera, 100W SuperVOOC",
+    "price": 599.99,
+    "size": "163.1 x 74.1 x 8.53 mm",
+    "screenSize": 6.7,
+    "processor": "Snapdragon 8 Gen 2",
+    "ram": "8GB",
+    "storage": "64GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "32MP",
+      "front": "16MP"
+    },
+    "id": 1,
+    "image": "oneplus_11_1.jpg"
+  },
+  {
+    "name": "Xiaomi Redmi Note 13 Pro Plus",
+    "brand": "Xiaomi",
+    "description": "6.67\" AMOLED display, 200MP camera, 67W charging",
+    "price": 329.99,
+    "size": "161.15 x 74.24 x 7.98 mm",
+    "screenSize": 6.67,
+    "processor": "Snapdragon 7s Gen 2",
+    "ram": "6GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "200MP",
+      "ultra": "8MP",
+      "telephoto": null,
+      "front": "16MP"
+    },
+    "id": 2,
+    "image": "xiaomi_redmi_note_13_pro_plus_3.jpg"
+  },
+  {
+    "name": "OnePlus 12",
+    "brand": "OnePlus",
+    "description": "6.82\" LTPO AMOLED display, Hasselblad cameras, 100W charging",
+    "price": 799.99,
+    "size": "164.3 x 75.8 x 9.15 mm",
+    "screenSize": 6.82,
+    "processor": "Snapdragon 8 Gen 3",
+    "ram": "12GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "64MP",
+      "front": "32MP"
+    },
+    "id": 3,
+    "image": "oneplus_12_9.jpg"
+  },
+  {
+    "brand": "Oppo",
+    "processor": "Snapdragon 8 Gen 2",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "13MP",
+      "front": "32MP"
+    },
+    "name": "Oppo Find X7 Ultra",
+    "price": 1099.99,
+    "screenSize": 6.82,
+    "ram": "16GB",
+    "storage": "512GB",
+    "id": 4,
+    "description": "6.82\" AMOLED display, 50MP main camera",
+    "size": "162.6 x 70.6 x 9.6 mm",
+    "image": "oppo_find_x7_ultra_12.jpg"
+  },
+  {
+    "name": "Google Pixel 8 Pro",
+    "brand": "Google",
+    "description": "6.7\" LTPO OLED display, Magic Eraser, Night Sight camera",
+    "price": 999.99,
+    "size": "162.6 x 76.5 x 8.8 mm",
+    "screenSize": 6.7,
+    "processor": "Google Tensor G3",
+    "ram": "12GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "48MP",
+      "front": "10.5MP"
+    },
+    "id": 5,
+    "image": "google_pixel_8_pro_13.jpg"
+  },
+  {
+    "name": "Google Pixel 8",
+    "brand": "Google",
+    "description": "6.2\" OLED display, AI-powered camera features, 7 years updates",
+    "price": 799.99,
+    "size": "150.5 x 70.8 x 8.9 mm",
+    "screenSize": 6.2,
+    "processor": "Google Tensor G3",
+    "ram": "8GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "12MP",
+      "telephoto": null,
+      "front": "10.5MP"
+    },
+    "id": 6,
+    "image": "google_pixel_8_15.jpg"
+  },
+  {
+    "name": "Apple iPhone 15 Pro",
+    "brand": "Apple",
+    "description": "6.1\" Super Retina XDR display, 48MP Pro camera, Action Button",
+    "price": 1099.99,
+    "size": "146.6 x 70.6 x 8.25 mm",
+    "screenSize": 6.1,
+    "processor": "Apple A17 Pro",
+    "ram": "8GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "48MP",
+      "ultra": "12MP",
+      "telephoto": "12MP",
+      "front": "12MP"
+    },
+    "id": 7,
+    "image": "apple_iphone_15_pro_16.jpg"
+  },
+  {
+    "name": "Apple iPhone 15 Pro Max",
+    "brand": "Apple",
+    "description": "6.7\" Super Retina XDR display, 48MP Pro camera system, Titanium design",
+    "price": 1099.99,
+    "size": "159.9 x 76.7 x 8.25 mm",
+    "screenSize": 6.7,
+    "processor": "Apple A17 Pro",
+    "ram": "8GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "48MP",
+      "ultra": "12MP",
+      "telephoto": "12MP",
+      "front": "12MP"
+    },
+    "id": 8,
+    "image": "apple_iphone_15_pro_max_17.jpg"
+  },
+  {
+    "name": "Samsung Galaxy A55",
+    "brand": "Samsung",
+    "description": "6.6\" Super AMOLED display, 50MP OIS camera, 5000mAh battery",
+    "price": 449.99,
+    "size": "161.1 x 77.4 x 8.2 mm",
+    "screenSize": 6.6,
+    "processor": "Exynos 1480",
+    "ram": "8GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "12MP",
+      "telephoto": null,
+      "front": "32MP"
+    },
+    "id": 9,
+    "image": "samsung_galaxy_a55_18.jpg"
+  },
+  {
+    "name": "Google Pixel 8 Pro",
+    "brand": "Google",
+    "description": "6.7\" LTPO OLED display, Magic Eraser, Night Sight camera",
+    "price": 999.99,
+    "size": "162.6 x 76.5 x 8.8 mm",
+    "screenSize": 6.7,
+    "processor": "Google Tensor G3",
+    "ram": "12GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "48MP",
+      "front": "10.5MP"
+    },
+    "id": 10,
+    "image": "google_pixel_8_pro_20.jpg"
+  },
+  {
+    "name": "Xiaomi 14",
+    "brand": "Xiaomi",
+    "description": "6.36\" LTPO AMOLED display, Leica cameras, 90W fast charging",
+    "price": 699.99,
+    "size": "152.8 x 71.5 x 8.2 mm",
+    "screenSize": 6.36,
+    "processor": "Snapdragon 8 Gen 3",
+    "ram": "12GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "50MP",
+      "telephoto": "50MP",
+      "front": "32MP"
+    },
+    "id": 11,
+    "image": "xiaomi_14_21.jpg"
+  },
+  {
+    "name": "Apple iPhone 15 Pro Max",
+    "brand": "Apple",
+    "description": "6.7\" Super Retina XDR display, 48MP Pro camera system, Titanium design",
+    "price": 1199.99,
+    "size": "159.9 x 76.7 x 8.25 mm",
+    "screenSize": 6.7,
+    "processor": "Apple A17 Pro",
+    "ram": "8GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "48MP",
+      "ultra": "12MP",
+      "telephoto": "12MP",
+      "front": "12MP"
+    },
+    "id": 12,
+    "image": "apple_iphone_15_pro_max_24.jpg"
+  },
+  {
+    "name": "Google Pixel 8 Pro",
+    "brand": "Google",
+    "description": "6.7\" LTPO OLED display, Magic Eraser, Night Sight camera",
+    "price": 999.99,
+    "size": "162.6 x 76.5 x 8.8 mm",
+    "screenSize": 6.7,
+    "processor": "Google Tensor G3",
+    "ram": "12GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "48MP",
+      "front": "10.5MP"
+    },
+    "id": 13,
+    "image": "google_pixel_8_pro_28.jpg"
+  },
+  {
+    "name": "Xiaomi 14",
+    "brand": "Xiaomi",
+    "description": "6.36\" LTPO AMOLED display, Leica cameras, 90W fast charging",
+    "price": 799.99,
+    "size": "152.8 x 71.5 x 8.2 mm",
+    "screenSize": 6.36,
+    "processor": "Snapdragon 8 Gen 3",
+    "ram": "12GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "50MP",
+      "telephoto": "50MP",
+      "front": "32MP"
+    },
+    "id": 14,
+    "image": "xiaomi_14_29.jpg"
+  },
+  {
+    "name": "Google Pixel 8 Pro",
+    "brand": "Google",
+    "description": "6.7\" LTPO OLED display, Magic Eraser, Night Sight camera",
+    "price": 999.99,
+    "size": "162.6 x 76.5 x 8.8 mm",
+    "screenSize": 6.7,
+    "processor": "Google Tensor G3",
+    "ram": "12GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "48MP",
+      "front": "10.5MP"
+    },
+    "id": 15,
+    "image": "google_pixel_8_pro_30.jpg"
+  },
+  {
+    "name": "Samsung Galaxy A55",
+    "brand": "Samsung",
+    "description": "6.6\" Super AMOLED display, 50MP OIS camera, 5000mAh battery",
+    "price": 549.99,
+    "size": "161.1 x 77.4 x 8.2 mm",
+    "screenSize": 6.6,
+    "processor": "Exynos 1480",
+    "ram": "8GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "12MP",
+      "telephoto": null,
+      "front": "32MP"
+    },
+    "id": 16,
+    "image": "samsung_galaxy_a55_31.jpg"
+  },
+  {
+    "name": "Apple iPhone 15 Pro",
+    "brand": "Apple",
+    "description": "6.1\" Super Retina XDR display, 48MP Pro camera, Action Button",
+    "price": 999.99,
+    "size": "146.6 x 70.6 x 8.25 mm",
+    "screenSize": 6.1,
+    "processor": "Apple A17 Pro",
+    "ram": "8GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "48MP",
+      "ultra": "12MP",
+      "telephoto": "12MP",
+      "front": "12MP"
+    },
+    "id": 17,
+    "image": "apple_iphone_15_pro_32.jpg"
+  },
+  {
+    "name": "OnePlus 11",
+    "brand": "OnePlus",
+    "description": "6.7\" LTPO AMOLED display, Hasselblad triple camera, 100W SuperVOOC",
+    "price": 599.99,
+    "size": "163.1 x 74.1 x 8.53 mm",
+    "screenSize": 6.7,
+    "processor": "Snapdragon 8 Gen 2",
+    "ram": "8GB",
+    "storage": "64GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "32MP",
+      "front": "16MP"
+    },
+    "id": 18,
+    "image": "oneplus_11_33.jpg"
+  },
+  {
+    "brand": "Vivo",
+    "processor": "MediaTek Dimensity 9200",
+    "camera": {
+      "main": "50MP",
+      "ultra": "8MP",
+      "telephoto": "12MP",
+      "front": "50MP"
+    },
+    "name": "Vivo X100",
+    "price": 649.99,
+    "screenSize": 6.78,
+    "ram": "12GB",
+    "storage": "256GB",
+    "id": 19,
+    "description": "6.78\" AMOLED display, portrait photography specialist",
+    "size": "165.7 x 73.5 x 9.2 mm",
+    "image": "vivo_x100_35.jpg"
+  },
+  {
+    "name": "Apple iPhone 15",
+    "brand": "Apple",
+    "description": "6.1\" Super Retina XDR display, 48MP main camera, Dynamic Island",
+    "price": 799.99,
+    "size": "147.6 x 71.6 x 7.80 mm",
+    "screenSize": 6.1,
+    "processor": "Apple A16 Bionic",
+    "ram": "6GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "48MP",
+      "ultra": "12MP",
+      "telephoto": null,
+      "front": "12MP"
+    },
+    "id": 20,
+    "image": "apple_iphone_15_37.jpg"
+  },
+  {
+    "name": "Samsung Galaxy A35",
+    "brand": "Samsung",
+    "description": "6.6\" Super AMOLED display, 50MP main camera, IP67 rating",
+    "price": 249.99,
+    "size": "161.7 x 78.0 x 8.2 mm",
+    "screenSize": 6.6,
+    "processor": "Exynos 1380",
+    "ram": "4GB",
+    "storage": "64GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "8MP",
+      "telephoto": null,
+      "front": "13MP"
+    },
+    "id": 21,
+    "image": "samsung_galaxy_a35_40.jpg"
+  },
+  {
+    "name": "Google Pixel 8 Pro",
+    "brand": "Google",
+    "description": "6.7\" LTPO OLED display, Magic Eraser, Night Sight camera",
+    "price": 999.99,
+    "size": "162.6 x 76.5 x 8.8 mm",
+    "screenSize": 6.7,
+    "processor": "Google Tensor G3",
+    "ram": "8GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "48MP",
+      "front": "10.5MP"
+    },
+    "id": 22,
+    "image": "google_pixel_8_pro_41.jpg"
+  },
+  {
+    "name": "Xiaomi Redmi Note 13 Pro",
+    "brand": "Xiaomi",
+    "description": "6.67\" AMOLED display, 200MP camera, 67W charging",
+    "price": 329.99,
+    "size": "161.15 x 74.24 x 7.98 mm",
+    "screenSize": 6.67,
+    "processor": "Snapdragon 7s Gen 2",
+    "ram": "8GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "200MP",
+      "ultra": "8MP",
+      "telephoto": null,
+      "front": "16MP"
+    },
+    "id": 23,
+    "image": "xiaomi_redmi_note_13_pro_42.jpg"
+  },
+  {
+    "name": "Google Pixel 8",
+    "brand": "Google",
+    "description": "6.2\" OLED display, AI-powered camera features, 7 years updates",
+    "price": 699.99,
+    "size": "150.5 x 70.8 x 8.9 mm",
+    "screenSize": 6.2,
+    "processor": "Google Tensor G3",
+    "ram": "8GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "12MP",
+      "telephoto": null,
+      "front": "10.5MP"
+    },
+    "id": 24,
+    "image": "google_pixel_8_43.jpg"
+  },
+  {
+    "name": "Xiaomi 14",
+    "brand": "Xiaomi",
+    "description": "6.36\" LTPO AMOLED display, Leica cameras, 90W fast charging",
+    "price": 799.99,
+    "size": "152.8 x 71.5 x 8.2 mm",
+    "screenSize": 6.36,
+    "processor": "Snapdragon 8 Gen 3",
+    "ram": "12GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "50MP",
+      "telephoto": "50MP",
+      "front": "32MP"
+    },
+    "id": 25,
+    "image": "xiaomi_14_44.jpg"
+  },
+  {
+    "name": "Apple iPhone 15",
+    "brand": "Apple",
+    "description": "6.1\" Super Retina XDR display, 48MP main camera, Dynamic Island",
+    "price": 699.99,
+    "size": "147.6 x 71.6 x 7.80 mm",
+    "screenSize": 6.1,
+    "processor": "Apple A16 Bionic",
+    "ram": "6GB",
+    "storage": "64GB",
+    "camera": {
+      "main": "48MP",
+      "ultra": "12MP",
+      "telephoto": null,
+      "front": "12MP"
+    },
+    "id": 26,
+    "image": "apple_iphone_15_47.jpg"
+  },
+  {
+    "name": "Samsung Galaxy A35",
+    "brand": "Samsung",
+    "description": "6.6\" Super AMOLED display, 50MP main camera, IP67 rating",
+    "price": 449.99,
+    "size": "161.7 x 78.0 x 8.2 mm",
+    "screenSize": 6.6,
+    "processor": "Exynos 1380",
+    "ram": "6GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "8MP",
+      "telephoto": null,
+      "front": "13MP"
+    },
+    "id": 27,
+    "image": "samsung_galaxy_a35_51.jpg"
+  },
+  {
+    "name": "Samsung Galaxy A35",
+    "brand": "Samsung",
+    "description": "6.6\" Super AMOLED display, 50MP main camera, IP67 rating",
+    "price": 349.99,
+    "size": "161.7 x 78.0 x 8.2 mm",
+    "screenSize": 6.6,
+    "processor": "Exynos 1380",
+    "ram": "6GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "8MP",
+      "telephoto": null,
+      "front": "13MP"
+    },
+    "id": 28,
+    "image": "samsung_galaxy_a35_52.jpg"
+  },
+  {
+    "name": "Xiaomi Redmi Note 13 Pro",
+    "brand": "Xiaomi",
+    "description": "6.67\" AMOLED display, 200MP camera, 67W charging",
+    "price": 529.99,
+    "size": "161.15 x 74.24 x 7.98 mm",
+    "screenSize": 6.67,
+    "processor": "Snapdragon 7s Gen 2",
+    "ram": "8GB",
+    "storage": "512GB",
+    "camera": {
+      "main": "200MP",
+      "ultra": "8MP",
+      "telephoto": null,
+      "front": "16MP"
+    },
+    "id": 29,
+    "image": "xiaomi_redmi_note_13_pro_57.jpg"
+  },
+  {
+    "brand": "Vivo",
+    "processor": "MediaTek Dimensity 9200",
+    "camera": {
+      "main": "50MP",
+      "ultra": "8MP",
+      "telephoto": "12MP",
+      "front": "50MP"
+    },
+    "name": "Vivo V30 Pro",
+    "price": 499.99,
+    "screenSize": 6.78,
+    "ram": "12GB",
+    "storage": "256GB",
+    "id": 30,
+    "description": "6.78\" AMOLED display, portrait photography specialist",
+    "size": "165.8 x 72.0 x 10.5 mm",
+    "image": "vivo_v30_pro_62.jpg"
+  },
+  {
+    "name": "Samsung Galaxy A35",
+    "brand": "Samsung",
+    "description": "6.6\" Super AMOLED display, 50MP main camera, IP67 rating",
+    "price": 349.99,
+    "size": "161.7 x 78.0 x 8.2 mm",
+    "screenSize": 6.6,
+    "processor": "Exynos 1380",
+    "ram": "6GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "8MP",
+      "telephoto": null,
+      "front": "13MP"
+    },
+    "id": 31,
+    "image": "samsung_galaxy_a35_63.jpg"
+  },
+  {
+    "name": "Samsung Galaxy A35",
+    "brand": "Samsung",
+    "description": "6.6\" Super AMOLED display, 50MP main camera, IP67 rating",
+    "price": 349.99,
+    "size": "161.7 x 78.0 x 8.2 mm",
+    "screenSize": 6.6,
+    "processor": "Exynos 1380",
+    "ram": "8GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "8MP",
+      "telephoto": null,
+      "front": "13MP"
+    },
+    "id": 32,
+    "image": "samsung_galaxy_a35_64.jpg"
+  },
+  {
+    "name": "Xiaomi Redmi Note 13 Pro",
+    "brand": "Xiaomi",
+    "description": "6.67\" AMOLED display, 200MP camera, 67W charging",
+    "price": 529.99,
+    "size": "161.15 x 74.24 x 7.98 mm",
+    "screenSize": 6.67,
+    "processor": "Snapdragon 7s Gen 2",
+    "ram": "8GB",
+    "storage": "512GB",
+    "camera": {
+      "main": "200MP",
+      "ultra": "8MP",
+      "telephoto": null,
+      "front": "16MP"
+    },
+    "id": 33,
+    "image": "xiaomi_redmi_note_13_pro_66.jpg"
+  },
+  {
+    "brand": "Realme",
+    "processor": "Snapdragon 7 Gen 3",
+    "camera": {
+      "main": "108MP",
+      "ultra": "8MP",
+      "telephoto": null,
+      "front": "16MP"
+    },
+    "name": "Realme 12 Pro",
+    "price": 329.99,
+    "screenSize": 6.7,
+    "ram": "8GB",
+    "storage": "128GB",
+    "id": 34,
+    "description": "6.7\" display, 108MP AI camera",
+    "size": "158.8 x 76.2 x 9.5 mm",
+    "image": "realme_12_pro_67.jpg"
+  },
+  {
+    "name": "OnePlus 11",
+    "brand": "OnePlus",
+    "description": "6.7\" LTPO AMOLED display, Hasselblad triple camera, 100W SuperVOOC",
+    "price": 799.99,
+    "size": "163.1 x 74.1 x 8.53 mm",
+    "screenSize": 6.7,
+    "processor": "Snapdragon 8 Gen 2",
+    "ram": "6GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "32MP",
+      "front": "16MP"
+    },
+    "id": 35,
+    "image": "oneplus_11_73.jpg"
+  },
+  {
+    "name": "Xiaomi 14",
+    "brand": "Xiaomi",
+    "description": "6.36\" LTPO AMOLED display, Leica cameras, 90W fast charging",
+    "price": 799.99,
+    "size": "152.8 x 71.5 x 8.2 mm",
+    "screenSize": 6.36,
+    "processor": "Snapdragon 8 Gen 3",
+    "ram": "12GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "50MP",
+      "telephoto": "50MP",
+      "front": "32MP"
+    },
+    "id": 36,
+    "image": "xiaomi_14_75.jpg"
+  },
+  {
+    "name": "Samsung Galaxy A55",
+    "brand": "Samsung",
+    "description": "6.6\" Super AMOLED display, 50MP OIS camera, 5000mAh battery",
+    "price": 349.99,
+    "size": "161.1 x 77.4 x 8.2 mm",
+    "screenSize": 6.6,
+    "processor": "Exynos 1480",
+    "ram": "8GB",
+    "storage": "64GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "12MP",
+      "telephoto": null,
+      "front": "32MP"
+    },
+    "id": 37,
+    "image": "samsung_galaxy_a55_80.jpg"
+  },
+  {
+    "name": "Samsung Galaxy A55",
+    "brand": "Samsung",
+    "description": "6.6\" Super AMOLED display, 50MP OIS camera, 5000mAh battery",
+    "price": 449.99,
+    "size": "161.1 x 77.4 x 8.2 mm",
+    "screenSize": 6.6,
+    "processor": "Exynos 1480",
+    "ram": "8GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "12MP",
+      "telephoto": null,
+      "front": "32MP"
+    },
+    "id": 38,
+    "image": "samsung_galaxy_a55_82.jpg"
+  },
+  {
+    "name": "Xiaomi 14",
+    "brand": "Xiaomi",
+    "description": "6.36\" LTPO AMOLED display, Leica cameras, 90W fast charging",
+    "price": 999.99,
+    "size": "152.8 x 71.5 x 8.2 mm",
+    "screenSize": 6.36,
+    "processor": "Snapdragon 8 Gen 3",
+    "ram": "16GB",
+    "storage": "512GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "50MP",
+      "telephoto": "50MP",
+      "front": "32MP"
+    },
+    "id": 39,
+    "image": "xiaomi_14_83.jpg"
+  },
+  {
+    "name": "Samsung Galaxy A35",
+    "brand": "Samsung",
+    "description": "6.6\" Super AMOLED display, 50MP main camera, IP67 rating",
+    "price": 249.99,
+    "size": "161.7 x 78.0 x 8.2 mm",
+    "screenSize": 6.6,
+    "processor": "Exynos 1380",
+    "ram": "6GB",
+    "storage": "64GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "8MP",
+      "telephoto": null,
+      "front": "13MP"
+    },
+    "id": 40,
+    "image": "samsung_galaxy_a35_85.jpg"
+  },
+  {
+    "name": "OnePlus 11",
+    "brand": "OnePlus",
+    "description": "6.7\" LTPO AMOLED display, Hasselblad triple camera, 100W SuperVOOC",
+    "price": 699.99,
+    "size": "163.1 x 74.1 x 8.53 mm",
+    "screenSize": 6.7,
+    "processor": "Snapdragon 8 Gen 2",
+    "ram": "8GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "32MP",
+      "front": "16MP"
+    },
+    "id": 41,
+    "image": "oneplus_11_86.jpg"
+  },
+  {
+    "name": "OnePlus 11",
+    "brand": "OnePlus",
+    "description": "6.7\" LTPO AMOLED display, Hasselblad triple camera, 100W SuperVOOC",
+    "price": 699.99,
+    "size": "163.1 x 74.1 x 8.53 mm",
+    "screenSize": 6.7,
+    "processor": "Snapdragon 8 Gen 2",
+    "ram": "8GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "32MP",
+      "front": "16MP"
+    },
+    "id": 42,
+    "image": "oneplus_11_90.jpg"
+  },
+  {
+    "name": "OnePlus 12",
+    "brand": "OnePlus",
+    "description": "6.82\" LTPO AMOLED display, Hasselblad cameras, 100W charging",
+    "price": 999.99,
+    "size": "164.3 x 75.8 x 9.15 mm",
+    "screenSize": 6.82,
+    "processor": "Snapdragon 8 Gen 3",
+    "ram": "12GB",
+    "storage": "512GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "64MP",
+      "front": "32MP"
+    },
+    "id": 43,
+    "image": "oneplus_12_94.jpg"
+  },
+  {
+    "name": "OnePlus 11",
+    "brand": "OnePlus",
+    "description": "6.7\" LTPO AMOLED display, Hasselblad triple camera, 100W SuperVOOC",
+    "price": 599.99,
+    "size": "163.1 x 74.1 x 8.53 mm",
+    "screenSize": 6.7,
+    "processor": "Snapdragon 8 Gen 2",
+    "ram": "8GB",
+    "storage": "64GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "32MP",
+      "front": "16MP"
+    },
+    "id": 44,
+    "image": "oneplus_11_96.jpg"
+  },
+  {
+    "name": "Xiaomi 14",
+    "brand": "Xiaomi",
+    "description": "6.36\" LTPO AMOLED display, Leica cameras, 90W fast charging",
+    "price": 799.99,
+    "size": "152.8 x 71.5 x 8.2 mm",
+    "screenSize": 6.36,
+    "processor": "Snapdragon 8 Gen 3",
+    "ram": "12GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "50MP",
+      "telephoto": "50MP",
+      "front": "32MP"
+    },
+    "id": 45,
+    "image": "xiaomi_14_98.jpg"
+  },
+  {
+    "name": "OnePlus 11",
+    "brand": "OnePlus",
+    "description": "6.7\" LTPO AMOLED display, Hasselblad triple camera, 100W SuperVOOC",
+    "price": 799.99,
+    "size": "163.1 x 74.1 x 8.53 mm",
+    "screenSize": 6.7,
+    "processor": "Snapdragon 8 Gen 2",
+    "ram": "8GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "32MP",
+      "front": "16MP"
+    },
+    "id": 46,
+    "image": "oneplus_11_99.jpg"
+  },
+  {
+    "name": "Samsung Galaxy A35",
+    "brand": "Samsung",
+    "description": "6.6\" Super AMOLED display, 50MP main camera, IP67 rating",
+    "price": 349.99,
+    "size": "161.7 x 78.0 x 8.2 mm",
+    "screenSize": 6.6,
+    "processor": "Exynos 1380",
+    "ram": "4GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "8MP",
+      "telephoto": null,
+      "front": "13MP"
+    },
+    "id": 47,
+    "image": "samsung_galaxy_a35_106.jpg"
+  },
+  {
+    "name": "OnePlus 12",
+    "brand": "OnePlus",
+    "description": "6.82\" LTPO AMOLED display, Hasselblad cameras, 100W charging",
+    "price": 799.99,
+    "size": "164.3 x 75.8 x 9.15 mm",
+    "screenSize": 6.82,
+    "processor": "Snapdragon 8 Gen 3",
+    "ram": "12GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "64MP",
+      "front": "32MP"
+    },
+    "id": 48,
+    "image": "oneplus_12_108.jpg"
+  },
+  {
+    "brand": "Oppo",
+    "processor": "Snapdragon 8 Gen 2",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "13MP",
+      "front": "32MP"
+    },
+    "name": "Oppo Find X7",
+    "price": 799.99,
+    "screenSize": 6.78,
+    "ram": "12GB",
+    "storage": "256GB",
+    "id": 49,
+    "description": "6.78\" AMOLED display, 50MP main camera",
+    "size": "150.4 x 71.3 x 8.2 mm",
+    "image": "oppo_find_x7_110.jpg"
+  },
+  {
+    "name": "Xiaomi 14",
+    "brand": "Xiaomi",
+    "description": "6.36\" LTPO AMOLED display, Leica cameras, 90W fast charging",
+    "price": 999.99,
+    "size": "152.8 x 71.5 x 8.2 mm",
+    "screenSize": 6.36,
+    "processor": "Snapdragon 8 Gen 3",
+    "ram": "8GB",
+    "storage": "512GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "50MP",
+      "telephoto": "50MP",
+      "front": "32MP"
+    },
+    "id": 50,
+    "image": "xiaomi_14_113.jpg"
+  },
+  {
+    "brand": "Vivo",
+    "processor": "MediaTek Dimensity 9200",
+    "camera": {
+      "main": "50MP",
+      "ultra": "8MP",
+      "telephoto": "12MP",
+      "front": "50MP"
+    },
+    "name": "Vivo X100 Pro",
+    "price": 899.99,
+    "screenSize": 6.78,
+    "ram": "16GB",
+    "storage": "512GB",
+    "id": 51,
+    "description": "6.78\" AMOLED display, portrait photography specialist",
+    "size": "164.1 x 71.8 x 9.9 mm",
+    "image": "vivo_x100_pro_116.jpg"
+  },
+  {
+    "name": "Apple iPhone 15 Pro",
+    "brand": "Apple",
+    "description": "6.1\" Super Retina XDR display, 48MP Pro camera, Action Button",
+    "price": 999.99,
+    "size": "146.6 x 70.6 x 8.25 mm",
+    "screenSize": 6.1,
+    "processor": "Apple A17 Pro",
+    "ram": "8GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "48MP",
+      "ultra": "12MP",
+      "telephoto": "12MP",
+      "front": "12MP"
+    },
+    "id": 52,
+    "image": "apple_iphone_15_pro_117.jpg"
+  },
+  {
+    "name": "Samsung Galaxy A35",
+    "brand": "Samsung",
+    "description": "6.6\" Super AMOLED display, 50MP main camera, IP67 rating",
+    "price": 449.99,
+    "size": "161.7 x 78.0 x 8.2 mm",
+    "screenSize": 6.6,
+    "processor": "Exynos 1380",
+    "ram": "8GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "8MP",
+      "telephoto": null,
+      "front": "13MP"
+    },
+    "id": 53,
+    "image": "samsung_galaxy_a35_119.jpg"
+  },
+  {
+    "name": "Google Pixel 8 Pro",
+    "brand": "Google",
+    "description": "6.7\" LTPO OLED display, Magic Eraser, Night Sight camera",
+    "price": 899.99,
+    "size": "162.6 x 76.5 x 8.8 mm",
+    "screenSize": 6.7,
+    "processor": "Google Tensor G3",
+    "ram": "12GB",
+    "storage": "64GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "48MP",
+      "front": "10.5MP"
+    },
+    "id": 54,
+    "image": "google_pixel_8_pro_120.jpg"
+  },
+  {
+    "name": "Samsung Galaxy A35",
+    "brand": "Samsung",
+    "description": "6.6\" Super AMOLED display, 50MP main camera, IP67 rating",
+    "price": 449.99,
+    "size": "161.7 x 78.0 x 8.2 mm",
+    "screenSize": 6.6,
+    "processor": "Exynos 1380",
+    "ram": "6GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "8MP",
+      "telephoto": null,
+      "front": "13MP"
+    },
+    "id": 55,
+    "image": "samsung_galaxy_a35_123.jpg"
+  },
+  {
+    "name": "Apple iPhone 15 Pro",
+    "brand": "Apple",
+    "description": "6.1\" Super Retina XDR display, 48MP Pro camera, Action Button",
+    "price": 999.99,
+    "size": "146.6 x 70.6 x 8.25 mm",
+    "screenSize": 6.1,
+    "processor": "Apple A17 Pro",
+    "ram": "8GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "48MP",
+      "ultra": "12MP",
+      "telephoto": "12MP",
+      "front": "12MP"
+    },
+    "id": 56,
+    "image": "apple_iphone_15_pro_124.jpg"
+  },
+  {
+    "name": "Apple iPhone 15",
+    "brand": "Apple",
+    "description": "6.1\" Super Retina XDR display, 48MP main camera, Dynamic Island",
+    "price": 899.99,
+    "size": "147.6 x 71.6 x 7.80 mm",
+    "screenSize": 6.1,
+    "processor": "Apple A16 Bionic",
+    "ram": "6GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "48MP",
+      "ultra": "12MP",
+      "telephoto": null,
+      "front": "12MP"
+    },
+    "id": 57,
+    "image": "apple_iphone_15_125.jpg"
+  },
+  {
+    "name": "Google Pixel 8",
+    "brand": "Google",
+    "description": "6.2\" OLED display, AI-powered camera features, 7 years updates",
+    "price": 799.99,
+    "size": "150.5 x 70.8 x 8.9 mm",
+    "screenSize": 6.2,
+    "processor": "Google Tensor G3",
+    "ram": "6GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "12MP",
+      "telephoto": null,
+      "front": "10.5MP"
+    },
+    "id": 58,
+    "image": "google_pixel_8_129.jpg"
+  },
+  {
+    "name": "Google Pixel 8",
+    "brand": "Google",
+    "description": "6.2\" OLED display, AI-powered camera features, 7 years updates",
+    "price": 699.99,
+    "size": "150.5 x 70.8 x 8.9 mm",
+    "screenSize": 6.2,
+    "processor": "Google Tensor G3",
+    "ram": "12GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "12MP",
+      "telephoto": null,
+      "front": "10.5MP"
+    },
+    "id": 59,
+    "image": "google_pixel_8_131.jpg"
+  },
+  {
+    "name": "Google Pixel 8",
+    "brand": "Google",
+    "description": "6.2\" OLED display, AI-powered camera features, 7 years updates",
+    "price": 699.99,
+    "size": "150.5 x 70.8 x 8.9 mm",
+    "screenSize": 6.2,
+    "processor": "Google Tensor G3",
+    "ram": "8GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "12MP",
+      "telephoto": null,
+      "front": "10.5MP"
+    },
+    "id": 60,
+    "image": "google_pixel_8_133.jpg"
+  },
+  {
+    "name": "Samsung Galaxy A35",
+    "brand": "Samsung",
+    "description": "6.6\" Super AMOLED display, 50MP main camera, IP67 rating",
+    "price": 349.99,
+    "size": "161.7 x 78.0 x 8.2 mm",
+    "screenSize": 6.6,
+    "processor": "Exynos 1380",
+    "ram": "6GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "8MP",
+      "telephoto": null,
+      "front": "13MP"
+    },
+    "id": 61,
+    "image": "samsung_galaxy_a35_134.jpg"
+  },
+  {
+    "name": "Xiaomi Redmi Note 13 Pro",
+    "brand": "Xiaomi",
+    "description": "6.67\" AMOLED display, 200MP camera, 67W charging",
+    "price": 329.99,
+    "size": "161.15 x 74.24 x 7.98 mm",
+    "screenSize": 6.67,
+    "processor": "Snapdragon 7s Gen 2",
+    "ram": "8GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "200MP",
+      "ultra": "8MP",
+      "telephoto": null,
+      "front": "16MP"
+    },
+    "id": 62,
+    "image": "xiaomi_redmi_note_13_pro_135.jpg"
+  },
+  {
+    "name": "OnePlus 11",
+    "brand": "OnePlus",
+    "description": "6.7\" LTPO AMOLED display, Hasselblad triple camera, 100W SuperVOOC",
+    "price": 799.99,
+    "size": "163.1 x 74.1 x 8.53 mm",
+    "screenSize": 6.7,
+    "processor": "Snapdragon 8 Gen 2",
+    "ram": "8GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "32MP",
+      "front": "16MP"
+    },
+    "id": 63,
+    "image": "oneplus_11_136.jpg"
+  },
+  {
+    "name": "Xiaomi 14",
+    "brand": "Xiaomi",
+    "description": "6.36\" LTPO AMOLED display, Leica cameras, 90W fast charging",
+    "price": 799.99,
+    "size": "152.8 x 71.5 x 8.2 mm",
+    "screenSize": 6.36,
+    "processor": "Snapdragon 8 Gen 3",
+    "ram": "12GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "50MP",
+      "telephoto": "50MP",
+      "front": "32MP"
+    },
+    "id": 64,
+    "image": "xiaomi_14_137.jpg"
+  },
+  {
+    "name": "Xiaomi Redmi Note 13 Pro",
+    "brand": "Xiaomi",
+    "description": "6.67\" AMOLED display, 200MP camera, 67W charging",
+    "price": 329.99,
+    "size": "161.15 x 74.24 x 7.98 mm",
+    "screenSize": 6.67,
+    "processor": "Snapdragon 7s Gen 2",
+    "ram": "8GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "200MP",
+      "ultra": "8MP",
+      "telephoto": null,
+      "front": "16MP"
+    },
+    "id": 65,
+    "image": "xiaomi_redmi_note_13_pro_141.jpg"
+  },
+  {
+    "name": "Apple iPhone 15 Pro Max",
+    "brand": "Apple",
+    "description": "6.7\" Super Retina XDR display, 48MP Pro camera system, Titanium design",
+    "price": 1199.99,
+    "size": "159.9 x 76.7 x 8.25 mm",
+    "screenSize": 6.7,
+    "processor": "Apple A17 Pro",
+    "ram": "8GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "48MP",
+      "ultra": "12MP",
+      "telephoto": "12MP",
+      "front": "12MP"
+    },
+    "id": 66,
+    "image": "apple_iphone_15_pro_max_142.jpg"
+  },
+  {
+    "name": "OnePlus 11",
+    "brand": "OnePlus",
+    "description": "6.7\" LTPO AMOLED display, Hasselblad triple camera, 100W SuperVOOC",
+    "price": 699.99,
+    "size": "163.1 x 74.1 x 8.53 mm",
+    "screenSize": 6.7,
+    "processor": "Snapdragon 8 Gen 2",
+    "ram": "8GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "32MP",
+      "front": "16MP"
+    },
+    "id": 67,
+    "image": "oneplus_11_145.jpg"
+  },
+  {
+    "name": "Xiaomi 14",
+    "brand": "Xiaomi",
+    "description": "6.36\" LTPO AMOLED display, Leica cameras, 90W fast charging",
+    "price": 799.99,
+    "size": "152.8 x 71.5 x 8.2 mm",
+    "screenSize": 6.36,
+    "processor": "Snapdragon 8 Gen 3",
+    "ram": "12GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "50MP",
+      "telephoto": "50MP",
+      "front": "32MP"
+    },
+    "id": 68,
+    "image": "xiaomi_14_146.jpg"
+  },
+  {
+    "brand": "Realme",
+    "processor": "Snapdragon 7 Gen 3",
+    "camera": {
+      "main": "108MP",
+      "ultra": "8MP",
+      "telephoto": null,
+      "front": "16MP"
+    },
+    "name": "Realme 12 Pro Plus",
+    "price": 399.99,
+    "screenSize": 6.7,
+    "ram": "8GB",
+    "storage": "256GB",
+    "id": 69,
+    "description": "6.7\" display, 108MP AI camera",
+    "size": "167.2 x 76.0 x 10.0 mm",
+    "image": "realme_12_pro_plus_147.jpg"
+  },
+  {
+    "name": "Samsung Galaxy A55",
+    "brand": "Samsung",
+    "description": "6.6\" Super AMOLED display, 50MP OIS camera, 5000mAh battery",
+    "price": 349.99,
+    "size": "161.1 x 77.4 x 8.2 mm",
+    "screenSize": 6.6,
+    "processor": "Exynos 1480",
+    "ram": "8GB",
+    "storage": "64GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "12MP",
+      "telephoto": null,
+      "front": "32MP"
+    },
+    "id": 70,
+    "image": "samsung_galaxy_a55_148.jpg"
+  },
+  {
+    "name": "Xiaomi Redmi Note 13 Pro",
+    "brand": "Xiaomi",
+    "description": "6.67\" AMOLED display, 200MP camera, 67W charging",
+    "price": 329.99,
+    "size": "161.15 x 74.24 x 7.98 mm",
+    "screenSize": 6.67,
+    "processor": "Snapdragon 7s Gen 2",
+    "ram": "8GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "200MP",
+      "ultra": "8MP",
+      "telephoto": null,
+      "front": "16MP"
+    },
+    "id": 71,
+    "image": "xiaomi_redmi_note_13_pro_149.jpg"
+  },
+  {
+    "name": "Apple iPhone 15",
+    "brand": "Apple",
+    "description": "6.1\" Super Retina XDR display, 48MP main camera, Dynamic Island",
+    "price": 799.99,
+    "size": "147.6 x 71.6 x 7.80 mm",
+    "screenSize": 6.1,
+    "processor": "Apple A16 Bionic",
+    "ram": "6GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "48MP",
+      "ultra": "12MP",
+      "telephoto": null,
+      "front": "12MP"
+    },
+    "id": 72,
+    "image": "apple_iphone_15_150.jpg"
+  },
+  {
+    "name": "Xiaomi Redmi Note 13 Pro",
+    "brand": "Xiaomi",
+    "description": "6.67\" AMOLED display, 200MP camera, 67W charging",
+    "price": 229.99,
+    "size": "161.15 x 74.24 x 7.98 mm",
+    "screenSize": 6.67,
+    "processor": "Snapdragon 7s Gen 2",
+    "ram": "8GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "200MP",
+      "ultra": "8MP",
+      "telephoto": null,
+      "front": "16MP"
+    },
+    "id": 73,
+    "image": "xiaomi_redmi_note_13_pro_151.jpg"
+  },
+  {
+    "name": "Samsung Galaxy A35",
+    "brand": "Samsung",
+    "description": "6.6\" Super AMOLED display, 50MP main camera, IP67 rating",
+    "price": 249.99,
+    "size": "161.7 x 78.0 x 8.2 mm",
+    "screenSize": 6.6,
+    "processor": "Exynos 1380",
+    "ram": "6GB",
+    "storage": "64GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "8MP",
+      "telephoto": null,
+      "front": "13MP"
+    },
+    "id": 74,
+    "image": "samsung_galaxy_a35_152.jpg"
+  },
+  {
+    "name": "Xiaomi Redmi Note 13 Pro Plus",
+    "brand": "Xiaomi",
+    "description": "6.67\" AMOLED display, 200MP camera, 67W charging",
+    "price": 329.99,
+    "size": "161.15 x 74.24 x 7.98 mm",
+    "screenSize": 6.67,
+    "processor": "Snapdragon 7s Gen 2",
+    "ram": "8GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "200MP",
+      "ultra": "8MP",
+      "telephoto": null,
+      "front": "16MP"
+    },
+    "id": 75,
+    "image": "xiaomi_redmi_note_13_pro_plus_153.jpg"
+  },
+  {
+    "name": "Google Pixel 8",
+    "brand": "Google",
+    "description": "6.2\" OLED display, AI-powered camera features, 7 years updates",
+    "price": 699.99,
+    "size": "150.5 x 70.8 x 8.9 mm",
+    "screenSize": 6.2,
+    "processor": "Google Tensor G3",
+    "ram": "8GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "12MP",
+      "telephoto": null,
+      "front": "10.5MP"
+    },
+    "id": 76,
+    "image": "google_pixel_8_156.jpg"
+  },
+  {
+    "name": "OnePlus 11",
+    "brand": "OnePlus",
+    "description": "6.7\" LTPO AMOLED display, Hasselblad triple camera, 100W SuperVOOC",
+    "price": 699.99,
+    "size": "163.1 x 74.1 x 8.53 mm",
+    "screenSize": 6.7,
+    "processor": "Snapdragon 8 Gen 2",
+    "ram": "6GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "32MP",
+      "front": "16MP"
+    },
+    "id": 77,
+    "image": "oneplus_11_158.jpg"
+  },
+  {
+    "name": "OnePlus 11",
+    "brand": "OnePlus",
+    "description": "6.7\" LTPO AMOLED display, Hasselblad triple camera, 100W SuperVOOC",
+    "price": 699.99,
+    "size": "163.1 x 74.1 x 8.53 mm",
+    "screenSize": 6.7,
+    "processor": "Snapdragon 8 Gen 2",
+    "ram": "8GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "32MP",
+      "front": "16MP"
+    },
+    "id": 78,
+    "image": "oneplus_11_159.jpg"
+  },
+  {
+    "name": "OnePlus 12",
+    "brand": "OnePlus",
+    "description": "6.82\" LTPO AMOLED display, Hasselblad cameras, 100W charging",
+    "price": 699.99,
+    "size": "164.3 x 75.8 x 9.15 mm",
+    "screenSize": 6.82,
+    "processor": "Snapdragon 8 Gen 3",
+    "ram": "12GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "64MP",
+      "front": "32MP"
+    },
+    "id": 79,
+    "image": "oneplus_12_162.jpg"
+  },
+  {
+    "name": "Google Pixel 8 Pro",
+    "brand": "Google",
+    "description": "6.7\" LTPO OLED display, Magic Eraser, Night Sight camera",
+    "price": 899.99,
+    "size": "162.6 x 76.5 x 8.8 mm",
+    "screenSize": 6.7,
+    "processor": "Google Tensor G3",
+    "ram": "12GB",
+    "storage": "64GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "48MP",
+      "front": "10.5MP"
+    },
+    "id": 80,
+    "image": "google_pixel_8_pro_163.jpg"
+  },
+  {
+    "name": "Google Pixel 8 Pro",
+    "brand": "Google",
+    "description": "6.7\" LTPO OLED display, Magic Eraser, Night Sight camera",
+    "price": 899.99,
+    "size": "162.6 x 76.5 x 8.8 mm",
+    "screenSize": 6.7,
+    "processor": "Google Tensor G3",
+    "ram": "12GB",
+    "storage": "64GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "48MP",
+      "front": "10.5MP"
+    },
+    "id": 81,
+    "image": "google_pixel_8_pro_164.jpg"
+  },
+  {
+    "name": "Apple iPhone 15 Pro Max",
+    "brand": "Apple",
+    "description": "6.7\" Super Retina XDR display, 48MP Pro camera system, Titanium design",
+    "price": 1199.99,
+    "size": "159.9 x 76.7 x 8.25 mm",
+    "screenSize": 6.7,
+    "processor": "Apple A17 Pro",
+    "ram": "8GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "48MP",
+      "ultra": "12MP",
+      "telephoto": "12MP",
+      "front": "12MP"
+    },
+    "id": 82,
+    "image": "apple_iphone_15_pro_max_165.jpg"
+  },
+  {
+    "name": "Xiaomi Redmi Note 13 Pro",
+    "brand": "Xiaomi",
+    "description": "6.67\" AMOLED display, 200MP camera, 67W charging",
+    "price": 329.99,
+    "size": "161.15 x 74.24 x 7.98 mm",
+    "screenSize": 6.67,
+    "processor": "Snapdragon 7s Gen 2",
+    "ram": "8GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "200MP",
+      "ultra": "8MP",
+      "telephoto": null,
+      "front": "16MP"
+    },
+    "id": 83,
+    "image": "xiaomi_redmi_note_13_pro_166.jpg"
+  },
+  {
+    "name": "Google Pixel 8 Pro",
+    "brand": "Google",
+    "description": "6.7\" LTPO OLED display, Magic Eraser, Night Sight camera",
+    "price": 999.99,
+    "size": "162.6 x 76.5 x 8.8 mm",
+    "screenSize": 6.7,
+    "processor": "Google Tensor G3",
+    "ram": "12GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "48MP",
+      "front": "10.5MP"
+    },
+    "id": 84,
+    "image": "google_pixel_8_pro_167.jpg"
+  },
+  {
+    "name": "Google Pixel 8 Pro",
+    "brand": "Google",
+    "description": "6.7\" LTPO OLED display, Magic Eraser, Night Sight camera",
+    "price": 999.99,
+    "size": "162.6 x 76.5 x 8.8 mm",
+    "screenSize": 6.7,
+    "processor": "Google Tensor G3",
+    "ram": "16GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "48MP",
+      "front": "10.5MP"
+    },
+    "id": 85,
+    "image": "google_pixel_8_pro_168.jpg"
+  },
+  {
+    "name": "OnePlus 11",
+    "brand": "OnePlus",
+    "description": "6.7\" LTPO AMOLED display, Hasselblad triple camera, 100W SuperVOOC",
+    "price": 699.99,
+    "size": "163.1 x 74.1 x 8.53 mm",
+    "screenSize": 6.7,
+    "processor": "Snapdragon 8 Gen 2",
+    "ram": "8GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "32MP",
+      "front": "16MP"
+    },
+    "id": 86,
+    "image": "oneplus_11_169.jpg"
+  },
+  {
+    "name": "Apple iPhone 15 Pro Max",
+    "brand": "Apple",
+    "description": "6.7\" Super Retina XDR display, 48MP Pro camera system, Titanium design",
+    "price": 1199.99,
+    "size": "159.9 x 76.7 x 8.25 mm",
+    "screenSize": 6.7,
+    "processor": "Apple A17 Pro",
+    "ram": "12GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "48MP",
+      "ultra": "12MP",
+      "telephoto": "12MP",
+      "front": "12MP"
+    },
+    "id": 87,
+    "image": "apple_iphone_15_pro_max_174.jpg"
+  },
+  {
+    "name": "Apple iPhone 15 Pro Max",
+    "brand": "Apple",
+    "description": "6.7\" Super Retina XDR display, 48MP Pro camera system, Titanium design",
+    "price": 1199.99,
+    "size": "159.9 x 76.7 x 8.25 mm",
+    "screenSize": 6.7,
+    "processor": "Apple A17 Pro",
+    "ram": "8GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "48MP",
+      "ultra": "12MP",
+      "telephoto": "12MP",
+      "front": "12MP"
+    },
+    "id": 88,
+    "image": "apple_iphone_15_pro_max_175.jpg"
+  },
+  {
+    "name": "OnePlus 11",
+    "brand": "OnePlus",
+    "description": "6.7\" LTPO AMOLED display, Hasselblad triple camera, 100W SuperVOOC",
+    "price": 599.99,
+    "size": "163.1 x 74.1 x 8.53 mm",
+    "screenSize": 6.7,
+    "processor": "Snapdragon 8 Gen 2",
+    "ram": "8GB",
+    "storage": "64GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "32MP",
+      "front": "16MP"
+    },
+    "id": 89,
+    "image": "oneplus_11_178.jpg"
+  },
+  {
+    "name": "Google Pixel 8 Pro",
+    "brand": "Google",
+    "description": "6.7\" LTPO OLED display, Magic Eraser, Night Sight camera",
+    "price": 999.99,
+    "size": "162.6 x 76.5 x 8.8 mm",
+    "screenSize": 6.7,
+    "processor": "Google Tensor G3",
+    "ram": "16GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "48MP",
+      "front": "10.5MP"
+    },
+    "id": 90,
+    "image": "google_pixel_8_pro_120.jpg"
+  },
+  {
+    "name": "Apple iPhone 15 Pro",
+    "brand": "Apple",
+    "description": "6.1\" Super Retina XDR display, 48MP Pro camera, Action Button",
+    "price": 999.99,
+    "size": "146.6 x 70.6 x 8.25 mm",
+    "screenSize": 6.1,
+    "processor": "Apple A17 Pro",
+    "ram": "8GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "48MP",
+      "ultra": "12MP",
+      "telephoto": "12MP",
+      "front": "12MP"
+    },
+    "id": 91,
+    "image": "apple_iphone_15_pro_180.jpg"
+  },
+  {
+    "name": "Apple iPhone 15",
+    "brand": "Apple",
+    "description": "6.1\" Super Retina XDR display, 48MP main camera, Dynamic Island",
+    "price": 799.99,
+    "size": "147.6 x 71.6 x 7.80 mm",
+    "screenSize": 6.1,
+    "processor": "Apple A16 Bionic",
+    "ram": "6GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "48MP",
+      "ultra": "12MP",
+      "telephoto": null,
+      "front": "12MP"
+    },
+    "id": 92,
+    "image": "apple_iphone_15_181.jpg"
+  },
+  {
+    "name": "Google Pixel 8 Pro",
+    "brand": "Google",
+    "description": "6.2\" OLED display, AI-powered camera features, 7 years updates",
+    "price": 699.99,
+    "size": "150.5 x 70.8 x 8.9 mm",
+    "screenSize": 6.2,
+    "processor": "Google Tensor G3",
+    "ram": "8GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "12MP",
+      "telephoto": null,
+      "front": "10.5MP"
+    },
+    "id": 93,
+    "image": "google_pixel_8_pro_182.jpg"
+  },
+  {
+    "name": "OnePlus 12",
+    "brand": "OnePlus",
+    "description": "6.82\" LTPO AMOLED display, Hasselblad cameras, 100W charging",
+    "price": 799.99,
+    "size": "164.3 x 75.8 x 9.15 mm",
+    "screenSize": 6.82,
+    "processor": "Snapdragon 8 Gen 3",
+    "ram": "12GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "64MP",
+      "front": "32MP"
+    },
+    "id": 94,
+    "image": "oneplus_12_183.jpg"
+  },
+  {
+    "name": "Xiaomi 14",
+    "brand": "Xiaomi",
+    "description": "6.36\" LTPO AMOLED display, Leica cameras, 90W fast charging",
+    "price": 799.99,
+    "size": "152.8 x 71.5 x 8.2 mm",
+    "screenSize": 6.36,
+    "processor": "Snapdragon 8 Gen 3",
+    "ram": "12GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "50MP",
+      "telephoto": "50MP",
+      "front": "32MP"
+    },
+    "id": 95,
+    "image": "xiaomi_14_184.jpg"
+  },
+  {
+    "name": "Xiaomi Redmi Note 13 Pro",
+    "brand": "Xiaomi",
+    "description": "6.67\" AMOLED display, 200MP camera, 67W charging",
+    "price": 529.99,
+    "size": "161.15 x 74.24 x 7.98 mm",
+    "screenSize": 6.67,
+    "processor": "Snapdragon 7s Gen 2",
+    "ram": "12GB",
+    "storage": "512GB",
+    "camera": {
+      "main": "200MP",
+      "ultra": "8MP",
+      "telephoto": null,
+      "front": "16MP"
+    },
+    "id": 96,
+    "image": "xiaomi_redmi_note_13_pro_187.jpg"
+  },
+  {
+    "name": "Samsung Galaxy A35",
+    "brand": "Samsung",
+    "description": "6.6\" Super AMOLED display, 50MP main camera, IP67 rating",
+    "price": 349.99,
+    "size": "161.7 x 78.0 x 8.2 mm",
+    "screenSize": 6.6,
+    "processor": "Exynos 1380",
+    "ram": "4GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "8MP",
+      "telephoto": null,
+      "front": "13MP"
+    },
+    "id": 97,
+    "image": "samsung_galaxy_a35_191.jpg"
+  },
+  {
+    "name": "Xiaomi 14",
+    "brand": "Xiaomi",
+    "description": "6.36\" LTPO AMOLED display, Leica cameras, 90W fast charging",
+    "price": 699.99,
+    "size": "152.8 x 71.5 x 8.2 mm",
+    "screenSize": 6.36,
+    "processor": "Snapdragon 8 Gen 3",
+    "ram": "12GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "50MP",
+      "telephoto": "50MP",
+      "front": "32MP"
+    },
+    "id": 98,
+    "image": "xiaomi_14_192.jpg"
+  },
+  {
+    "name": "Xiaomi 14",
+    "brand": "Xiaomi",
+    "description": "6.36\" LTPO AMOLED display, Leica cameras, 90W fast charging",
+    "price": 799.99,
+    "size": "152.8 x 71.5 x 8.2 mm",
+    "screenSize": 6.36,
+    "processor": "Snapdragon 8 Gen 3",
+    "ram": "12GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "50MP",
+      "telephoto": "50MP",
+      "front": "32MP"
+    },
+    "id": 99,
+    "image": "xiaomi_14_193.jpg"
+  },
+  {
+    "name": "Xiaomi Redmi Note 13 Pro",
+    "brand": "Xiaomi",
+    "description": "6.67\" AMOLED display, 200MP camera, 67W charging",
+    "price": 329.99,
+    "size": "161.15 x 74.24 x 7.98 mm",
+    "screenSize": 6.67,
+    "processor": "Snapdragon 7s Gen 2",
+    "ram": "8GB",
+    "storage": "256GB",
+    "camera": {
+      "main": "200MP",
+      "ultra": "8MP",
+      "telephoto": null,
+      "front": "16MP"
+    },
+    "id": 100,
+    "image": "xiaomi_redmi_note_13_pro_195.jpg"
+  },
+  {
+    "name": "OnePlus 11",
+    "brand": "OnePlus",
+    "description": "6.7\" LTPO AMOLED display, Hasselblad triple camera, 100W SuperVOOC",
+    "price": 699.99,
+    "size": "163.1 x 74.1 x 8.53 mm",
+    "screenSize": 6.7,
+    "processor": "Snapdragon 8 Gen 2",
+    "ram": "8GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "50MP",
+      "ultra": "48MP",
+      "telephoto": "32MP",
+      "front": "16MP"
+    },
+    "id": 101,
+    "image": "oneplus_11_197.jpg"
+  },
+  {
+    "name": "Apple iPhone 15 Pro",
+    "brand": "Apple",
+    "description": "6.1\" Super Retina XDR display, 48MP Pro camera, Action Button",
+    "price": 999.99,
+    "size": "146.6 x 70.6 x 8.25 mm",
+    "screenSize": 6.1,
+    "processor": "Apple A17 Pro",
+    "ram": "8GB",
+    "storage": "128GB",
+    "camera": {
+      "main": "48MP",
+      "ultra": "12MP",
+      "telephoto": "12MP",
+      "front": "12MP"
+    },
+    "id": 102,
+    "image": "apple_iphone_15_pro_199.jpg"
+  }
+]

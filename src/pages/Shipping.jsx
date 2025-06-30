@@ -1,11 +1,9 @@
 import React from 'react';
-import './Shipping.css';
 
-const Shipping = () => {
-  return (
-    <div className="shipping-container">
-      <h1>Envíos</h1>
-      <p>
+const Shipping = () => {  return (
+    <div className="max-w-4xl mx-auto px-4 py-10">
+      <h1 className="text-3xl font-bold text-gray-800 mb-4">Envíos</h1>
+      <p className="text-gray-600 mb-6">
         Ofrecemos múltiples opciones de envío para que puedas recibir tus productos de forma rápida y segura.
       </p>
 
@@ -31,7 +29,7 @@ const Shipping = () => {
       <p>Realizamos envíos a nivel nacional e internacional. Todos los pedidos se procesan dentro de 1-2 días hábiles. Sin embargo, debido a factores externos como el clima o problemas logísticos, el tiempo de entrega puede variar.</p>
 
       <h2>¿Tienes preguntas?</h2>
-      <p>Si tienes alguna duda sobre los envíos, no dudes en contactarnos enviándonos un correo electrónico a soporte@blayneshop.com. Estamos aquí para ayudarte.</p>
+      <p>Si tienes alguna duda sobre los envíos, no dudes en contactarnos enviándonos un correo electrónico a soporte@techmobile.com. Estamos aquí para ayudarte.</p>
     </div>
   );
 };
