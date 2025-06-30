@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import mobilesData from '../../phones.json';
 
-const FilterBar = ({ 
+const FilterBar = React.memo(({ 
   priceOrder, 
   sizeOrder, 
   screenOrder, 
@@ -305,25 +305,136 @@ const FilterBar = ({
     <div className="relative">
       {/* Mobile Filter Toggle */}
       <div className="md:hidden mb-4">
-        <button 
+        <motion.button 
           onClick={toggleMobileFilters}
-          className="w-full flex items-center justify-between px-4 py-3 bg-white rounded-lg shadow-md"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className="w-full flex items-center justify-between px-4 py-3 bg-white rounded-lg shadow-md border-2 border-transparent hover:border-primary/20 transition-all duration-200"
         >
           <div className="flex items-center gap-2">
             <i className="fas fa-filter text-primary"></i>
             <span className="font-medium">Filtros</span>
             {totalActiveFilters > 0 && (
-              <span className="ml-2 bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+              <motion.span 
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                className="ml-2 bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center"
+              >
                 {totalActiveFilters}
-              </span>
+              </motion.span>
             )}
           </div>
-          <i className={`fas fa-chevron-${mobileFiltersOpen ? 'up' : 'down'}`}></i>
-        </button>
+          <motion.i 
+            animate={{ rotate: mobileFiltersOpen ? 180 : 0 }}
+            transition={{ duration: 0.2 }}
+            className="fas fa-chevron-down"
+          ></motion.i>
+        </motion.button>
       </div>
+
+      {/* Mobile Filter Modal/Drawer */}
+      <AnimatePresence>
+        {mobileFiltersOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="md:hidden fixed inset-0 mobile-filter-backdrop z-40"
+              onClick={toggleMobileFilters}
+            />
+            
+            {/* Modal Content */}
+            <motion.div
+              initial={{ opacity: 0, y: "100%" }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: "100%" }}
+              transition={{ 
+                type: "spring", 
+                damping: 25, 
+                stiffness: 300,
+                duration: 0.4 
+              }}
+              className="md:hidden fixed inset-x-0 bottom-0 top-20 bg-white rounded-t-xl shadow-2xl z-50 flex flex-col mobile-filter-modal"
+            >
+              {/* Modal Header */}
+              <div className="mobile-filter-header flex items-center justify-between p-4 border-b border-gray-200 rounded-t-xl">
+                <div className="flex items-center gap-2">
+                  <i className="fas fa-filter text-primary"></i>
+                  <h3 className="text-lg font-semibold">Filtros</h3>
+                  {totalActiveFilters > 0 && (
+                    <motion.span 
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      className="bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center filter-badge"
+                    >
+                      {totalActiveFilters}
+                    </motion.span>
+                  )}
+                </div>
+                <motion.button 
+                  onClick={toggleMobileFilters}
+                  whileTap={{ scale: 0.9 }}
+                  className="p-2 hover:bg-gray-100 rounded-full transition-colors filter-button"
+                >
+                  <i className="fas fa-times text-gray-500"></i>
+                </motion.button>
+              </div>
+
+              {/* Scrollable Filter Content */}
+              <div className="flex-1 overflow-y-auto mobile-filter-content p-4 space-y-4 filter-scrollbar">
+                {/* Clear filters button when filters are active */}
+                {totalActiveFilters > 0 && (
+                  <div className="flex justify-between items-center mb-3">
+                    <span className="text-sm text-gray-600">
+                      {totalActiveFilters} {totalActiveFilters === 1 ? 'filtro activo' : 'filtros activos'}
+                    </span>
+                    <button 
+                      onClick={handleClearFilters}
+                      className="text-xs text-primary hover:text-primary-dark flex items-center gap-1"
+                    >
+                      <i className="fas fa-times"></i>
+                      Limpiar todos
+                    </button>
+                  </div>
+                )}
+
+                {/* Mobile Filter Content - Same as Desktop */}
+                {renderFilterContent(true)}
+              </div>
+
+              {/* Modal Footer with Actions */}
+              <div className="p-4 border-t border-gray-200 bg-white">
+                <div className="flex gap-3">
+                  <motion.button 
+                    onClick={handleClearFilters}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="flex-1 px-4 py-3 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors filter-button"
+                  >
+                    <i className="fas fa-times mr-2"></i>
+                    Limpiar
+                  </motion.button>
+                  <motion.button 
+                    onClick={toggleMobileFilters}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="flex-1 px-4 py-3 mobile-apply-button text-white rounded-lg font-medium transition-all filter-button"
+                  >
+                    <i className="fas fa-check mr-2"></i>
+                    Aplicar Filtros
+                  </motion.button>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
       
-      {/* Filter Content */}
-      <div className={`space-y-4 ${mobileFiltersOpen ? 'block' : 'hidden md:block'}`}>
+      {/* Desktop Filter Content */}
+      <div className="hidden md:block space-y-4 max-h-screen overflow-y-auto filter-scrollbar">
         {/* Clear filters button when filters are active */}
         {totalActiveFilters > 0 && (
           <div className="flex justify-between items-center mb-3">
@@ -340,10 +451,19 @@ const FilterBar = ({
           </div>
         )}
         
+        {renderFilterContent(false)}
+      </div>
+    </div>
+  );
+
+  // Helper function to render filter content (shared between mobile and desktop)
+  function renderFilterContent(isMobile = false) {
+    return (
+      <>
         {/* Brand Filters */}
         <div>
           <h4 className="font-medium text-sm text-gray-600 mb-3">Marcas</h4>
-          <div className={`grid ${compact ? 'grid-cols-1' : 'grid-cols-2 md:grid-cols-1'} gap-2`}>
+          <div className={`grid ${compact ? 'grid-cols-1' : isMobile ? 'grid-cols-1' : 'grid-cols-2 md:grid-cols-1'} gap-2`}>
             {filterCategories.filter(category => category.id !== 'all').map((category) => (
               <motion.button
                 key={category.id}
@@ -361,14 +481,14 @@ const FilterBar = ({
                     }
                   }
                 }}
-                className={`px-3 py-2 rounded-md text-sm font-medium flex items-center gap-2
+                className={`px-3 py-2 rounded-md text-sm font-medium flex items-center gap-2 filter-button transition-all ${isMobile ? 'min-h-[44px] px-4 py-3' : ''}
                   ${activeFilters.includes(`brand:${category.id}`) 
-                  ? 'bg-primary text-white' 
+                  ? 'bg-primary text-white shadow-md' 
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
               >
                 <i className={`${category.icon}`}></i>
                 {category.name}
-                <span className="ml-auto text-xs text-gray-500">
+                <span className={`${isMobile ? 'text-xs' : 'ml-auto text-xs'} text-gray-500 ${isMobile ? 'bg-white bg-opacity-20 px-2 py-1 rounded-full' : ''}`}>
                   {getProductCountsByFilter('brand', category.id)}
                 </span>
               </motion.button>
@@ -386,14 +506,14 @@ const FilterBar = ({
                   onFilterChange(nonBrandFilters);
                 }
               }}
-              className={`px-3 py-2 rounded-md text-sm font-medium flex items-center gap-2
+              className={`px-3 py-2 rounded-md text-sm font-medium flex items-center gap-2 filter-button transition-all ${isMobile ? 'min-h-[44px] px-4 py-3' : ''}
                 ${!activeFilters.some(filter => filter.startsWith('brand:')) 
-                ? 'bg-primary text-white' 
+                ? 'bg-primary text-white shadow-md' 
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
             >
               <i className="fas fa-tags"></i>
               Todas las Marcas
-              <span className="ml-auto text-xs text-gray-500">
+              <span className={`${isMobile ? 'text-xs' : 'ml-auto text-xs'} text-gray-500 ${isMobile ? 'bg-white bg-opacity-20 px-2 py-1 rounded-full' : ''}`}>
                 {getProductCountsByFilter('brand', 'all')}
               </span>
             </motion.button>
@@ -408,7 +528,7 @@ const FilterBar = ({
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               onClick={sortByPrice}
-              className={`px-3 py-1.5 rounded-md text-sm font-medium flex items-center gap-1 
+              className={`px-3 py-1.5 rounded-md text-sm font-medium flex items-center gap-1 filter-button transition-all ${isMobile ? 'min-h-[40px] px-4 py-2' : ''}
                 ${priceOrder ? 'bg-primary bg-opacity-10 text-primary' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
             >
               Precio
@@ -421,7 +541,7 @@ const FilterBar = ({
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               onClick={sortBySize}
-              className={`px-3 py-1.5 rounded-md text-sm font-medium flex items-center gap-1
+              className={`px-3 py-1.5 rounded-md text-sm font-medium flex items-center gap-1 filter-button transition-all ${isMobile ? 'min-h-[40px] px-4 py-2' : ''}
                 ${sizeOrder ? 'bg-primary bg-opacity-10 text-primary' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
             >
               Tamaño
@@ -434,7 +554,7 @@ const FilterBar = ({
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               onClick={sortByScreenSize}
-              className={`px-3 py-1.5 rounded-md text-sm font-medium flex items-center gap-1
+              className={`px-3 py-1.5 rounded-md text-sm font-medium flex items-center gap-1 filter-button transition-all ${isMobile ? 'min-h-[40px] px-4 py-2' : ''}
                 ${screenOrder ? 'bg-primary bg-opacity-10 text-primary' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
             >
               Pantalla
@@ -471,18 +591,18 @@ const FilterBar = ({
                   {priceRanges.map((range) => (
                     <label 
                       key={range.id}
-                      className={`flex items-center cursor-pointer rounded-md p-1.5 transition-colors ${isFilterActive('price', range.id) 
+                      className={`filter-option flex items-center cursor-pointer rounded-md p-3 transition-colors ${isFilterActive('price', range.id) 
                         ? 'bg-primary bg-opacity-10 text-primary' 
-                        : 'hover:bg-gray-50 text-gray-700'}`}
+                        : 'hover:bg-gray-50 text-gray-700'} ${isMobile ? 'min-h-[44px]' : ''}`}
                     >
                       <input
                         type="checkbox"
-                        className="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary"
+                        className={`filter-checkbox w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary ${isMobile ? 'w-5 h-5' : ''}`}
                         checked={isFilterActive('price', range.id)}
                         onChange={(e) => handleFilterChange('price', range.id, e.target.checked)}
                       />
-                      <span className={`ml-3 text-sm ${isFilterActive('price', range.id) ? 'text-primary' : 'text-gray-700'}`}>{range.name}</span>
-                      <span className="ml-auto text-xs text-gray-500">
+                      <span className={`ml-3 text-sm flex-1 ${isFilterActive('price', range.id) ? 'text-primary font-medium' : 'text-gray-700'}`}>{range.name}</span>
+                      <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
                         {getProductCountsByFilter('price', range.id)}
                       </span>
                     </label>
@@ -519,18 +639,18 @@ const FilterBar = ({
                   {screenSizes.map((size) => (
                     <label 
                       key={size.id}
-                      className={`flex items-center cursor-pointer rounded-md p-1.5 transition-colors ${isFilterActive('screenSize', size.id) 
+                      className={`filter-option flex items-center cursor-pointer rounded-md p-3 transition-colors ${isFilterActive('screenSize', size.id) 
                         ? 'bg-primary bg-opacity-10 text-primary' 
-                        : 'hover:bg-gray-50 text-gray-700'}`}
+                        : 'hover:bg-gray-50 text-gray-700'} ${isMobile ? 'min-h-[44px]' : ''}`}
                     >
                       <input
                         type="checkbox"
-                        className="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary"
+                        className={`filter-checkbox w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary ${isMobile ? 'w-5 h-5' : ''}`}
                         checked={isFilterActive('screenSize', size.id)}
                         onChange={(e) => handleFilterChange('screenSize', size.id, e.target.checked)}
                       />
-                      <span className={`ml-3 text-sm ${isFilterActive('screenSize', size.id) ? 'text-primary' : 'text-gray-700'}`}>{size.name}</span>
-                      <span className="ml-auto text-xs text-gray-500">
+                      <span className={`ml-3 text-sm flex-1 ${isFilterActive('screenSize', size.id) ? 'text-primary font-medium' : 'text-gray-700'}`}>{size.name}</span>
+                      <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
                         {getProductCountsByFilter('screenSize', size.id)}
                       </span>
                     </label>
@@ -567,18 +687,18 @@ const FilterBar = ({
                   {ramOptions.map((option) => (
                     <label 
                       key={option.id}
-                      className={`flex items-center cursor-pointer rounded-md p-1.5 transition-colors ${isFilterActive('ram', option.id) 
+                      className={`filter-option flex items-center cursor-pointer rounded-md p-3 transition-colors ${isFilterActive('ram', option.id) 
                         ? 'bg-primary bg-opacity-10 text-primary' 
-                        : 'hover:bg-gray-50 text-gray-700'}`}
+                        : 'hover:bg-gray-50 text-gray-700'} ${isMobile ? 'min-h-[44px]' : ''}`}
                     >
                       <input
                         type="checkbox"
-                        className="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary"
+                        className={`filter-checkbox w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary ${isMobile ? 'w-5 h-5' : ''}`}
                         checked={isFilterActive('ram', option.id)}
                         onChange={(e) => handleFilterChange('ram', option.id, e.target.checked)}
                       />
-                      <span className={`ml-3 text-sm ${isFilterActive('ram', option.id) ? 'text-primary' : 'text-gray-700'}`}>{option.name}</span>
-                      <span className="ml-auto text-xs text-gray-500">
+                      <span className={`ml-3 text-sm flex-1 ${isFilterActive('ram', option.id) ? 'text-primary font-medium' : 'text-gray-700'}`}>{option.name}</span>
+                      <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
                         {getProductCountsByFilter('ram', option.id)}
                       </span>
                     </label>
@@ -615,18 +735,18 @@ const FilterBar = ({
                   {storageOptions.map((option) => (
                     <label 
                       key={option.id}
-                      className={`flex items-center cursor-pointer rounded-md p-1.5 transition-colors ${isFilterActive('storage', option.id) 
+                      className={`filter-option flex items-center cursor-pointer rounded-md p-3 transition-colors ${isFilterActive('storage', option.id) 
                         ? 'bg-primary bg-opacity-10 text-primary' 
-                        : 'hover:bg-gray-50 text-gray-700'}`}
+                        : 'hover:bg-gray-50 text-gray-700'} ${isMobile ? 'min-h-[44px]' : ''}`}
                     >
                       <input
                         type="checkbox"
-                        className="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary"
+                        className={`filter-checkbox w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary ${isMobile ? 'w-5 h-5' : ''}`}
                         checked={isFilterActive('storage', option.id)}
                         onChange={(e) => handleFilterChange('storage', option.id, e.target.checked)}
                       />
-                      <span className={`ml-3 text-sm ${isFilterActive('storage', option.id) ? 'text-primary' : 'text-gray-700'}`}>{option.name}</span>
-                      <span className="ml-auto text-xs text-gray-500">
+                      <span className={`ml-3 text-sm flex-1 ${isFilterActive('storage', option.id) ? 'text-primary font-medium' : 'text-gray-700'}`}>{option.name}</span>
+                      <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
                         {getProductCountsByFilter('storage', option.id)}
                       </span>
                     </label>
@@ -663,20 +783,20 @@ const FilterBar = ({
                   {features.map((feature) => (
                     <label 
                       key={feature.id}
-                      className={`flex items-center cursor-pointer rounded-md p-1.5 transition-colors ${isFilterActive('features', feature.id) 
+                      className={`filter-option flex items-center cursor-pointer rounded-md p-3 transition-colors ${isFilterActive('features', feature.id) 
                         ? 'bg-primary bg-opacity-10 text-primary' 
-                        : 'hover:bg-gray-50 text-gray-700'}`}
+                        : 'hover:bg-gray-50 text-gray-700'} ${isMobile ? 'min-h-[44px]' : ''}`}
                     >
                       <input
                         type="checkbox"
-                        className="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary"
+                        className={`filter-checkbox w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary ${isMobile ? 'w-5 h-5' : ''}`}
                         checked={isFilterActive('features', feature.id)}
                         onChange={(e) => handleFilterChange('features', feature.id, e.target.checked)}
                       />
-                      <span className={`ml-3 text-sm flex items-center gap-2 ${isFilterActive('features', feature.id) ? 'text-primary' : 'text-gray-700'}`}>
+                      <span className={`ml-3 text-sm flex items-center gap-2 flex-1 ${isFilterActive('features', feature.id) ? 'text-primary font-medium' : 'text-gray-700'}`}>
                         <i className={`${feature.icon} text-gray-500`}></i> {feature.name}
                       </span>
-                      <span className="ml-auto text-xs text-gray-500">
+                      <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
                         {getProductCountsByFilter('features', feature.id)}
                       </span>
                     </label>
@@ -713,18 +833,18 @@ const FilterBar = ({
                   {cameraOptions.map((option) => (
                     <label 
                       key={option.id}
-                      className={`flex items-center cursor-pointer rounded-md p-1.5 transition-colors ${isFilterActive('camera', option.id) 
+                      className={`filter-option flex items-center cursor-pointer rounded-md p-3 transition-colors ${isFilterActive('camera', option.id) 
                         ? 'bg-primary bg-opacity-10 text-primary' 
-                        : 'hover:bg-gray-50 text-gray-700'}`}
+                        : 'hover:bg-gray-50 text-gray-700'} ${isMobile ? 'min-h-[44px]' : ''}`}
                     >
                       <input
                         type="checkbox"
-                        className="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary"
+                        className={`filter-checkbox w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary ${isMobile ? 'w-5 h-5' : ''}`}
                         checked={isFilterActive('camera', option.id)}
                         onChange={(e) => handleFilterChange('camera', option.id, e.target.checked)}
                       />
-                      <span className={`ml-3 text-sm ${isFilterActive('camera', option.id) ? 'text-primary' : 'text-gray-700'}`}>{option.name}</span>
-                      <span className="ml-auto text-xs text-gray-500">
+                      <span className={`ml-3 text-sm flex-1 ${isFilterActive('camera', option.id) ? 'text-primary font-medium' : 'text-gray-700'}`}>{option.name}</span>
+                      <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
                         {getProductCountsByFilter('camera', option.id)}
                       </span>
                     </label>
@@ -734,9 +854,9 @@ const FilterBar = ({
             )}
           </AnimatePresence>
         </div>
-      </div>
-    </div>
-  );
-};
+      </>
+    );
+  }
+});
 
 export default FilterBar;

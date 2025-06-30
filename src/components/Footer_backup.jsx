@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import logo from '../assets/logo.png';
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -14,7 +16,7 @@ const Footer = () => {
             {/* Company Info */}
             <div className="text-center lg:text-left">
               <div className="flex justify-center lg:justify-start mb-4">
-                <div className="h-16 w-16 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-xl">TM</div>
+                <img src={logo} alt="Tech Mobile" className="h-16" />
               </div>
               <h3 className="text-xl font-bold mb-4 text-white">Tech Mobile</h3>
               <p className="text-gray-400 text-sm leading-relaxed mb-4">

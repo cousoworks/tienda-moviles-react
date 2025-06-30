@@ -1,12 +1,15 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, Suspense, lazy } from 'react';
 import Header from './components/Header';
-import Home from './pages/Home';
-import AboutUs from './pages/AboutUs';
-import Shipping from './pages/Shipping';
-import Cart from './pages/Cart';
 import Footer from './components/Footer';
 import phonesData from './phones.json';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+
+// Lazy load components for code splitting
+const Home = lazy(() => import('./pages/Home'));
+const AboutUs = lazy(() => import('./pages/AboutUs'));
+const Shipping = lazy(() => import('./pages/Shipping'));
+const Cart = lazy(() => import('./pages/Cart'));
+const InfoPage = lazy(() => import('./pages/InfoPage'));
 
 // Componente con transición suave
 function SmoothRoutes({ sortedProducts, selectedBrand, setSelectedBrand, handleAddToCart, cart, setCart }) {
@@ -14,12 +17,22 @@ function SmoothRoutes({ sortedProducts, selectedBrand, setSelectedBrand, handleA
   
   return (
     <div className="transition-opacity duration-300 ease-in-out">
-      <Routes location={location}>
-        <Route path="/" element={<Home selectedBrand={selectedBrand} setSelectedBrand={setSelectedBrand} products={sortedProducts} handleAddToCart={handleAddToCart} />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/shipping" element={<Shipping />} />
-        <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
-      </Routes>
+      <Suspense fallback={
+        <div className="min-h-screen flex items-center justify-center">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+            <p className="text-gray-600">Cargando...</p>
+          </div>
+        </div>
+      }>
+        <Routes location={location}>
+          <Route path="/" element={<Home selectedBrand={selectedBrand} setSelectedBrand={setSelectedBrand} products={sortedProducts} handleAddToCart={handleAddToCart} />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/shipping" element={<Shipping />} />
+          <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
+          <Route path="/info" element={<InfoPage />} />
+        </Routes>
+      </Suspense>
     </div>
   );
 }

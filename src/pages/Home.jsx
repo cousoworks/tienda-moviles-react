@@ -1,8 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, Suspense, lazy, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ProductCard from '../components/ProductCard';
-import ProductModal from '../components/ProductModal';
-import { Carousel, FilterBar, Pagination } from '../components/bits';
+import Carousel from '../components/bits/Carousel';
+import FilterBar from '../components/bits/FilterBar';
+import Pagination from '../components/bits/Pagination';
+import { debounce } from '../utils/performance';
+
+// Lazy load the ProductModal since it's only used when needed
+const ProductModal = lazy(() => import('../components/ProductModal'));
 
 const Home = ({ products, handleAddToCart, selectedBrand, setSelectedBrand }) => {
   // Ref para la sección de productos
@@ -33,8 +38,26 @@ const Home = ({ products, handleAddToCart, selectedBrand, setSelectedBrand }) =>
     { img: 'offer4.png', description: '¡Envío gratis en todos los pedidos!', link: '#' },
   ];
 
-  // Handle filter changes
-  const handleFilterChange = (filters) => {
+  // Function to scroll to products section
+  const scrollToProducts = useCallback(() => {
+    if (productsRef.current) {
+      // Get header height for better positioning
+      const headerHeight = 80; // Approximate header height
+      const offsetTop = productsRef.current.offsetTop - headerHeight;
+      const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      // Only scroll if user is not already near the products section
+      if (Math.abs(currentScrollTop - offsetTop) > 100) {
+        window.scrollTo({ 
+          top: Math.max(0, offsetTop), // Ensure we don't scroll above the page
+          behavior: 'smooth' 
+        });
+      }
+    }
+  }, []);
+
+  // Handle filter changes with debouncing for better performance
+  const handleFilterChangeCore = useCallback((filters) => {
     // Check if there is a brand filter
     const brandFilter = filters.find(filter => filter.startsWith('brand:'));
     
@@ -61,7 +84,13 @@ const Home = ({ products, handleAddToCart, selectedBrand, setSelectedBrand }) =>
     setTimeout(() => {
       scrollToProducts();
     }, 100);
-  };
+  }, [setSelectedBrand, scrollToProducts]);
+
+  // Create debounced version
+  const handleFilterChange = useMemo(
+    () => debounce(handleFilterChangeCore, 300),
+    [handleFilterChangeCore]
+  );
 
   // Clear all filters
   const clearAllFilters = () => {
@@ -250,7 +279,7 @@ const Home = ({ products, handleAddToCart, selectedBrand, setSelectedBrand }) =>
         scrollToProducts();
       }, 100);
     }
-  }, [selectedBrand]);
+  }, [selectedBrand, scrollToProducts]);
   
   // Removed the carousel interval effect since the Carousel component handles this internally now
 
@@ -356,24 +385,6 @@ const Home = ({ products, handleAddToCart, selectedBrand, setSelectedBrand }) =>
     }, 100);
   };
 
-  // Function to scroll to products section
-  const scrollToProducts = () => {
-    if (productsRef.current) {
-      // Get header height for better positioning
-      const headerHeight = 80; // Approximate header height
-      const offsetTop = productsRef.current.offsetTop - headerHeight;
-      const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      
-      // Only scroll if user is not already near the products section
-      if (Math.abs(currentScrollTop - offsetTop) > 100) {
-        window.scrollTo({ 
-          top: Math.max(0, offsetTop), // Ensure we don't scroll above the page
-          behavior: 'smooth' 
-        });
-      }
-    }
-  };
-
   // Render carousel item
   const renderCarouselItem = (offer, index) => {
     // Special styling for the first offer (index 0)
@@ -399,6 +410,7 @@ const Home = ({ products, handleAddToCart, selectedBrand, setSelectedBrand }) =>
               src={require(`../assets/${offer.img}`)} 
               alt={`Oferta ${index + 1}`}
               className="w-full h-full object-cover"
+              loading="lazy"
             />
           </div>
           
@@ -461,7 +473,7 @@ const Home = ({ products, handleAddToCart, selectedBrand, setSelectedBrand }) =>
       <div className="flex flex-col md:flex-row gap-6">
         {/* Filters sidebar */}
         <div className="w-full md:w-1/4 lg:w-1/5 order-2 md:order-1">
-          <div className="sticky top-20 bg-white rounded-lg shadow-md p-4">
+          <div className="sticky top-20 bg-white rounded-lg shadow-md p-4 max-h-[calc(100vh-6rem)] overflow-hidden">
             <h2 className="font-bold text-lg mb-4 border-b pb-2">Filtros</h2>
             <FilterBar
               priceOrder={priceOrder}
@@ -576,16 +588,24 @@ const Home = ({ products, handleAddToCart, selectedBrand, setSelectedBrand }) =>
       {/* Product Modal */}
       <AnimatePresence>
         {selectedProduct && (
-          <ProductModal
-            product={selectedProduct}
-            onClose={closeProductModal}
-            selectedColor={selectedColor}
-            setSelectedColor={setSelectedColor}
-            onAddToCart={addToCart}
-            addedToCart={addedToCart}
-            addedMessageVisible={addedMessageVisible}
-            animationClass={animationClass}
-          />
+          <Suspense fallback={
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+              <div className="bg-white rounded-lg p-8">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
+              </div>
+            </div>
+          }>
+            <ProductModal
+              product={selectedProduct}
+              onClose={closeProductModal}
+              selectedColor={selectedColor}
+              setSelectedColor={setSelectedColor}
+              onAddToCart={addToCart}
+              addedToCart={addedToCart}
+              addedMessageVisible={addedMessageVisible}
+              animationClass={animationClass}
+            />
+          </Suspense>
         )}
       </AnimatePresence>
     </div>

@@ -48,6 +48,8 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.4.1",
-    "tailwindcss-cli": "^0.1.2"
-  }
+    "tailwindcss-cli": "^0.1.2",
+    "webpack-bundle-analyzer": "^4.10.2"
+  },
+  "sideEffects": false
 }

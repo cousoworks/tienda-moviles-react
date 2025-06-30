@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const Pagination = ({ 
+const Pagination = React.memo(({ 
   currentPage, 
   totalPages, 
   totalItems, 
@@ -120,6 +120,6 @@ const Pagination = ({
       </div>
     </motion.div>
   );
-};
+});
 
 export default Pagination;

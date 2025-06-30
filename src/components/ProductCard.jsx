@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-const ProductCard = ({ product, onClick, index }) => {
+const ProductCard = React.memo(({ product, onClick, index }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
@@ -121,6 +121,6 @@ const ProductCard = ({ product, onClick, index }) => {
       </div>
     </motion.div>
   );
-};
+});
 
 export default ProductCard;
