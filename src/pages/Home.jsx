@@ -517,11 +517,13 @@ const Home = ({ products, handleAddToCart, selectedBrand, setSelectedBrand }) =>
       </section>
       
       {/* Main content layout with sidebar */}
-      <div className="flex flex-col md:flex-row gap-6">
+      <div className="flex flex-col md:flex-row gap-8">
         {/* Filters sidebar */}
-        <div className="w-full md:w-1/4 lg:w-1/5 order-2 md:order-1">
-          <div className="sticky top-20 bg-white rounded-lg shadow-md p-4 max-h-[calc(100vh-6rem)] overflow-hidden">
-            <h2 className="font-bold text-lg mb-4 border-b pb-2">Filtros</h2>
+        <div className="w-full md:w-1/3 lg:w-1/4 order-2 md:order-1">
+          <div className="sticky top-20 bg-white rounded-xl shadow-lg p-5 border border-gray-100">
+            <h2 className="font-bold text-lg mb-4 border-b border-gray-100 pb-3 text-gray-800 flex items-center">
+              <i className="fas fa-filter text-blue-500 mr-2"></i>
+              Filtros</h2>
             <FilterBar
               priceOrder={priceOrder}
               sizeOrder={sizeOrder}
@@ -573,23 +575,38 @@ const Home = ({ products, handleAddToCart, selectedBrand, setSelectedBrand }) =>
                   {totalProducts} productos{totalPages > 1 && ` (Página ${currentPage} de ${totalPages})`}
                 </span>
                 
-                {/* Mobile Search and Filter */}
-                <div className="md:hidden flex items-center gap-2">
+                {/* Mobile Search and Filter - Improved */}
+                <div className="md:hidden flex items-center gap-3">
                   {/* Mobile Search Toggle */}
-                  <button 
-                    className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-600"
+                  <motion.button 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center gap-2 px-4 py-2 bg-white rounded-xl shadow-md border border-gray-200 hover:border-primary/30 transition-all duration-200"
                     onClick={() => setMobileFilterOpen(prev => prev === 'search' ? false : 'search')}
                   >
-                    <i className="fas fa-search"></i>
-                  </button>
+                    <i className="fas fa-search text-primary"></i>
+                    <span className="text-sm font-medium text-gray-700">Buscar</span>
+                  </motion.button>
                   
                   {/* Mobile Filter Toggle */}
-                  <button 
-                    className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-600"
+                  <motion.button 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center gap-2 px-4 py-2 bg-white rounded-xl shadow-md border border-gray-200 hover:border-primary/30 transition-all duration-200"
                     onClick={() => setMobileFilterOpen(prev => prev === 'filters' ? false : 'filters')}
                   >
-                    <i className="fas fa-filter"></i>
-                  </button>
+                    <i className="fas fa-sliders-h text-primary"></i>
+                    <span className="text-sm font-medium text-gray-700">Filtros</span>
+                    {(activeFilters.length > 0 || selectedBrand) && (
+                      <motion.span 
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        className="bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-medium"
+                      >
+                        {activeFilters.length + (selectedBrand ? 1 : 0)}
+                      </motion.span>
+                    )}
+                  </motion.button>
                 </div>
               </div>
             </motion.div>
@@ -666,7 +683,7 @@ const Home = ({ products, handleAddToCart, selectedBrand, setSelectedBrand }) =>
             </motion.div>
           </section>
           
-          {/* Mobile Search Modal */}
+          {/* Mobile Search Modal - Improved */}
           <AnimatePresence>
             {mobileFilterOpen === 'search' && (
               <>
@@ -676,7 +693,7 @@ const Home = ({ products, handleAddToCart, selectedBrand, setSelectedBrand }) =>
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="md:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+                  className="md:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
                   onClick={() => setMobileFilterOpen(false)}
                 />
                 
@@ -691,46 +708,51 @@ const Home = ({ products, handleAddToCart, selectedBrand, setSelectedBrand }) =>
                     stiffness: 300,
                     duration: 0.4 
                   }}
-                  className="md:hidden fixed inset-x-0 top-0 bottom-auto bg-white shadow-2xl z-50 p-4"
-                  style={{ paddingTop: 'calc(env(safe-area-inset-top, 0px) + 1rem)' }}
+                  className="md:hidden fixed inset-x-0 top-0 bottom-auto bg-gradient-to-br from-white to-gray-50 shadow-2xl z-50 p-5 rounded-b-2xl"
+                  style={{ paddingTop: 'calc(env(safe-area-inset-top, 0px) + 1.5rem)' }}
                 >
                   {/* Search Header */}
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-lg font-semibold flex items-center gap-2">
-                      <i className="fas fa-search text-primary"></i>
-                      Buscar móviles
-                    </h3>
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                        <i className="fas fa-search text-primary"></i>
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900">Buscar móviles</h3>
+                    </div>
                     <motion.button 
                       onClick={() => setMobileFilterOpen(false)}
                       whileTap={{ scale: 0.9 }}
-                      className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                      className="w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors"
                     >
                       <i className="fas fa-times text-gray-500"></i>
                     </motion.button>
                   </div>
                   
                   {/* Mobile Search Bar */}
-                  <SearchBar
-                    searchQuery={searchQuery}
-                    onSearchChange={handleSearchChange}
-                    placeholder="Buscar por nombre, marca, procesador..."
-                    className="w-full"
-                    isMobile={true}
-                  />
+                  <div className="mb-6">
+                    <SearchBar
+                      searchQuery={searchQuery}
+                      onSearchChange={handleSearchChange}
+                      placeholder="Buscar por nombre, marca, procesador..."
+                      className="w-full"
+                      isMobile={true}
+                    />
+                  </div>
                   
                   {/* Quick Search Suggestions */}
-                  <div className="mt-4">
-                    <p className="text-sm text-gray-600 mb-2">Búsquedas populares:</p>
-                    <div className="flex flex-wrap gap-2">
+                  <div>
+                    <p className="text-sm text-gray-600 mb-4 font-medium">Búsquedas populares:</p>
+                    <div className="flex flex-wrap gap-3">
                       {['iPhone', 'Samsung', 'Xiaomi', 'OnePlus', 'Galaxy', 'Snapdragon'].map((suggestion) => (
                         <motion.button
                           key={suggestion}
+                          whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
                           onClick={() => {
                             handleSearchChange(suggestion);
                             setMobileFilterOpen(false);
                           }}
-                          className="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 transition-colors"
+                          className="px-4 py-2 bg-white border border-gray-200 text-gray-700 rounded-xl text-sm hover:bg-gray-50 hover:border-primary/30 transition-all duration-200 font-medium shadow-sm"
                         >
                           {suggestion}
                         </motion.button>
